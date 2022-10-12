@@ -10,7 +10,6 @@
             $idu = $ligne["idu"];
             $nom = $ligne["nom"];
             $prenom = $ligne["prenom"];
-            $nv = $ligne["nv"];
 
             if (mysqli_num_rows($resultat) > 0) {
                 if ($ligne["valide"] == 0) {
@@ -23,10 +22,10 @@
                     $_SESSION["idu"] = $idu;
                     $_SESSION["nom"] = $nom;
                     $_SESSION["prenom"] = $prenom;
-                    $_SESSION["nv"] = $nv;
+                    $_SESSION["grade"] = $grade;
 
-                    if ($nv == 0) {
-                        header("location:expo.php");
+                    if ($grade == 0) {
+                        header("location:home.php");
                     } else {
                         header("location:admin.php");
                     }
