@@ -1,6 +1,6 @@
-<?php 
+<?php
 include "fonction.php";
- 
+
 $pdo = connexion();
 $idp = 2;
 $tag = 'cum';
