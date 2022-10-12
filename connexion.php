@@ -10,6 +10,7 @@
             $idu = $ligne["idu"];
             $nom = $ligne["nom"];
             $prenom = $ligne["prenom"];
+            $grade = $ligne["grade"];
 
             if (mysqli_num_rows($resultat) > 0) {
                 if ($ligne["valide"] == 0) {
