@@ -18,7 +18,7 @@ session_start();
 <body>
     <!-- position-absolute top-50 start-50 translate-middle -->
     <div class="fondinsc">
-        <div class="row g-3  rounded shadow text-center " style="background-color:ffffff;">
+        <div class="row g-3  rounded shadow text-center " style="background-color:0051ff;">
             <div class="h1">
                 <H1>Inscription</H1>
             </div>
@@ -87,11 +87,11 @@ session_start();
 
             <div class="col-md-4">
                 <label for="validationDefault05" class="form-label">Mot de passe</label><span class="etoile">*</span>
-                <input type="password" name="mdp" class="form-control" id="" required>
+                <input type="password" name="mdp" minlength="10" class="form-control" id="" required>
             </div>
             <div class="col-md-4">
                 <label for="validationDefault06" class="form-label">Confirmer votre mot de passe</label><span class="etoile">*</span>
-                <input type="password" name="mdpverif" class="form-control" id="" required>
+                <input type="password" name="mdpverif" minlength="10" class="form-control" id="" required>
             </div>
 
             <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -135,16 +135,21 @@ session_start();
         $genre = $_POST["genre"];
         $mdp = $_POST["mdp"];
         $mdp2 = $_POST["mdpverif"];
+        $salt = "@|-°+==00001ddQ";
 
-
+        $mdp3 = md5($mdp . $salt . $pseudo . $mail . $anniv);
         print($nom);
 
         if ($mdp == $mdp2) {
+            // if ($mdp < 10) {
+            //     print("veuillez rentrer un mot de passe de plus de 10 caractères");
+            // } else {
+            // }
             $id = mysqli_connect("127.0.0.1", "root", "", "bonu");
             $res = mysqli_query($id, "select mail from user where mail = '$mail'");
             $ligne = mysqli_fetch_assoc($res);
             if ($mail != $ligne["mail"]) {
-                $res = mysqli_query($id, "insert into user value (null,'$prenom','$nom','$mail','$mdp','$pseudo','$genre','$adresse','$cp','$ville','$tel','$anniv',0,0)");
+                $res = mysqli_query($id, "insert into user value (null,'$prenom','$nom','$mail','$mdp3','$pseudo','$genre','$adresse','$cp','$ville','$tel','$anniv',0,0)");
                 echo "Inscription réussie ! <br>Chargement de la page d'inscription...";
     ?>
                 <meta http-equiv="refresh" content="1;url=connexion.php" /> <?php
