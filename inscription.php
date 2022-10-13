@@ -136,10 +136,8 @@ session_start();
         $mdp = $_POST["mdp"];
         $mdp2 = $_POST["mdpverif"];
         $salt = "@|-°+==00001ddQ";
-
-        $mdp3 = md5($mdp . $salt . $pseudo . $mail . $anniv);
-        print($nom);
-
+        $mdp3 = md5($mdp . $salt);
+        // . $pseudo . $mail . $anniv
         if ($mdp == $mdp2) {
             // if ($mdp < 10) {
             //     print("veuillez rentrer un mot de passe de plus de 10 caractères");

@@ -4,13 +4,18 @@
         if (isset($_POST["bouton"])) {
             $mail = $_POST["mail"];
             $mdp = $_POST["mdp"];
-            $req = "select * from user where mail='$mail' and mdp='$mdp' ";
+            $salt = "@|-°+==00001ddQ";
+            $mdp2 = md5($mdp . $salt);
+            $req = "select * from user where mail='$mail' and mdp='$mdp2' ";
+
+            // if ($mdp == $mdp2) {
             $resultat = mysqli_query($id, $req);
             $ligne = mysqli_fetch_assoc($resultat);
             $idu = $ligne["idu"];
             $nom = $ligne["nom"];
             $prenom = $ligne["prenom"];
             $grade = $ligne["grade"];
+
 
             if (mysqli_num_rows($resultat) > 0) {
                 $_SESSION["idu"] = $idu;
@@ -27,6 +32,9 @@
         } else {
             print("Mail ou mot de passe incorrect !");
         }
+        // } else {
+        //     print("erreur de mot de passe");
+        // }
 
         ?>-->
 
