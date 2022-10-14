@@ -8,7 +8,6 @@
             $mdp2 = md5($mdp . $salt);
             $req = "select * from user where mail='$mail' and mdp='$mdp2' ";
 
-            // if ($mdp == $mdp2) {
             $resultat = mysqli_query($id, $req);
             $ligne = mysqli_fetch_assoc($resultat);
             $idu = $ligne["idu"];
