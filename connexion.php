@@ -5,7 +5,7 @@
             $mail = $_POST["mail"];
             $mdp = $_POST["mdp"];
             $salt = "@|-°+==00001ddQ";
-            $mdp2 = md5($mdp . $salt);
+            $mdp2 = md5($mdp . $salt . $mail);
             $req = "select * from user where mail='$mail' and mdp='$mdp2' ";
 
             $resultat = mysqli_query($id, $req);
@@ -105,7 +105,7 @@
                 <section class='text-center text-light'>
 
                     <p>
-                        Le Musée des Vins et Spiritueux est une marque deposée par ECE Bachelor. <br>
+                        Bonumanguli est un site deposée par ECE Bachelor. <br>
                         Tous droits réservés.
                     </p>
 
