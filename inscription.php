@@ -9,7 +9,7 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="bonum.css">
-    <link rel="icon" href="image/Bonumanguli3.png" />
+    <link rel="icon" href="image/Bonumanguli5.png" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <title>Inscription</title>
@@ -18,7 +18,7 @@ session_start();
 <body>
     <!-- position-absolute top-50 start-50 translate-middle -->
     <div class="fondinsc">
-        <div class="row g-3  rounded shadow text-center " style="background-color:ffffff;">
+        <div class="row g-3  rounded shadow text-center " style="background-color:0051ff;">
             <div class="h1">
                 <H1>Inscription</H1>
             </div>
@@ -50,14 +50,14 @@ session_start();
                 <label class="form-check-label" for="flexRadioDefault1">
                     Féminin
                 </label><br>
-                <input class="form-check-input" type="radio" name="genre" id="autre">
+                <input class="form-check-input" type="radio" name="genre" id="autre" checked>
                 <label class="form-check-label" for="flexRadioDefault1">
                     Licorne
                 </label>
             </div>
             <div class="col-md-4">
                 <label for="validationDefault02" class="form-label">Date de naissance</label><span class="etoile">*</span>
-                <input type="date" name="anniverssaire" class="form-control" id="" required>
+                <input type="date" name="anniv" class="form-control" id="" required>
             </div>
             <div class="col-md-4">
                 <label for="validationDefaultUsername" class="form-label">Adresse mail</label><span class="etoile">*</span>
@@ -67,12 +67,8 @@ session_start();
                 </div>
             </div>
             <div class="col-md-6">
-                <label for="validationDefault03" class="form-label">Adresse Postale Numéro</label><span class="etoile">*</span>
-                <input type="text" name="n_rue" class="form-control" id="" required>
-            </div>
-            <div class="col-md-6">
-                <label for="validationDefault03" class="form-label">Adresse Postale Rue</label><span class="etoile">*</span>
-                <input type="text" name="rue" class="form-control" id="" required>
+                <label for="validationDefault03" class="form-label">Adresse Postale</label><span class="etoile">*</span>
+                <input type="text" name="adresse" class="form-control" id="" required>
             </div>
             <div class="col-md-6">
                 <label for="validationDefault03" class="form-label">Adresse Postale Ville</label><span class="etoile">*</span>
@@ -91,32 +87,16 @@ session_start();
 
             <div class="col-md-4">
                 <label for="validationDefault05" class="form-label">Mot de passe</label><span class="etoile">*</span>
-                <input type="password" name="mdp" class="form-control" id="" required>
+                <input type="password" name="mdp" minlength="10" class="form-control" id="" required>
             </div>
             <div class="col-md-4">
                 <label for="validationDefault06" class="form-label">Confirmer votre mot de passe</label><span class="etoile">*</span>
-                <input type="password" name="mdpverif" class="form-control" id="" required>
+                <input type="password" name="mdpverif" minlength="10" class="form-control" id="" required>
             </div>
 
             <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <?php for ($i = 1; $i < 11; $i++) { ?>
-                                <div class="form-check">
-
-                                    <input class="form-check-input" type="radio" name="avatar" value="<?php echo "$i" ?>" id="flexRadioDefault<?php echo "$i" ?>" required>
-                                    <label class="form-check-label" for="flexRadioDefault<?php echo "$i" ?>">
-                                        <img src="avatar/<?php echo "$i" ?>.png" height="50">
-                                    </label>
-
-                                </div>
-                            <?php } ?>
-                        </div>
                         <div class="modal-footer">
                             <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">reset</button>
                             <button type="button" class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">valider</button>
@@ -145,19 +125,29 @@ session_start();
     if (isset($_POST["bouton"])) {
         $nom = $_POST["nom"];
         $prenom = $_POST["prenom"];
+        $pseudo = $_POST["pseudo"];
+        $anniv = $_POST["anniv"];
         $mail = $_POST["mail"];
         $adresse = $_POST["adresse"];
+        $ville = $_POST["ville"];
         $cp = $_POST["cp"];
+        $tel = $_POST["tel"];
+        $genre = $_POST["genre"];
         $mdp = $_POST["mdp"];
         $mdp2 = $_POST["mdpverif"];
-        $i = $_POST["avatar"];
-
+        $salt = "@|-°+==00001ddQ";
+        $mdp3 = md5($mdp . $salt);
+        // . $pseudo . $mail . $anniv
         if ($mdp == $mdp2) {
-            $id = mysqli_connect("127.0.0.1", "root", "", "musee");
+            // if ($mdp < 10) {
+            //     print("veuillez rentrer un mot de passe de plus de 10 caractères");
+            // } else {
+            // }
+            $id = mysqli_connect("127.0.0.1", "root", "", "bonu");
             $res = mysqli_query($id, "select mail from user where mail = '$mail'");
             $ligne = mysqli_fetch_assoc($res);
             if ($mail != $ligne["mail"]) {
-                $res = mysqli_query($id, "insert into user value (null,'$nom','$prenom','$mail','$adresse','$cp','$mdp','$i.png',0,0)");
+                $res = mysqli_query($id, "insert into user value (null,'$prenom','$nom','$mail','$mdp3','$pseudo','$genre','$adresse','$cp','$ville','$tel','$anniv',0,0)");
                 echo "Inscription réussie ! <br>Chargement de la page d'inscription...";
     ?>
                 <meta http-equiv="refresh" content="1;url=connexion.php" /> <?php

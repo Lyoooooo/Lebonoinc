@@ -4,38 +4,38 @@
         if (isset($_POST["bouton"])) {
             $mail = $_POST["mail"];
             $mdp = $_POST["mdp"];
-            $req = "select * from user where mail='$mail' and mdp='$mdp' ";
+            $salt = "@|-°+==00001ddQ";
+            $mdp2 = md5($mdp . $salt);
+            $req = "select * from user where mail='$mail' and mdp='$mdp2' ";
+
             $resultat = mysqli_query($id, $req);
             $ligne = mysqli_fetch_assoc($resultat);
             $idu = $ligne["idu"];
             $nom = $ligne["nom"];
             $prenom = $ligne["prenom"];
-            $nv = $ligne["nv"];
+            $grade = $ligne["grade"];
+
 
             if (mysqli_num_rows($resultat) > 0) {
-                if ($ligne["valide"] == 0) {
-        ?>
-                <div style="background-color:firebrick;text-align:center;color:white;">
-                    Votre compte doit être validé par un administrateur pour pouvoir se connecter
-                </div>
-            <?php
-                } else {
-                    $_SESSION["idu"] = $idu;
-                    $_SESSION["nom"] = $nom;
-                    $_SESSION["prenom"] = $prenom;
-                    $_SESSION["nv"] = $nv;
+                $_SESSION["idu"] = $idu;
+                $_SESSION["nom"] = $nom;
+                $_SESSION["prenom"] = $prenom;
+                $_SESSION["grade"] = $grade;
 
-                    if ($nv == 0) {
-                        header("location:expo.php");
-                    } else {
-                        header("location:admin.php");
-                    }
+                if ($grade == 0) {
+                    header("location:home.php");
+                } else {
+                    header("location:admin.php");
                 }
-            } else {
-                $erreur = "Mail ou mot de passe incorrect !";
             }
+        } else {
+            print("Mail ou mot de passe incorrect !");
         }
-            ?>-->
+        // } else {
+        //     print("erreur de mot de passe");
+        // }
+
+        ?>-->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -46,22 +46,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="image/Bonumanguli5.png" />
     <title>Connexion</title>
-    <link rel="stylesheet" href="cssMusee.css">
+    <link rel="stylesheet" href="bonum.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <div class="fondinsc">
-        <div class="row g-3 position-absolute top-50 start-50 translate-middle rounded shadow text-center" style="background-color: #ffffff">
+        <div class="row g-3 position-absolute top-50 start-50 translate-middle rounded shadow text-center" style="background-color: #0051ff">
             <div class="h1">
                 <h1>Formulaire de connexion</h1>
             </div>
             <hr>
             <div class="container">
                 <form action="" method="post">
-                    <input type="email" name="mail" placeholder="Entrez votre mail:" required>
-                    <input type="password" name="mdp" placeholder="Entrez votre mot de passe:" required> <br><br>
+                    <input type="email" name="mail" style="width:250px" placeholder="Entrez votre mail:" required>
+                    <input type="password" style="width:250px" name="mdp" placeholder="Entrez votre mot de passe: " required> <br><br>
                     <input type="reset" value="ANNULER">&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="submit" value="ENVOYER" name="bouton"> <br> <br>
                 </form>
