@@ -23,26 +23,26 @@
         <div class="container">
           <div class="row">
 
-            <div class="col 3">
+            <div class="col-2 text-center">
               <img src="image/Bonumanguli3.png" width="70">
+              <a class="navbar-brand" href="home.php">&nbsp Bonumanguli</a>
             </div>
 
-            <div class="col 3">
+
+            <div class="col-3">
+
+            </div>
+
+            <div class="col-5">
               <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-              </form>
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
             </div>
 
-            <div class="col 3">
-              <a class="navbar-brand" href="home.php">Bonumanguli</a>
-            </div>
-
-            <div class="col 3 text-center">
-              <div>
+            <div class="col-2 ">
                   <img src="image/0.png" width="50"><br>
                   Mon compte
-              </div>
             </div>
       
 
