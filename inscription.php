@@ -208,8 +208,10 @@ session_start();
                 <!-- Mentions légales :
                 <a href="https://www.flaticon.com/fr/icones-gratuites/avatar" title="avatar icônes">Avatar icônes créées par Prosymbols Premium - Flaticon</a> -->
             </div>
+
             <!-- Copyright -->
         </footer>
+    </div>
 </body>
 
 </html>
