@@ -142,14 +142,61 @@
         </nav>
     </div>
 
-  <div>
-    
-  </div>
 
 
   <div id="divmid">
-    coucou
+    <div id="divannonce">
+    <h3>Annonces récentes</h3>
+
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div id="annonce">
+            <div class="card">
+              <img src="image/0.png" class="card-img-top" alt="...">
+
+              <div class="card-body">
+                <h5 class="card-title">Annonce 1</h5>
+                <p class="card-text">Voci le titre et une bio du produit.</p>
+                <a href="detailprod.php" class="btn btn-primary">Voir l'annonce</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div id="annonce">
+            <div class="card">
+              <img src="image/0.png" class="card-img-top" alt="...">
+
+              <div class="card-body">
+                <h5 class="card-title">Annonce 2</h5>
+                <p class="card-text">Voci le titre et une bio du produit.</p>
+                <a href="detailprod.php" class="btn btn-primary">Voir l'annonce</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div id="annonce">
+            <div class="card">
+              <img src="image/0.png" class="card-img-top" alt="...">
+
+              <div class="card-body">
+                <h5 class="card-title">Annonce 3</h5>
+                <p class="card-text">Voci le titre et une bio du produit.</p>
+                <a href="detailprod.php" class="btn btn-primary">Voir l'annonce</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
   </div>
+
+
+
 </body>
 
 </html>
