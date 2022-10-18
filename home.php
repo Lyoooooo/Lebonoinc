@@ -13,7 +13,7 @@
     <title>Bonumanguli</title>
 </head>
 
-<body>
+<body id="second">
 
   <div class="head sticky-top">
     <nav class="navbar navbar-toggler navbar-light" id="primal">
@@ -147,6 +147,9 @@
   </div>
 
 
+  <div id="divmid">
+    coucou
+  </div>
 </body>
 
 </html>

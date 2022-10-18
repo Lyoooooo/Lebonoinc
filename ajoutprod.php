@@ -43,7 +43,7 @@
     </nav>
   </div>
 
-  <div id="divajoutprod">
+  <div id="divmid">
     coucou
   </div>
 </body>
