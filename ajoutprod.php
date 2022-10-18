@@ -27,12 +27,12 @@
             </div>
 
             <div class="col 3">
-              <a class="navbar-brand" href="home.php" id="textthird">Bonumanguli</a>
+              <a class="navbar-brand" href="home.php" id="textthird"><h2>Bonumanguli</h2></a>
             </div>
 
             <div class="col 3 text-center">
-              <div>
-                  <img src="image/0.png" width="50"><br>
+              <div id="textthird">
+                  <img src="image/0.png" width="50" ><br>
                   Mon compte
               </div>
             </div>

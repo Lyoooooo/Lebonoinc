@@ -15,9 +15,9 @@
 
 <body>
 
-    <div class="head sticky-top">
-        <nav class="navbar navbar-toggler navbar-light bg-info">
-            <div class="container-fluid">
+  <div class="head sticky-top">
+    <nav class="navbar navbar-toggler navbar-light" id="primal">
+      <div class="container-fluid">
 
                 <div class="container">
                     <div class="row">
