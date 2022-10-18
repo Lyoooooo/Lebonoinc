@@ -136,7 +136,7 @@ session_start();
         $mdp = $_POST["mdp"];
         $mdp2 = $_POST["mdpverif"];
         $salt = "@|-°+==00001ddQ";
-        $mdp3 = md5($mdp . $salt);
+        $mdp3 = md5($mdp . $salt . $mail);
         // . $pseudo . $mail . $anniv
         if ($mdp == $mdp2) {
             // if ($mdp < 10) {
@@ -189,7 +189,7 @@ session_start();
                 <section class='text-center text-light'>
 
                     <p>
-                        Le Musée des Vins et Spiritueux est une marque deposée par ECE Bachelor. <br>
+                        Bonumanguli est un site deposée par ECE Bachelor. <br>
                         Tous droits réservés.
                     </p>
 
