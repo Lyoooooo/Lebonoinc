@@ -22,30 +22,32 @@
                 <div class="container">
                     <div class="row">
 
-                        <div class="col 3">
+                        <div class="col-3">
                             <img src="image/Bonumanguli3.png" width="70">
                         </div>
 
-                        <div class="col 3">
+                        <div class="col-6 text-center">
+                            <a class="navbar-brand" href="home.php" id="textthird"><h2>Bonumanguli</h2></a>
                             <form class="d-flex">
                                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                                 <button class="btn btn-outline-success" type="submit">Search</button>
                             </form>
                         </div>
 
-                        <div class="col 3">
-                            <a class="navbar-brand" href="home.php" id="textthird"><h2>Bonumanguli</h2></a>
-                        </div>
-
-                        <div class="col 3 text-center">
+                        <div class="col-3 text-center">
                             <!-- <div>
                                 <img src="image/0.png" width="50"><br>
                                 Mon compte
                             </div> -->
-                            <div class="col">
+                            <div class="container">
+                            <div class="row">
+                            <div class="col-6">
+                                <br><button class="btn btn-transparent" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><img src="image/vide.png" width="30"></button><br>Mes favoris
+                            </div>
+                            <div class="col-6">
                                 <div class="dropdown">
                                     <a class="btn sdropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <button class="btn btn-transparent" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><img src="image/0.png" width="50"></button>
+                                        <button class="btn btn-transparent" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><img src="image/0.png" width="50"></button><br>Mon Compte
 
                                         <div class="offcanvas offcanvas-end" style="background-color: #b22222;" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
                                             <div class="offcanvas-header">
@@ -135,7 +137,8 @@
                                 </div>
                             </div>
                         </div>
-
+                        </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -146,7 +149,24 @@
 
   <div id="divmid">
     <div id="divannonce">
-    <h3>Annonces récentes</h3>
+    
+    <div class="container"  style="padding: 3%;">
+      <div class="row">
+
+        <div class="col-3">
+          <button type="button" class="btn">Déposer une annonce</button>
+        </div>
+
+        <div class="col-6">
+          <h3>Annonces récentes</h3>
+        </div>
+
+        <div class="col-3">
+
+        </div>
+      </div>
+    </div>
+    
 
     <div class="container">
       <div class="row">
