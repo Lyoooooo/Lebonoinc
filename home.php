@@ -20,18 +20,38 @@
     <nav class="navbar navbar-toggler navbar-light bg-info">
       <div class="container-fluid">
 
-      <img src="image/Bonumanguli3.png" width="70">
+        <div class="container">
+          <div class="row">
 
-      <a class="navbar-brand" href="home.php">Bonum Anguli</a>
+            <div class="col 3">
+              <img src="image/Bonumanguli3.png" width="70">
+            </div>
 
-          <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
-          <div>
-              <img src="image/0.png" width="50">Mon compte
-          </div>
+            <div class="col 3">
+              <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+              </form>
+            </div>
+
+            <div class="col 3">
+              <a class="navbar-brand" href="home.php">Bonumanguli</a>
+            </div>
+
+            <div class="col 3 text-center">
+              <div>
+                  <img src="image/0.png" width="50"><br>
+                  Mon compte
+              </div>
+            </div>
+      
+
+
+
+
+
           
+          </div>
         </div>
       </div>
     </nav>

@@ -3,7 +3,7 @@
 function connexion()
 {
     try {
-        $pdo = new PDO('mysql:dbname=bonu;host=127.0.0.1;port=3306', 'root', ''); 
+        $pdo = new PDO('mysql:dbname=bonu;host=127.0.0.1;port=3307', 'root', ''); 
         $pdo->exec("SET CHARACTER SET utf8");
     } catch (PDOException $e) {
         print "Error!: " . $e->getMessage() . "<br/>";
