@@ -34,7 +34,7 @@
                         </div>
 
                         <div class="col 3">
-                            <a class="navbar-brand" href="home.php">Bonumanguli</a>
+                            <a class="navbar-brand" href="home.php" id="textthird"><h2>Bonumanguli</h2></a>
                         </div>
 
                         <div class="col 3 text-center">
@@ -42,7 +42,7 @@
                                 <img src="image/0.png" width="50"><br>
                                 Mon compte
                             </div> -->
-                            <div class="col" id="third">
+                            <div class="col">
                                 <div class="dropdown">
                                     <a class="btn sdropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                                         <button class="btn btn-transparent" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><img src="image/0.png" width="50"></button>
