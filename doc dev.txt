@@ -16,7 +16,8 @@ variable de session :
         $tel = $_POST["tel"];
         $genre = $_POST["genre"];
         $mdp = $_POST["mdp"];
-        $mdp2 = $_POST["mdpverif"];        
+        $mdp2 = $_POST["mdpverif"];
+        $salt = "@|-°+==00001ddQ";
         $mdp3 = md5($mdp . $salt . $mail);
         
-$salt = "@|-°+==00001ddQ";
+connexion() : Permet de se connecter pour Mysql et Mariadb et renvoie la variable de connexion $pdo 

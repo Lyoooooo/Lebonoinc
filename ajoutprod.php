@@ -27,7 +27,7 @@
             </div>
 
             <div class="col 3">
-              <a class="navbar-brand" href="home.php">Bonumanguli</a>
+              <a class="navbar-brand" href="home.php" id="textthird">Bonumanguli</a>
             </div>
 
             <div class="col 3 text-center">
