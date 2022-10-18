@@ -16,6 +16,7 @@ variable de session :
         $tel = $_POST["tel"];
         $genre = $_POST["genre"];
         $mdp = $_POST["mdp"];
-        $mdp2 = $_POST["mdpverif"];
-        $salt = "@|-°+==00001ddQ";
+        $mdp2 = $_POST["mdpverif"];        
         $mdp3 = md5($mdp . $salt . $mail);
+        
+$salt = "@|-°+==00001ddQ";
