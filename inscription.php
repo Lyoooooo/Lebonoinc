@@ -142,7 +142,7 @@ session_start();
                 $sql = "INSERT INTO user VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
                 $pdo->prepare($sql)->execute([null, $prenom, $nom, $mail, $mdp3, $pseudo, $genre, $adresse, $cp, $ville, $tel, $anniv, 0, 0]);
                 echo "Inscription réussie ! <br>Chargement de la page d'inscription...";
-    ?>      <meta http-equiv="refresh" content="3;url=connexion.php"/>
+    ?>      <meta http-equiv="refresh" content="2;url=connexion.php"/>
     <?php
             }
             exit();
