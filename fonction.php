@@ -12,6 +12,13 @@ function connexion()
     return $pdo;
 }
 
+function encode($mdp, $mail)
+{
+    $salt = "@|-°+==00001ddQ";
+    $crypt = md5($mdp . $salt . $mail);
+    return $crypt;
+}
+
 function connecte()
 {
     if(!isset($_SESSION["idu"]))

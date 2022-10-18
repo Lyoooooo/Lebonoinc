@@ -125,8 +125,7 @@ session_start();
     <?php
     if (isset($_POST["bouton"])) {
         extract($_POST);
-        $salt = "@|-°+==00001ddQ";
-        $mdp3 = md5($mdp . $salt . $mail);
+        $mdp2 = encode($mdp, $mail);
         // . $pseudo . $mail . $anniv
         if ($mdp == $mdpverif) {
             // if ($mdp < 10) {
@@ -140,16 +139,16 @@ session_start();
                 echo "Cette adresse mail est déjà utilisée";
             } else {
                 $sql = "INSERT INTO user VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-                $pdo->prepare($sql)->execute([null, $prenom, $nom, $mail, $mdp3, $pseudo, $genre, $adresse, $cp, $ville, $tel, $anniv, 0, 0]);
+                $pdo->prepare($sql)->execute([null, $prenom, $nom, $mail, $mdp2, $pseudo, $genre, $adresse, $cp, $ville, $tel, $anniv, 0, 0]);
                 echo "Inscription réussie ! <br>Chargement de la page d'inscription...";
     ?>      <meta http-equiv="refresh" content="2;url=connexion.php"/>
     <?php
             }
             exit();
         } else echo "Les deux mots de passe sont différents";
-    }
-                                                                
+    }                                                            
     ?>
+
     <div class="corpsacc">
         <div class="bg-image" style="background-image: url('images/back1.png');
             height: 50vh">
