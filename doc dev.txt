@@ -16,3 +16,8 @@ variable de session :
         $mdp2 = $_POST["mdpverif"];
         $salt = "@|-°+==00001ddQ";
         $mdp3 = md5($mdp . $salt . $mail);
+color base : #1D3786
+color fond : #EFF4FB
+color highlight : #ED8607
+
+hash : utilisation du hashage md5 avec le mot de passe plus un salt afin de complexifier le cryptage 
