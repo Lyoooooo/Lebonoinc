@@ -4,3 +4,35 @@ span.etoile{
 body{
     background-color: #0051ff;
 }
+#divajoutprod{
+    background-color: white;
+    width: auto;
+    height: 1000px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#primal{
+    background-color: #1D3786;
+}
+
+#second{
+    background-color: #EFF4FB;
+}
+
+#third{
+    background-color: #ED8607;
+}
+
+#textprimal{
+    color: #1D3786;
+}
+
+#textsecond{
+    color: #EFF4FB;
+}
+
+#textthird{
+    color: #ED8607;
+}
+
