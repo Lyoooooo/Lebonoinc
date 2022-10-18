@@ -38,8 +38,8 @@ body{
 
 #annonce{
     box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.7);
-    border-width: 5px;
-    padding: 3%;
+    margin: 11%;
+    padding:3%;
     margin-top: 3%;
     border-radius: 15px;
 }
