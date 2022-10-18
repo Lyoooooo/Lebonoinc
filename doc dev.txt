@@ -20,5 +20,4 @@ variable de session :
         $salt = "@|-°+==00001ddQ";
         $mdp3 = md5($mdp . $salt . $mail);
         
-connexion() : Permet de se connecter pour Mysql et Mariadb et renvoie un DSN dans la variable $pdo 
-Un DSN est une chaine de caractères contenant les infos pour la connexion qui permet de se connecter à une base de données via PDO
+connexion() : Permet de se connecter pour Mysql et Mariadb et renvoie la variable de connexion $pdo 
