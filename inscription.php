@@ -1,4 +1,6 @@
 <?php
+include "fonction.php";
+$pdo = connexion();
 session_start();
 ?>
 <!DOCTYPE html>
@@ -18,9 +20,9 @@ session_start();
 <body>
     <!-- position-absolute top-50 start-50 translate-middle -->
     <div class="fondinsc">
-        <div class="row g-3  rounded shadow text-center " style="background-color:0051ff;">
+        <div class="rounded shadow text-left " id="primal">
             <div class="h1">
-                <H1>Inscription</H1>
+                <H1 class="text-center">Inscription</H1>
             </div>
             <hr><br>
             <div class=text-end>
@@ -31,15 +33,15 @@ session_start();
             <div class="col-md-4">
                 <label for="validationDefault01" class="form-label">Nom</label> <span class="etoile">*</span>
                 <input type="text" name="nom" class="form-control" id="" required>
-            </div>
+            </div><br>
             <div class="col-md-4">
                 <label for="validationDefault02" class="form-label">Prénom</label><span class="etoile">*</span>
                 <input type="text" name="prenom" class="form-control" id="" required>
-            </div>
+            </div><br>
             <div class="col-md-4">
                 <label for="validationDefault02" class="form-label">Pseudo</label><span class="etoile">*</span>
                 <input type="text" name="pseudo" class="form-control" id="" required>
-            </div>
+            </div><br>
             <div class="col-md-4">
                 <label for="validationDefault02" class="form-label">Genre</label><span class="etoile">*</span><br>
                 <input class="form-check-input" type="radio" name="genre" id="masculin">
@@ -54,45 +56,44 @@ session_start();
                 <label class="form-check-label" for="flexRadioDefault1">
                     Licorne
                 </label>
-            </div>
+            </div><br>
             <div class="col-md-4">
                 <label for="validationDefault02" class="form-label">Date de naissance</label><span class="etoile">*</span>
                 <input type="date" name="anniv" class="form-control" id="" required>
-            </div>
+            </div><br>
             <div class="col-md-4">
                 <label for="validationDefaultUsername" class="form-label">Adresse mail</label><span class="etoile">*</span>
                 <div class="input-group">
                     <span class="input-group-text" id="inputGroupPrepend2">@</span>
                     <input type="text" name="mail" class="form-control" id="" aria-describedby="inputGroupPrepend2" required>
                 </div>
-            </div>
+            </div><br>
             <div class="col-md-6">
                 <label for="validationDefault03" class="form-label">Adresse Postale</label><span class="etoile">*</span>
                 <input type="text" name="adresse" class="form-control" id="" required>
-            </div>
+            </div><br>
             <div class="col-md-6">
                 <label for="validationDefault03" class="form-label">Adresse Postale Ville</label><span class="etoile">*</span>
                 <input type="text" name="ville" class="form-control" id="" required>
-            </div>
+            </div><br>
             <div class="col-md-3">
                 <label for="validationDefault04" class="form-label">Code postal</label><span class="etoile">*</span>
                 <input type="text" name="cp" class="form-control" id="" required>
                 </select>
-            </div>
+            </div><br>
             <div class="col-md-3">
                 <label for="validationDefault04" class="form-label">N° Telephone</label><span class="etoile">*</span>
                 <input type="tel" name="tel" class="form-control" id="" required>
                 </select>
-            </div>
-
+            </div><br>
             <div class="col-md-4">
                 <label for="validationDefault05" class="form-label">Mot de passe</label><span class="etoile">*</span>
                 <input type="password" name="mdp" minlength="10" class="form-control" id="" required>
-            </div>
+            </div><br>
             <div class="col-md-4">
                 <label for="validationDefault06" class="form-label">Confirmer votre mot de passe</label><span class="etoile">*</span>
                 <input type="password" name="mdpverif" minlength="10" class="form-control" id="" required>
-            </div>
+            </div><br>
 
             <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -123,39 +124,32 @@ session_start();
     </div>
     <?php
     if (isset($_POST["bouton"])) {
-        $nom = $_POST["nom"];
-        $prenom = $_POST["prenom"];
-        $pseudo = $_POST["pseudo"];
-        $anniv = $_POST["anniv"];
-        $mail = $_POST["mail"];
-        $adresse = $_POST["adresse"];
-        $ville = $_POST["ville"];
-        $cp = $_POST["cp"];
-        $tel = $_POST["tel"];
-        $genre = $_POST["genre"];
-        $mdp = $_POST["mdp"];
-        $mdp2 = $_POST["mdpverif"];
+        extract($_POST);
         $salt = "@|-°+==00001ddQ";
         $mdp3 = md5($mdp . $salt . $mail);
         // . $pseudo . $mail . $anniv
-        if ($mdp == $mdp2) {
+        if ($mdp == $mdpverif) {
             // if ($mdp < 10) {
             //     print("veuillez rentrer un mot de passe de plus de 10 caractères");
             // } else {
             // }
-            $id = mysqli_connect("127.0.0.1", "root", "", "bonu");
-            $res = mysqli_query($id, "select mail from user where mail = '$mail'");
-            $ligne = mysqli_fetch_assoc($res);
-            if ($mail != $ligne["mail"]) {
-                $res = mysqli_query($id, "insert into user value (null,'$prenom','$nom','$mail','$mdp3','$pseudo','$genre','$adresse','$cp','$ville','$tel','$anniv',0,0)");
+            $stmt = $pdo->prepare("SELECT mail FROM user WHERE mail=?");
+            $stmt->execute([$mail]);
+            $user = $stmt->fetch();
+            if ($user) {
+                echo "Cette adresse mail est déjà utilisée";
+            } else {
+                $sql = "INSERT INTO user VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                $pdo->prepare($sql)->execute([null, $prenom, $nom, $mail, $mdp3, $pseudo, $genre, $adresse, $cp, $ville, $tel, $anniv, 0, 0]);
                 echo "Inscription réussie ! <br>Chargement de la page d'inscription...";
+    ?>      <meta http-equiv="refresh" content="2;url=connexion.php"/>
+    <?php
+            }
+            exit();
+        } else echo "Les deux mots de passe sont différents";
+    }
+                                                                
     ?>
-                <meta http-equiv="refresh" content="1;url=connexion.php" /> <?php
-                                                                            exit();
-                                                                        } else echo "Cette adresse mail est déjà utilisée";
-                                                                    } else echo "Les deux mots de passe sont différents";
-                                                                }
-                                                                            ?>
     <div class="corpsacc">
         <div class="bg-image" style="background-image: url('images/back1.png');
             height: 50vh">
