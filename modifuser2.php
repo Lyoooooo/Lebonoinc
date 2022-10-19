@@ -15,12 +15,11 @@ $cp = $_POST["cp"];
 $tel = $_POST["tel"];
 
 
-
 $id = mysqli_connect("127.0.0.1", "root", "", "bonu");
-$req = "UPDATE `user` SET `nom` = '$nom', `prenom` = '$prenom',`Pseudo` = '$pseudo',`ville` = '$ville',`cp` = '$cp',`tel` = '$tel', `adresse` = '$adresse', `postal` = '$cp', `mdp` = '$mdp' WHERE `user`.`idu` = $idu";
+$req = "UPDATE `user` SET `nom` = '$nom', `prenom` = '$prenom',`pseudo` = '$pseudo',`ville` = '$ville',`cp` = '$cp',`tel` = '$tel', `adresse` = '$adresse' WHERE `user`.`idu` = $idu";
 $resultat = mysqli_query($id, $req);
 
-//echo mysqli_error($resultat);
+// echo mysqli_error($resultat);
 header("location:home.php");
 ?>
 
