@@ -26,5 +26,4 @@ function connecte()
         return(0);
     }else return(1);
 }
-
 ?>
