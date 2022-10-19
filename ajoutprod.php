@@ -1,5 +1,7 @@
 <?php
-    session_start();
+  include "fonction.php";
+  session_start();
+  $pdo = connexion()
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,23 +48,24 @@
 
   <div id="divmid">
     <span style="text-align: center;"><h1>Ajouter un article</h1></span><br><br>
-    <div style="width: 90%;" class="text-center">
+    <div style="width: 90%; padding: 1em; position: relative; left: 5%;" class="text-center">
         <form action="" method="post">
 
             <div class="form-floating mb-3">
                 
-                <input type="text" class="form-control" id="floatingInput" placeholder="Nom de l'article" require>
+                <input type="text" class="form-control" name="nomp" id="floatingInput" placeholder="Nom de l'article" require>
                 <label for="floatingInput" class="form-label">Nom de l'article<span class="etoile">*</span></label>
             </div><br>
             <div class="form-floating mb-3">
-                <textarea class="form-control" maxlength="300" id="floatingTextarea1" placeholder="Description" rows="3" style="height: 200px" require></textarea>
+                <textarea class="form-control" name="descri" maxlength="300" id="floatingTextarea1" placeholder="Description" rows="3" style="height: 200px" require></textarea>
                 <label for="floatingTextarea1" class="form-label">Description<span class="etoile">*</span></label>
             </div>
             <div class="container-fluid">
                 <div class="container">
                     <div class="row">
                         <div class="col">
-                        <select class="form-select" aria-label="Default select example" require>
+                        <label for="select" class="form-label">Etat<span class="etoile">*</span></label>
+                        <select class="form-select" name="etat" aria-label="Default select example" id="select" placeholder="Etat" require>
                         
                             <option value="1">Neuf</option>
                             <option value="2">Très bon état</option>
@@ -72,11 +75,12 @@
                         </select>
                         </div>
                         <div class="col">
-                            <input type="number" class="form-control" id="floatingInput" placeholder="Prix" require>
+                          <label for="prix" class="form-label">Prix<span class="etoile">*</span></label>
+                          <input type="number" name="prix" class="form-control" id="prix" require>
                         </div>
                     </div>
                 </div>
-            </div> 
+            </div> <br><br>
             <div class="mb-3">
                 <label for="formFile" class="form-label">Photo 1<span class="etoile">*</span></label>
                 <input class="form-control" type="file" id="formFile" require>
@@ -88,9 +92,26 @@
             <div class="mb-3">
                 <label for="formFile" class="form-label">Photo 3</label>
                 <input class="form-control" type="file" id="formFile">
-            </div>
-            <button type="submit" class="btn btn-primary">Poster l'annonce</button>
+            </div><br>
+            <button type="submit" class="btn btn-primary" name="bouton">Poster l'annonce</button>
         </form>
     </div>
   </div>
+
+  <?php
+    if (isset($_POST["bouton"])) {
+      $idu=$_SESSION["$idu"];
+      extract($_POST);
+      $stmt = $pdo->prepare("SELECT nomp FROM produit WHERE nomp=?");
+      $stmt->execute([$nomp]);
+      $user = $stmt->fetch();
+      $sql = "INSERT INTO produit VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+      $pdo->prepare($sql)->execute([null, ,$nomp, $descri, $prix, null, null, null, null, null, $etat,null]);
+      echo "Inscription réussie ! <br>Chargement de la page d'inscription...";
+      }
+  ?><br><br><br>
+<?php
+foot()
+?>
 </body>
+</html>
