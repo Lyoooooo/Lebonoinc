@@ -77,14 +77,17 @@
                         </div>
                         <div class="col">
                           <label for="prix" class="form-label">Prix<span class="etoile">*</span></label>
-                          <input type="number" name="prix" class="form-control" id="prix" require>
+                          <div class="input-group">
+                            <input type="number" name="prix" min="0" class="form-control" id="prix" require>
+                            <span class="input-group-text">€</span>
+                          </div>
                         </div>
                     </div>
                 </div>
             </div> <br><br>
             <div class="mb-3">
                 <label for="formFile" class="form-label">Photo 1<span class="etoile">*</span></label>
-                <input class="form-control" type="file" id="formFile" require>
+                <input class="form-control" type="file" id="formFile" aria-label="Dollar amount (with dot and two decimal places)" require>
             </div><br>
             <div class="mb-3">
                 <label for="formFile" class="form-label">Photo 2</label>
