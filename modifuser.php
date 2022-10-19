@@ -118,15 +118,17 @@ $idu = $_SESSION["idu"];
                 <label for="validationDefault05" class="form-label">Numero de telephone</label>
                 <input type="text" name="tel" class="form-control" id="second" value="<?= $tel ?>" required>
             </div><br>
-            <div class="d-grid gap-2 d-md-block">
-                <input class="btn btn-success" type="submit" value="Modifier" name="bouton">
+            <button type="button" class="btn btn-warning"><a href="modifmdp.php" style="text-decoration:none">Modifier mon mot de passe</a></button><br><br>
+
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <input class="btn btn-success text-center" type="submit" value="Modifier" name="bouton"><br><br>
             </div>
         </div>
-        <div class="corpsacc">
+        <!-- <div class="corpsacc">
             <div class="bg-image" style="background-image: url('images/back1.png');
     height: 100vh">
             </div>
-        </div>
+        </div> -->
     </div>
     <footer class='text-center text-white ' style='background-color: rgba(0, 0, 0, 0.904);color:white;'>
         <!-- Grid container -->
@@ -155,8 +157,7 @@ $idu = $_SESSION["idu"];
 
         <!-- Copyright -->
         <div class='text-center text-light p-3' style='background-color: rgba(0, 0, 0, 0.2);'>
-            © 2022 M.V.S <br>Mentions légales :
-            <a href="https://www.flaticon.com/fr/icones-gratuites/avatar" title="avatar icônes">Avatar icônes créées par Prosymbols Premium - Flaticon</a>
+            © 2022 M.V.S <br>
         </div>
         <!-- Copyright -->
     </footer>

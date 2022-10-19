@@ -1,40 +1,26 @@
 <?php
-    session_start();
-    $id = mysqli_connect("127.0.0.1", "root", "", "bonu");
-    if (isset($_POST["bouton"])) {
-        $mail = $_POST["mail"];
-        $mdp = $_POST["mdp"];
-        $salt = "@|-°+==00001ddQ";
-        $mdp2 = md5($mdp . $salt . $mail);
-        $req = "select * from user where mail='$mail' and mdp='$mdp2' ";
+session_start();
+$id = mysqli_connect("127.0.0.1", "root", "", "bonu");
+if (isset($_POST["bouton"])) {
+    $mail = $_POST["mail"];
+    $mdp = $_POST["mdp"];
+    $salt = "@|-°+==00001ddQ";
+    $mdp2 = md5($mdp . $salt . $mail);
+    $req = "select * from user where mail='$mail' and mdp='$mdp2' ";
 
-        $resultat = mysqli_query($id, $req);
-        $ligne = mysqli_fetch_assoc($resultat);
-        $idu = $ligne["idu"];
-        $nom = $ligne["nom"];
-        $prenom = $ligne["prenom"];
-        $grade = $ligne["grade"];
-
-
-        if (mysqli_num_rows($resultat) > 0) {
-            $_SESSION["idu"] = $idu;
-            $_SESSION["nom"] = $nom;
-            $_SESSION["prenom"] = $prenom;
-            $_SESSION["grade"] = $grade;
-
-            if ($grade == 0) {
-                header("location:home.php");
-            } else {
-                header("location:admin.php");
-            }
-        }
-    } else {
-        print("Mail ou mot de passe incorrect !");
-    }
-    // } else {
-    //     print("erreur de mot de passe");
-    // }
-?>-->
+    $resultat = mysqli_query($id, $req);
+    $ligne = mysqli_fetch_assoc($resultat);
+    $idu = $ligne["idu"];
+    $nom = $ligne["nom"];
+    $prenom = $ligne["prenom"];
+    $grade = $ligne["grade"];
+} else {
+    print("Mail ou mot de passe incorrect !");
+}
+// } else {
+//     print("erreur de mot de passe");
+// }
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -50,8 +36,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </head>
 
-<body>
-    <div class="fondinsc">
+<body id="second">
+    <div class="divmid">
         <div class="row g-3 position-absolute top-50 start-50 translate-middle rounded shadow text-center" style="background-color: #0051ff">
             <div class="h1">
                 <h1>Formulaire de connexion</h1>
@@ -79,27 +65,6 @@
             <!-- Grid container -->
             <div class='container pt-4'>
                 <!-- Section: Social media -->
-                <section class='mb-4'>
-                    <!-- Facebook -->
-                    <a class='btn btn-link btn-floating btn-lg text-light m-1' href='#!' role='button' data-mdb-ripple-color='light'><i class='bi bi-facebook'></i></a>
-
-                    <!-- Twitter -->
-                    <a class='btn btn-link btn-floating btn-lg text-light m-1' href='#!' role='button' data-mdb-ripple-color='light'><i class='bi bi-twitter'></i></a>
-
-                    <!-- Google -->
-                    <a class='btn btn-link btn-floating btn-lg text-light m-1' href='#!' role='button' data-mdb-ripple-color='light'><i class='bi bi-google'></i></a>
-
-                    <!-- Instagram -->
-                    <a class='btn btn-link btn-floating btn-lg text-light m-1' href='#!' role='button' data-mdb-ripple-color='light'><i class='bi bi-instagram'></i></a>
-
-                    <!-- Linkedin -->
-                    <a class='btn btn-link btn-floating btn-lg text-light m-1' href='#!' role='button' data-mdb-ripple-color='light'><i class='bi bi-linkedin'></i></a>
-                    <!-- Github -->
-                    <a class='btn btn-link btn-floating btn-lg text-light m-1' href='#!' role='button' data-mdb-ripple-color='light'><i class='bi bi-github'></i></a>
-                </section>
-
-
-
                 <!-- Section: Social media -->
                 <section class='text-center text-light'>
 
@@ -113,17 +78,11 @@
                 </section>
             </div>
             <!-- Grid container -->
-
-
-
-
-            <!-- Copyright -->
             <div class='text-center text-light p-3' style='background-color: rgba(0, 0, 0, 0.2);'>
                 © 2022 M.V.S <br>
                 <!-- Mentions légales : -->
                 <!-- <a href="https://www.flaticon.com/fr/icones-gratuites/avatar" title="avatar icônes">Avatar icônes créées par Prosymbols Premium - Flaticon</a> -->
             </div>
-            <!-- Copyright -->
         </footer>
 </body>
 

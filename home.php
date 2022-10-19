@@ -43,20 +43,20 @@
                                 Mon compte
                             </div> -->
                             <div class="container">
-                            <div class="row">
-                            <div class="col-6" id="textthird">
-                                <br><button class="btn btn-transparent" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><img src="image/vide.png" width="30"></button><br>Mes favoris
-                            </div>
-                            <div class="col-6" >
-                                <div class="dropdown">
-                                    <a class="btn sdropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                      <div id="textthird">
-                                        <button class="btn btn-transparent" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><img src="image/0.png" width="50"></button><br>Mon Compte
-                                      </div>
-                                        <div class="offcanvas offcanvas-end" style="background-color: #b22222;" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-                                            <div class="offcanvas-header">
-                                                <h5 id="offcanvasRightLabel"></h5>
-                                                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                <div class="row">
+                                    <div class="col-6" id="textthird">
+                                        <br><button class="btn btn-transparent" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><img src="image/vide.png" width="30"></button><br>Mes favoris
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="dropdown">
+                                            <a class="btn sdropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <div id="textthird">
+                                                    <a href="modifuser.php" id="textthird" style="text-decoration:none"><img src="image/0.png" width="50"><br> Mon Compte</a>
+                                                </div>
+                                                <div class="offcanvas offcanvas-end" style="background-color: #b22222;" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                                                    <div class="offcanvas-header">
+                                                        <h5 id="offcanvasRightLabel"></h5>
+                                                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 
                                                     </div>
                                                     <div class="offcanvas-body text-center my-5">
@@ -154,74 +154,74 @@
     <div id="divmid">
         <div id="divannonce">
 
-        <div class="col-3">
+            <div class="col-3">
 
-          <a class="btn" href="ajoutprod.php" role="button" id="third">
-            <img src="image/plus.png" width="20">
-            Déposer une annonce</a>
-        </div>
+                <a class="btn" href="ajoutprod.php" role="button" id="third">
+                    <img src="image/plus.png" width="20">
+                    Déposer une annonce</a>
+            </div>
 
-                    <div class="col-3">
-                        <button type="button" class="btn">Déposer une annonce</button>
+            <div class="col-3">
+                <button type="button" class="btn">Déposer une annonce</button>
+            </div>
+
+            <div class="col-6">
+                <h3>Annonces récentes</h3>
+            </div>
+
+            <div class="col-3">
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div id="annonce">
+                                <div class="card">
+                                    <img src="image/0.png" class="card-img-top" alt="...">
+
+                                    <div class="card-body">
+                                        <h5 class="card-title">Annonce 1</h5>
+                                        <p class="card-text">Voci le titre et une bio du produit.</p>
+                                        <a href="detailprod.php" class="btn btn-primary">
+                                            <img src="image/voir.png" width="20">
+                                            Voir l'annonce</a>
+                                    </div>
+                                </div>
+
+                                <div class="card-body">
+                                    <h5 class="card-title">Annonce 2</h5>
+                                    <p class="card-text">Voci le titre et une bio du produit.</p>
+                                    <a href="detailprod.php" class="btn btn-primary">
+                                        <img src="image/voir.png" width="20">
+                                        Voir l'annonce</a>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="col">
+                            <div id="annonce">
+                                <div class="card">
+                                    <img src="image/0.png" class="card-img-top" alt="...">
+
+                                    <div class="card-body">
+                                        <h5 class="card-title">Annonce 3</h5>
+                                        <p class="card-text">Voci le titre et une bio du produit.</p>
+                                        <a href="detailprod.php" class="btn btn-primary">
+                                            <img src="image/voir.png" width="20">
+                                            Voir l'annonce</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                </div>
 
-                    <div class="col-6">
-                        <h3>Annonces récentes</h3>
-                    </div>
 
-                    <div class="col-3">
-
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <div id="annonce">
-            <div class="card">
-              <img src="image/0.png" class="card-img-top" alt="...">
-
-              <div class="card-body">
-                <h5 class="card-title">Annonce 1</h5>
-                <p class="card-text">Voci le titre et une bio du produit.</p>
-                <a href="detailprod.php" class="btn btn-primary">
-                <img src="image/voir.png" width="20">  
-                Voir l'annonce</a>
-              </div>
-            </div>
-
-              <div class="card-body">
-                <h5 class="card-title">Annonce 2</h5>
-                <p class="card-text">Voci le titre et une bio du produit.</p>
-                <a href="detailprod.php" class="btn btn-primary">
-                <img src="image/voir.png" width="20">   
-                Voir l'annonce</a>
-              </div>
             </div>
 
 
-        </div>
-        <div class="col">
-          <div id="annonce">
-            <div class="card">
-              <img src="image/0.png" class="card-img-top" alt="...">
 
-              <div class="card-body">
-                <h5 class="card-title">Annonce 3</h5>
-                <p class="card-text">Voci le titre et une bio du produit.</p>
-                <a href="detailprod.php" class="btn btn-primary">
-                <img src="image/voir.png" width="20">   
-                Voir l'annonce</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-  </div>
-
-
-
-        <a href="modifuser.php">modif</a>
+            <a href="modifuser.php">modif</a>
 </body>
 
 </html>
