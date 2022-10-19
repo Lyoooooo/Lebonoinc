@@ -24,7 +24,7 @@
 
                         <div class="col-3 text-center">
                             <img src="image/Bonumanguli3.png" width="70"><br>
-                            Citation du site
+                            Η αρχαιότητα σε όλη τη διαδρομή
                         </div>
 
                         <div class="col-6 text-center">
@@ -32,8 +32,8 @@
                                 <h2>Bonumanguli</h2>
                             </a>
                             <form class="d-flex">
-                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                                <button class="btn btn-outline-success" type="submit">Search</button>
+                                <input class="form-control me-2" type="search" placeholder="Recherche" aria-label="Search">
+                                <button class="btn btn-outline-success" type="submit">Rechercher</button>
                             </form>
                         </div>
 
@@ -52,7 +52,7 @@
                                             <a class="btn sdropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                                                 <div id="textthird">
                                                     <a href="modifuser.php" style="text-decoration:none" id="textthird"><img src="image/0.png" width="50"></button><br>Mon Compte</a </div>
-                                                    <div class="offcanvas offcanvas-end" style="background-color: #b22222;" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                                                    <!-- <div class="offcanvas offcanvas-end" style="background-color: #b22222;" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
                                                         <div class="offcanvas-header">
                                                             <h5 id="offcanvasRightLabel"></h5>
                                                             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -136,7 +136,7 @@
                                                                 <h5><a href="deco.php">se déconnecter</a></H5>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </div> -->
                                                 </div>
                                         </div>
                                     </div>

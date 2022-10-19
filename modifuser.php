@@ -37,91 +37,82 @@ $idu = $_SESSION["idu"];
     $mdp = $ligne["mdp"];
     ?>
 
-    <div class="fondinsc">
-        <div class="shadow text-left" id="primal">
-            <div class="h1 text-center">
-                <h1>Votre compte</h1>
-                <div class="position-absolute top-0 end-0 p-3 m3">
-                    <h5><a href="expo.php">retour</a></H5>
+    <div id="second">
+        <div class="rounded shadow text-left">
+            <div id="divmid">
+                <div class="h1 text-center">
+                    <h1>Votre compte</h1>
+                    <div class="position-absolute top-0 end-0 p-3 m3">
+                        <h5><a href="home.php">retour</a></H5>
+                    </div>
                 </div>
-            </div>
-            <div class=text-end>
-                <form action="modifuser2.php" method="post">
-            </div>
-            <div class="d-grid gap-2 d-md-block text-center">
-                <img src="image/0.png" width="50">
-            </div>
+                <div class=text-end>
+                    <form action="modifuser2.php" method="post">
+                </div>
+                <div class="d-grid gap-2 d-md-block text-center">
+                    <img src="image/0.png" width="50">
+                </div>
 
-            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <?php for ($i = 1; $i < 11; $i++) { ?>
-                                <div class="form-check">
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
 
-                                    <input class="form-check-input" type="radio" name="" value="<?php echo "$i" ?>" id="flexRadioDefault<?php echo "$i" ?>">
-                                    <label class="form-check-label" for="flexRadioDefault<?php echo "$i" ?>">
-                                        <img src="avatar/<?php echo "$i" ?>.png" height="50">
-                                    </label>
-
-                                </div>
-                            <?php } ?>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">reset</button>
-                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">valider</button>
+                            <div class="modal-footer">
+                                <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">reset</button>
+                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">valider</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <label for="validationDefault01" class="form-label">Nom</label><span class="etoile">*</span>
-                <input type="text" name="nom" class="form-control" id="second" value="<?= $nom ?>" required>
-            </div><br>
-            <div class="col-md-4">
-                <label for="validationDefault02" class="form-label">Prénom</label><span class="etoile">*</span>
-                <input type="text" name="prenom" class="form-control" id="second" value="<?= $prenom ?>" required>
-            </div><br>
-            <div class="col-md-4">
-                <label for="validationDefault02" class="form-label">Pseudo</label><span class="etoile">*</span>
-                <input type="text" name="pseudo" class="form-control" id="second" value="<?= $pseudo ?>" required>
-            </div><br>
-            <div class="col-md-4">
-                <label for="validationDefault02" class="form-label">Date de naissabce</label>
-                <input type="text" name="anniv" class="form-control" id="second" value="<?= $anniv ?>" required>
-            </div><br>
-            <div class="col-md-4">
-                <label for="validationDefaultUsername" class="form-label">Adresse mail</label>
-                <div class="input-group">
-                    <span class="input-group-text" id="inputGroupPrepend2">@</span>
-                    <input type="text" name="mail" class="form-control" id="second" aria-describedby="inputGroupPrepend2" value="<?= $mail ?>" disabled required>
-                </div>
-            </div><br>
-            <div class="col-md-6">
-                <label for="validationDefault03" class="form-label">Adresse Postale</label><span class="etoile">*</span>
-                <input type="text" name="adresse" class="form-control" id="second" value="<?= $adresse ?>" required>
-            </div><br>
-            <div class="col-md-6">
-                <label for="validationDefault03" class="form-label">Ville</label><span class="etoile">*</span>
-                <input type="text" name="ville" class="form-control" id="second" value="<?= $ville ?>" required>
-            </div><br>
-            <div class="col-md-3">
-                <label for="validationDefault04" class="form-label">Code postal</label><span class="etoile">*</span>
-                <input type="text" name="cp" class="form-control" id="" value="<?= $cp ?>" required>
-                </select>
-            </div><br>
-            <div class="col-md-4">
-                <label for="validationDefault05" class="form-label">Numero de telephone</label>
-                <input type="text" name="tel" class="form-control" id="second" value="<?= $tel ?>" required>
-            </div><br>
-            <button type="button" class="btn btn-warning"><a href="modifmdp.php" style="text-decoration:none">Modifier mon mot de passe</a></button><br><br>
+                <div class="col-md-4">
+                    <label for="validationDefault01" class="form-label">Nom</label><span class="etoile">*</span>
+                    <input type="text" name="nom" class="form-control" id="second" value="<?= $nom ?>" required>
+                </div><br>
+                <div class="col-md-4">
+                    <label for="validationDefault02" class="form-label">Prénom</label><span class="etoile">*</span>
+                    <input type="text" name="prenom" class="form-control" id="second" value="<?= $prenom ?>" required>
+                </div><br>
+                <div class="col-md-4">
+                    <label for="validationDefault02" class="form-label">Pseudo</label><span class="etoile">*</span>
+                    <input type="text" name="pseudo" class="form-control" id="second" value="<?= $pseudo ?>" required>
+                </div><br>
+                <div class="col-md-4">
+                    <label for="validationDefault02" class="form-label">Date de naissabce</label>
+                    <input type="text" name="anniv" class="form-control" id="second" value="<?= $anniv ?>" required>
+                </div><br>
+                <div class="col-md-4">
+                    <label for="validationDefaultUsername" class="form-label">Adresse mail</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="inputGroupPrepend2">@</span>
+                        <input type="text" name="mail" class="form-control" id="second" aria-describedby="inputGroupPrepend2" value="<?= $mail ?>" disabled required>
+                    </div>
+                </div><br>
+                <div class="col-md-6">
+                    <label for="validationDefault03" class="form-label">Adresse Postale</label><span class="etoile">*</span>
+                    <input type="text" name="adresse" class="form-control" id="second" value="<?= $adresse ?>" required>
+                </div><br>
+                <div class="col-md-6">
+                    <label for="validationDefault03" class="form-label">Ville</label><span class="etoile">*</span>
+                    <input type="text" name="ville" class="form-control" id="second" value="<?= $ville ?>" required>
+                </div><br>
+                <div class="col-md-3">
+                    <label for="validationDefault04" class="form-label">Code postal</label><span class="etoile">*</span>
+                    <input type="text" name="cp" class="form-control" id="second" value="<?= $cp ?>" required>
+                    </select>
+                </div><br>
+                <div class="col-md-4">
+                    <label for="validationDefault05" class="form-label">Numero de telephone</label>
+                    <input type="text" name="tel" class="form-control" id="second" value="<?= $tel ?>" required>
+                </div><br>
+                <button type="button" class="btn btn-warning"><a href="modifmdp.php" style="text-decoration:none">Modifier mon mot de passe</a></button><br><br>
 
-            <div class="d-grid gap-2 col-6 mx-auto">
-                <input class="btn btn-success text-center" type="submit" value="Modifier" name="bouton"><br><br>
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    <input class="btn btn-success text-center" type="submit" value="Modifier" name="bouton"><br><br>
+                </div>
             </div>
         </div>
         <!-- <div class="corpsacc">
