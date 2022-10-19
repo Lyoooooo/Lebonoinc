@@ -1,4 +1,5 @@
 <?php
+include "fonction.php";
 session_start(); 
 ?>
 
@@ -55,7 +56,16 @@ session_start();
                                         <div class="dropdown">
                                             <a class="btn sdropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                                                 <div id="textthird">
-                                                    <a href="modifuser.php" style="text-decoration:none" id="textthird"><img src="image/0.png" width="50"></button><br>Mon Compte</a </div>
+                                                    <?php
+                                                        if(connecte() == false)
+                                                        {
+                                                            echo"<a href='connexion.php' style='text-decoration:none' id='textthird'><img src='image/0.png' width='50'></button><br>Mon Compte</a> </div>";
+                                                        }else{
+                                                            echo"<a href='modifuser.php' style='text-decoration:none' id='textthird'><img src='image/0.png' width='50'></button><br>Mon Compte</a> </div>";
+                                                        }
+
+                                                    ?>
+
                                                     <!-- <div class="offcanvas offcanvas-end" style="background-color: #b22222;" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
                                                         <div class="offcanvas-header">
                                                             <h5 id="offcanvasRightLabel"></h5>
