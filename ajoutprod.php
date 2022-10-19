@@ -25,7 +25,7 @@
           <div class="row">
 
             <div class="col">
-              <img src="image/Bonumanguli3.png" width="70" class="position-absolute top-0 start-0">
+              <img src="image/Bonumanguli8.png" width="70" class="position-absolute top-0 start-0">
             </div>
 
             <div class="col text-center">
@@ -47,6 +47,7 @@
   </div>
 
   <div id="divmid">
+  <div id="divannonce">
     <span style="text-align: center;"><h1>Ajouter un article</h1></span><br><br>
     <div style="width: 90%; padding: 1em; position: relative; left: 5%;" class="text-center">
         <form action="" method="post">
@@ -67,11 +68,11 @@
                         <label for="select" class="form-label">Etat<span class="etoile">*</span></label>
                         <select class="form-select" name="etat" aria-label="Default select example" id="select" placeholder="Etat" require>
                         
-                            <option value="1">Neuf</option>
-                            <option value="2">Très bon état</option>
-                            <option value="3">Bon état</option>
-                            <option value="4">Etat satisfaisant</option>
-                            <option value="5">Mauvais état</option>
+                            <option value="Neuf">Neuf</option>
+                            <option value="Très bon état">Très bon état</option>
+                            <option value="Bon état">Bon état</option>
+                            <option value="Etat satisfaisant">Etat satisfaisant</option>
+                            <option value="Mauvais état">Mauvais état</option>
                         </select>
                         </div>
                         <div class="col">
@@ -100,14 +101,13 @@
 
   <?php
     if (isset($_POST["bouton"])) {
-      $idu=$_SESSION["$idu"];
+      $idu= $_SESSION["idu"];
       extract($_POST);
-      $stmt = $pdo->prepare("SELECT nomp FROM produit WHERE nomp=?");
-      $stmt->execute([$nomp]);
-      $user = $stmt->fetch();
+      echo"$nomp $descri $prix $etat";
       $sql = "INSERT INTO produit VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
-      $pdo->prepare($sql)->execute([null, ,$nomp, $descri, $prix, null, null, null, null, null, $etat,null]);
+      $pdo->prepare($sql)->execute([null, $idu, $nomp, $descri, $prix, "", "", "", "", "", $etat, 0]);
       echo "Inscription réussie ! <br>Chargement de la page d'inscription...";
+      ?><meta http-equiv="refresh" content="20;url=home.php"/><?php
       }
   ?><br><br><br>
 <?php
