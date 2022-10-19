@@ -13,11 +13,11 @@ if (isset($_POST["bouton"])) {
         $_SESSION["nom"] = $ligne["nom"];
         $_SESSION["prenom"] = $ligne["prenom"];
         $_SESSION["grade"] = $ligne["grade"];
-
+        header("location:home.php");
         // if ($_SESSION["grade"] == 1) {
         //     header("location:admin.php");
         // } else {
-        //     header("location:home.php");
+        //     
         // }
     } else {
         echo "Mail ou mot de passe incorrect !";
