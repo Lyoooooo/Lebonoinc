@@ -101,11 +101,10 @@
 
   <?php
     if (isset($_POST["bouton"])) {
-      $idu= $_SESSION["idu"];
       extract($_POST);
       echo"$nomp $descri $prix $etat";
-      $sql = "INSERT INTO produit VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
-      $pdo->prepare($sql)->execute([null, $idu, $nomp, $descri, $prix, "", "", "", "", "", $etat, 0]);
+      $sql = "INSERT INTO produit VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+      $pdo->prepare($sql)->execute([null, $_SESSION["idu"], $nomp, $descri, $prix, "", "", "", $etat, 0, date("Y-m-d H:i:s")]);
       echo "Inscription réussie ! <br>Chargement de la page d'inscription...";
       ?><meta http-equiv="refresh" content="20;url=home.php"/><?php
       }
