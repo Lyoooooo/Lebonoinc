@@ -25,7 +25,7 @@
           <div class="row">
 
             <div class="col">
-              <img src="image/Bonumanguli7.png" width="70" class="position-absolute top-0 start-0">
+              <img src="image/Bonumanguli8.png" width="70" class="position-absolute top-0 start-0">
             </div>
 
             <div class="col text-center">
@@ -100,15 +100,11 @@
 
   <?php
     if (isset($_POST["bouton"])) {
-      
-      $idu= 1;
+      $idu= $_SESSION["$idu"];
       extract($_POST);
       echo"$nomp $descri $prix $etat";
-      $stmt = $pdo->prepare("SELECT nomp FROM produit WHERE nomp=?");
-      $stmt->execute([$nomp]);
-      $user = $stmt->fetch();
       $sql = "INSERT INTO produit VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
-      $pdo->prepare($sql)->execute([null, $idu, $nomp, $descri, $prix, null, null, null, null, null, $etat, null]);
+      $pdo->prepare($sql)->execute([null, $idu, $nomp, $descri, $prix, "", "", "", "", "", $etat, 0]);
       echo "Inscription réussie ! <br>Chargement de la page d'inscription...";
       ?><meta http-equiv="refresh" content="20;url=home.php"/><?php
       }
