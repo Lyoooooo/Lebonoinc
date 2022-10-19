@@ -26,31 +26,7 @@
 </head>
 
 <body id="second">
-  <div class="head sticky-top">
-    <nav class="navbar navbar-toggler navbar-light" id="primal">
-      <div class="container-fluid">
-        <div class="container ">
-          <div class="row">
-
-            <div class="col">
-              <img src="image/Bonumanguli8.png" width="70" class="position-absolute top-0 start-0">
-            </div>
-
-            <div class="col text-center">
-              <a class="navbar-brand" href="home.php" id="textthird"><h2>Bonumanguli</h2></a>
-            </div>
-
-            <div class="col text-end">
-              <div id="textthird">
-                <img src="image/0.png" width="70" ><br>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </nav>
-  </div>
+<?php headsimple() ?>
 
   <div id="divmid">
     <div id="divannonce">
