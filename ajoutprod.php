@@ -17,34 +17,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </head>
 <body id="second">
-<div class="head sticky-top">
-    <nav class="navbar navbar-toggler navbar-light" id="primal">
-      <div class="container-fluid">
-
-        <div class="container ">
-          <div class="row">
-
-            <div class="col">
-              <img src="image/Bonumanguli8.png" width="70" class="position-absolute top-0 start-0">
-            </div>
-
-            <div class="col text-center">
-              <a class="navbar-brand" href="home.php" id="textthird"><h2>Bonumanguli</h2></a>
-            </div>
-
-            
-
-            <div class="col text-end">
-              <div id="textthird">
-                  <img src="image/0.png" width="70" ><br>
-              </div>
-            </div>
-          
-          </div>
-        </div>
-      </div>
-    </nav>
-  </div>
+<?php headsimple() ?>
 
   <div id="divmid">
   <div id="divannonce">
