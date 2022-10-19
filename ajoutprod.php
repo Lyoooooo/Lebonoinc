@@ -33,7 +33,7 @@
       <span style="text-align: center;"><h1>Ajouter un article</h1></span><br><br>
 
       <div style="width: 90%; padding: 1em; position: relative; left: 5%;" class="text-center">
-        <form action="" method="post">
+        <form action="" method="post" enctype="multipart/form-data">
           <div class="form-floating mb-3">      
             <input type="text" class="form-control" name="nomp" id="floatingInput" placeholder="Nom de l'article" required>
             <label for="floatingInput" class="form-label">Nom de l'article<span class="etoile"> *</span></label>
