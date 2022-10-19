@@ -1,40 +1,29 @@
 <?php
-    session_start();
-    $id = mysqli_connect("127.0.0.1", "root", "", "bonu");
-    if (isset($_POST["bouton"])) {
-        $mail = $_POST["mail"];
-        $mdp = $_POST["mdp"];
-        $salt = "@|-°+==00001ddQ";
-        $mdp2 = md5($mdp . $salt . $mail);
-        $req = "select * from user where mail='$mail' and mdp='$mdp2' ";
+include "fonction.php";
+$pdo = connexion();
+if (isset($_POST["bouton"])) {
+    extract($_POST);
+    $mdp2 = encode($mdp, $mail);
+    $stmt = $pdo->prepare("SELECT * FROM user WHERE mail=? AND mdp=?");
+    $stmt->execute([$mail, $mdp2]);
+    $ligne = $stmt->fetch();
+    if ($ligne) {
+        session_start();
+        $_SESSION["idu"] = $ligne["idu"];
+        $_SESSION["nom"] = $ligne["nom"];
+        $_SESSION["prenom"] = $ligne["prenom"];
+        $_SESSION["grade"] = $ligne["grade"];
 
-        $resultat = mysqli_query($id, $req);
-        $ligne = mysqli_fetch_assoc($resultat);
-        $idu = $ligne["idu"];
-        $nom = $ligne["nom"];
-        $prenom = $ligne["prenom"];
-        $grade = $ligne["grade"];
-
-
-        if (mysqli_num_rows($resultat) > 0) {
-            $_SESSION["idu"] = $idu;
-            $_SESSION["nom"] = $nom;
-            $_SESSION["prenom"] = $prenom;
-            $_SESSION["grade"] = $grade;
-
-            if ($grade == 0) {
-                header("location:home.php");
-            } else {
-                header("location:admin.php");
-            }
+        if ($_SESSION["grade"] == 1) {
+            header("location:admin.php");
+        } else {
+            header("location:home.php");
         }
     } else {
-        print("Mail ou mot de passe incorrect !");
+        echo "Mail ou mot de passe incorrect !";
     }
-    // } else {
-    //     print("erreur de mot de passe");
-    // }
-?>-->
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
