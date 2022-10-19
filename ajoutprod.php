@@ -101,7 +101,7 @@
 
   <?php
     if (isset($_POST["bouton"])) {
-      $idu= $_SESSION["$idu"];
+      $idu= $_SESSION["idu"];
       extract($_POST);
       echo"$nomp $descri $prix $etat";
       $sql = "INSERT INTO produit VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
