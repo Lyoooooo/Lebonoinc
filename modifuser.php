@@ -81,8 +81,8 @@ $idu = $_SESSION["idu"];
                     <input type="text" name="pseudo" class="form-control" id="second" value="<?= $pseudo ?>" required>
                 </div><br>
                 <div class="col-md-4">
-                    <label for="validationDefault02" class="form-label">Date de naissabce</label>
-                    <input type="text" name="anniv" class="form-control" id="second" value="<?= $anniv ?>" required>
+                    <label for="validationDefault02" class="form-label">Date de naissance</label>
+                    <input type="text" name="anniv" class="form-control" id="second" value="<?= $anniv ?>" disabled required>
                 </div><br>
                 <div class="col-md-4">
                     <label for="validationDefaultUsername" class="form-label">Adresse mail</label>
@@ -105,7 +105,7 @@ $idu = $_SESSION["idu"];
                     </select>
                 </div><br>
                 <div class="col-md-4">
-                    <label for="validationDefault05" class="form-label">Numero de telephone</label>
+                    <label for="validationDefault05" class="form-label">Numero de telephone</label><span class="etoile">*</span>
                     <input type="text" name="tel" class="form-control" id="second" value="<?= $tel ?>" required>
                 </div><br>
                 <button type="button" class="btn btn-warning"><a href="modifmdp.php" style="text-decoration:none">Modifier mon mot de passe</a></button><br><br>

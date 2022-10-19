@@ -143,7 +143,7 @@ $pdo = connexion();
                 $pdo->prepare($sql)->execute([null, $prenom, $nom, $mail, $mdp2, $pseudo, $genre, $adresse, $cp, $ville, $tel, $anniv, 0, 0]);
                 echo "Inscription réussie ! <br>Chargement de la page d'inscription...";
     ?>
-                <meta http-equiv="refresh" content="2;url=connexion.php" />
+                <meta http-equiv="refresh" content="0;url=connexion.php" />
     <?php
             }
             exit();
