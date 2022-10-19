@@ -154,22 +154,21 @@
     <div id="divmid">
         <div id="divannonce">
 
-        <div class="col-3">
+        <div class="col">
 
           <a class="btn" href="ajoutprod.php" role="button" id="third">
             <img src="image/plus.png" width="20">
             Déposer une annonce</a>
         </div>
 
-                    <div class="col-3">
-                        <button type="button" class="btn">Déposer une annonce</button>
-                    </div>
+        <div class="col">
+            Annonces Récentes
+        </div>
 
-                    <div class="col-6">
-                        <h3>Annonces récentes</h3>
-                    </div>
+        <div class="col">
+        </div>
 
-                    <div class="col-3">
+
 
     <div class="container">
       <div class="row">
