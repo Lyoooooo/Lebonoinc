@@ -47,6 +47,7 @@
   </div>
 
   <div id="divmid">
+  <div id="divannonce">
     <span style="text-align: center;"><h1>Ajouter un article</h1></span><br><br>
     <div style="width: 90%; padding: 1em; position: relative; left: 5%;" class="text-center">
         <form action="" method="post">
