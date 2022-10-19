@@ -50,14 +50,17 @@
                         </div>
                         <div class="col">
                           <label for="prix" class="form-label">Prix<span class="etoile">*</span></label>
-                          <input type="number" name="prix" class="form-control" id="prix" require>
+                          <div class="input-group">
+                            <input type="number" name="prix" min="0" class="form-control" id="prix" require>
+                            <span class="input-group-text">€</span>
+                          </div>
                         </div>
                     </div>
                 </div>
             </div> <br><br>
             <div class="mb-3">
                 <label for="formFile" class="form-label">Photo 1<span class="etoile">*</span></label>
-                <input class="form-control" type="file" id="formFile" require>
+                <input class="form-control" type="file" id="formFile" aria-label="Dollar amount (with dot and two decimal places)" require>
             </div><br>
             <div class="mb-3">
                 <label for="formFile" class="form-label">Photo 2</label>
@@ -74,11 +77,10 @@
 
   <?php
     if (isset($_POST["bouton"])) {
-      $idu= $_SESSION["idu"];
       extract($_POST);
       echo"$nomp $descri $prix $etat";
-      $sql = "INSERT INTO produit VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
-      $pdo->prepare($sql)->execute([null, $idu, $nomp, $descri, $prix, "", "", "", "", "", $etat, 0]);
+      $sql = "INSERT INTO produit VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+      $pdo->prepare($sql)->execute([null, $_SESSION["idu"], $nomp, $descri, $prix, "", "", "", $etat, 0, date("Y-m-d H:i:s")]);
       echo "Inscription réussie ! <br>Chargement de la page d'inscription...";
       ?><meta http-equiv="refresh" content="20;url=home.php"/><?php
       }
