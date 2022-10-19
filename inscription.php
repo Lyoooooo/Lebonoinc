@@ -1,8 +1,8 @@
 <?php
 include "fonction.php";
 $pdo = connexion();
-session_start();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
