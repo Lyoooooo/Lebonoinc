@@ -35,16 +35,22 @@ $idu = $_SESSION["idu"];
     $tel = $ligne["tel"];
     $genre = $ligne["genre"];
     $mdp = $ligne["mdp"];
+    // headsimple();
     ?>
 
     <div id="second">
         <div class="rounded shadow text-left">
             <div id="divmid">
+                <div class="position-relative top-0 end-0 p-3 m3">
+                    <span class="position-absolute top-0 start-0">
+                        <h5><a href="home.php">Retour</a></H5>
+                    </span>
+                    <span class="position-absolute top-0 end-0">
+                        <h5><a href="deco.php">Deconnexion</a></H5>
+                    </span>
+                </div>
                 <div class="h1 text-center">
                     <h1>Votre compte</h1>
-                    <div class="position-absolute top-0 end-0 p-3 m3">
-                        <h5><a href="home.php">retour</a></H5>
-                    </div>
                 </div>
                 <div class=text-end>
                     <form action="modifuser2.php" method="post">
@@ -82,7 +88,7 @@ $idu = $_SESSION["idu"];
                 </div><br>
                 <div class="col-md-4">
                     <label for="validationDefault02" class="form-label">Date de naissance</label>
-                    <input type="text" name="anniv" class="form-control" id="second" value="<?= $anniv ?>" disabled required>
+                    <input type="text" name="anniv" class="form-control" id="second" value="<?= $anniv ?>" required>
                 </div><br>
                 <div class="col-md-4">
                     <label for="validationDefaultUsername" class="form-label">Adresse mail</label>
