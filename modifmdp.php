@@ -36,13 +36,14 @@ $pdo = connexion();
     $tel = $ligne["tel"];
     $genre = $ligne["genre"];
     $mdp = $ligne["mdp"];
+    $mdp5 = $mdp;
     ?>
 
     <div id="second">
         <div class="rounded shadow text-left">
             <div id="divmid">
                 <div class="h1 text-center">
-                    <h1>Votre compte</h1>
+                    <h1>Votre compte</h1><br>
                     <div class="position-absolute top-0 end-0 p-3 m3">
                         <h5><a href="modifuser.php">retour</a></H5>
                     </div>
@@ -75,27 +76,32 @@ $pdo = connexion();
         extract($_POST);
         $mdp2 = encode($mdp2, $mail);
         if ($mdp == $mdp2) {
+            // print($mdp . "/" . $mdp2 . "/");
             if ($mdp3 == $mdp4) {
-                if ($mdp3 != $mdp) {
-                    // print($mdp);
+                // print($mdp3 . "/" . $mdp4 . "/");
+                $mdp = $mdp3;
+                $mdp3 == encode($mdp, $mail);
+                // print($mdp3);
+                if ($mdp3 !== $mdp5) {
                     $mdp = $mdp3;
                     $mdp = encode($mdp, $mail);
-                    // print(" " . $mdp);
-                    // $req = "UPDATE `user` SET `mdp` = '$mdp' WHERE `user`.`idu` = $idu";
-                    // $resultat = mysqli_query($id, $req);
-                    $sql = "UPDATE `user` SET (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-                    $pdo->prepare($sql)->execute([null, $prenom, $nom, $mail, $mdp, $pseudo, $genre, $adresse, $cp, $ville, $tel, $anniv, 0, 0]);
+                    // print($mdp . "/" . $mdp5);
+                    $req = "UPDATE `user` SET `mdp` = '$mdp' WHERE `user`.`idu` = $idu";
+                    $resultat = mysqli_query($id, $req);
+                    header("location:modifuser.php");
+                    // $sql = "UPDATE `user` SET (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                    // $pdo->prepare($sql)->execute([null, $prenom, $nom, $mail, $mdp, $pseudo, $genre, $adresse, $cp, $ville, $tel, $anniv, 0, 0]);
                 } else {
-                    echo "votre nouveau mot de passe est identique a votre ancien mot de passe";
+                    echo "votre nouveau mot de passe est identique à votre ancien mot de passe";
                 }
             } else {
                 echo "Vos mots de passe ne sont pas identique ";
             }
         } else {
+            // print($mdp . " " . $mdp2);
             echo "Votre ancien mot de passe est faux";
         }
         // echo "modification du mot de passe réussis ! <br>";
-        // header("location:home.php");
 
     }
 

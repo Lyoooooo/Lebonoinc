@@ -35,7 +35,7 @@ $idu = $_SESSION["idu"];
     $tel = $ligne["tel"];
     $genre = $ligne["genre"];
     $mdp = $ligne["mdp"];
-    // headsimple();
+    headsimple();
     ?>
 
     <div id="second">
@@ -55,9 +55,9 @@ $idu = $_SESSION["idu"];
                 <div class=text-end>
                     <form action="modifuser2.php" method="post">
                 </div>
-                <div class="d-grid gap-2 d-md-block text-center">
+                <!-- <div class="d-grid gap-2 d-md-block text-center">
                     <img src="image/0.png" width="50">
-                </div>
+                </div> -->
 
                 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div class="modal-dialog">
@@ -73,7 +73,7 @@ $idu = $_SESSION["idu"];
                             </div>
                         </div>
                     </div>
-                </div>
+                </div><br>
                 <div class="col-md-4">
                     <label for="validationDefault01" class="form-label">Nom</label><span class="etoile">*</span>
                     <input type="text" name="nom" class="form-control" id="second" value="<?= $nom ?>" required>
@@ -88,7 +88,7 @@ $idu = $_SESSION["idu"];
                 </div><br>
                 <div class="col-md-4">
                     <label for="validationDefault02" class="form-label">Date de naissance</label>
-                    <input type="text" name="anniv" class="form-control" id="second" value="<?= $anniv ?>" required>
+                    <input type="text" name="anniv" class="form-control" id="second" value="<?= $anniv ?>" disabled required>
                 </div><br>
                 <div class="col-md-4">
                     <label for="validationDefaultUsername" class="form-label">Adresse mail</label>
@@ -97,15 +97,15 @@ $idu = $_SESSION["idu"];
                         <input type="text" name="mail" class="form-control" id="second" aria-describedby="inputGroupPrepend2" value="<?= $mail ?>" disabled required>
                     </div>
                 </div><br>
-                <div class="col-md-6">
-                    <label for="validationDefault03" class="form-label">Adresse Postale</label><span class="etoile">*</span>
+                <div class="col-md-4">
+                    <label for="validationDefault04" class="form-label">Adresse Postale</label><span class="etoile">*</span>
                     <input type="text" name="adresse" class="form-control" id="second" value="<?= $adresse ?>" required>
                 </div><br>
-                <div class="col-md-6">
-                    <label for="validationDefault03" class="form-label">Ville</label><span class="etoile">*</span>
+                <div class="col-md-4">
+                    <label for="6" class="form-label">Ville</label><span class="etoile">*</span>
                     <input type="text" name="ville" class="form-control" id="second" value="<?= $ville ?>" required>
                 </div><br>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <label for="validationDefault04" class="form-label">Code postal</label><span class="etoile">*</span>
                     <input type="text" name="cp" class="form-control" id="second" value="<?= $cp ?>" required>
                     </select>
@@ -114,49 +114,41 @@ $idu = $_SESSION["idu"];
                     <label for="validationDefault05" class="form-label">Numero de telephone</label><span class="etoile">*</span>
                     <input type="text" name="tel" class="form-control" id="second" value="<?= $tel ?>" required>
                 </div><br>
-                <button type="button" class="btn btn-warning"><a href="modifmdp.php" style="text-decoration:none">Modifier mon mot de passe</a></button><br><br>
+                <button type="button" class="btn btn-warning" name="bouton2"><a href="modifmdp.php" style="text-decoration:none" name="bouton2">Modifier mon mot de passe</a></button><br><br>
 
                 <div class="d-grid gap-2 col-6 mx-auto">
                     <input class="btn btn-success text-center" type="submit" value="Modifier" name="bouton"><br><br>
                 </div>
             </div>
         </div>
-        <!-- <div class="corpsacc">
-            <div class="bg-image" style="background-image: url('images/back1.png');
-    height: 100vh">
-            </div>
-        </div> -->
     </div>
+    <?php
+    // if (isset($_POST["bouton2"])) {
+    //     extract($_POST);
+    //     $req = "UPDATE `user` SET `nom` = '$nom', `prenom` = '$prenom',`pseudo` = '$pseudo',`ville` = '$ville',`cp` = '$cp',`tel` = '$tel', `adresse` = '$adresse' WHERE `user`.`idu` = $idu";
+    //     $resultat = mysqli_query($id, $req);
+    // }
+    // if (isset($_POST["bouton"])) {
+    //     extract($_POST);
+    //     $req = "UPDATE `user` SET `nom` = '$nom', `prenom` = '$prenom',`pseudo` = '$pseudo',`ville` = '$ville',`cp` = '$cp',`tel` = '$tel', `adresse` = '$adresse' WHERE `user`.`idu` = $idu";
+    //     $resultat = mysqli_query($id, $req);
+    //     header("location:home.php");
+    // }
+    ?>
     <footer class='text-center text-white ' style='background-color: rgba(0, 0, 0, 0.904);color:white;'>
         <!-- Grid container -->
         <div class='container pt-4'>
-            <!-- Section: Social media -->
-
-
-
-
-            <!-- Section: Social media -->
             <section class='text-center text-light'>
 
                 <p>
                     Bonumanguli est un site deposée par ECE Bachelor. <br>
                     Tous droits réservés.
                 </p>
-
-
-
             </section>
         </div>
-        <!-- Grid container -->
-
-
-
-
-        <!-- Copyright -->
         <div class='text-center text-light p-3' style='background-color: rgba(0, 0, 0, 0.2);'>
             © 2022 M.V.S <br>
         </div>
-        <!-- Copyright -->
     </footer>
 </body>
 
