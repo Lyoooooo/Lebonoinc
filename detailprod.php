@@ -149,7 +149,7 @@
 
 
     <div id="divmid">
-        <div id="divannonce">
+        <div id="ann">
         
             <div class="container"  style="padding: 3%;">
                 <div class="row">
@@ -179,13 +179,13 @@
                 </div>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                    <img src="image/Bonumanguli3.png" class="d-block w-50" style="margin:auto">
+                    <img src="image/Bonumanguli3.png" class="d-block w-5" style="margin:auto">
                     </div>
                     <div class="carousel-item">
-                    <img src="image/voir.png" class="d-block w-50" style="margin:auto">
+                    <img src="image/voir.png" class="d-block w-5" style="margin:auto">
                     </div>
                     <div class="carousel-item">
-                    <img src="image/vide.png" class="d-block w-50" style="margin:auto">
+                    <img src="image/vide.png" class="d-block w-5" style="margin:auto">
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -197,13 +197,32 @@
                     <span class="visually-hidden">Next</span>
                 </button>
                 </div>
+            </div>
 
                 <h3>Titre annonce</h3>
+
+
+
+
+                <div class="container text-center">
+                    <div class="row">
+                        <div class="col">
+                            <a class="btn" id="third">Etat : </a>
+                        </div>
+                        <div class="col">
+                            <a class="btn" id="third">Prix : </a>  
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <br><br><br>
+
 
     
             <div class="form-floating">
                 <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-                <label for="floatingTextarea2">Comments</label>
+                <label for="floatingTextarea2">Description</label>
             </div>
 
 
