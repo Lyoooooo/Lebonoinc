@@ -86,13 +86,13 @@ function foot(){
 
 function headsimple(){
 ?>
-  <nav class="navbar navbar-toggler navbar-light head sticky-top" id="primal" style="margin-bottom: 40px;">
+  <nav class="navbar head sticky-top" id="primal" style="margin-bottom: 2%;">
     <div class="container-fluid">
       <div class="container">
         <div class="row">
 
           <div class="col">
-            <a href="home.php"><img src="image/Bonumanguli8.png" width="70" class="position-absolute top-0 start-0"></a>
+            <a href="home.php"><img src="image/Bonumanguli8.png" class="position-absolute top-0 start-0" style="width: 5em;"></a>
           </div>
 
           <div class="col text-center">

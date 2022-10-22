@@ -14,25 +14,25 @@ if (isset($_POST["bouton"])) {
   if (($_FILES['photo']['size'] < 20971520) && (in_array($ext,$extensions))) {
     $photo1 = 'produit/'.$_SESSION["idu"].'-'.$nomp.'.'.$ext;
     move_uploaded_file($_FILES['photo']['tmp_name'], $photo1);
+
+    if (($_FILES['photo2']['error'] == 0) && ($_FILES['photo2']['size'] < 20971520) && (in_array($ext,$extensions))) {
+      $photo2 = 'produit/'.$_SESSION["idu"].'-'.$nomp.'2.'.$ext;
+      move_uploaded_file($_FILES['photo2']['tmp_name'], $photo2);
+    } else {
+      $photo2 = "";
+    }
+    if (($_FILES['photo3']['error'] == 0) && ($_FILES['photo3']['size'] < 20971520) && (in_array($ext,$extensions))) {
+      $photo3 = 'produit/'.$_SESSION["idu"].'-'.$nomp.'3.'.$ext;
+      move_uploaded_file($_FILES['photo3']['tmp_name'], $photo3);
+    } else {
+      $photo3 = "";
+    }
+      $sql = "INSERT INTO produit VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+      $pdo->prepare($sql)->execute([null, $_SESSION["idu"], $nomp, $descri, $prix, $photo1, $photo2, $photo3, $etat, 0, date("Y-m-d H:i:s")]);
+      echo "<h3>Votre annonce a bien été enregistrée ! <br>Retour à l'accueil...</h3>";
   } else {
-    echo "<h3>Photo non valide</h3>";
+    echo "<h3><span class='erreur'>Photo non valide</span></h3>";
   }
-  if (($_FILES['photo2']['error'] == 0) && ($_FILES['photo2']['size'] < 20971520) && (in_array($ext,$extensions))) {
-    $photo2 = 'produit/'.$_SESSION["idu"].'-'.$nomp.'2.'.$ext;
-    move_uploaded_file($_FILES['photo2']['tmp_name'], $photo2);
-  } else {
-    $photo2 = "";
-  }
-  if (($_FILES['photo3']['error'] == 0) && ($_FILES['photo3']['size'] < 20971520) && (in_array($ext,$extensions))) {
-    $photo3 = 'produit/'.$_SESSION["idu"].'-'.$nomp.'3.'.$ext;
-    move_uploaded_file($_FILES['photo3']['tmp_name'], $photo3);
-  } else {
-    $photo3 = "";
-  }
-    $sql = "INSERT INTO produit VALUES (?,?,?,?,?,?,?,?,?,?,?)";
-    $pdo->prepare($sql)->execute([null, $_SESSION["idu"], $nomp, $descri, $prix, $photo1, $photo2, $photo3, $etat, 0, date("Y-m-d H:i:s")]);
-    echo "<h3>Votre annonce a bien été enregistrée ! <br>Retour à l'accueil...</h3>";
-?>  <meta http-equiv="refresh" content="3;url=home.php" /><?php
 }
 ?>
 
@@ -76,7 +76,6 @@ if (isset($_POST["bouton"])) {
                 <div class="col">
                   <label for="select" class="form-label">Etat<span class="etoile"> *</span></label>
                   <select class="form-select" name="etat" aria-label="Default select example" id="select" placeholder="Etat" required>
-                    <option value="Neuf">Neuf</option>
                     <option value="Très bon état">Très bon état</option>
                     <option value="Bon état">Bon état</option>
                     <option value="Etat satisfaisant">Etat satisfaisant</option>
