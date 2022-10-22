@@ -60,64 +60,58 @@ if (isset($_POST["bouton"])) {
       <div style="width: 90%; position: relative; left: 5%;" class="text-center">
 
         <form action="" method="post" enctype="multipart/form-data">
-          <div class="row">
-            <div class="col">
-              <div class="form-floating mb-3">
-                <input type="text" class="form-control" name="nomp" id="floatingInput" placeholder="Nom de l'article" required>
-                <label for="floatingInput" class="form-label">Nom de l'article<span class="etoile"> *</span></label>
-              </div><br>
-              <div class="form-floating mb-3">
-                <textarea class="form-control" name="descri" maxlength="300" id="floatingTextarea1" placeholder="Description" rows="3" style="height: 200px" required></textarea>
-                <label for="floatingTextarea1" class="form-label">Description<span class="etoile"> *</span></label>
-              </div>
-              <div class="container-fluid">
-                <div class="container">
-                  <div class="row">
-
-                    <div class="col">
-                      <label for="select" class="form-label">Etat<span class="etoile"> *</span></label>
-                      <select class="form-select" name="etat" aria-label="Default select example" id="select" placeholder="Etat" required>
-                        <option value="Très bon état">Très bon état</option>
-                        <option value="Bon état">Bon état</option>
-                        <option value="Etat satisfaisant">Etat satisfaisant</option>
-                        <option value="Mauvais état">Mauvais état</option>
-                      </select>
-                    </div>
-
-                    <div class="col">
-                      <label for="prix" class="form-label">Prix<span class="etoile"> *</span></label>
-                      <div class="input-group">
-                        <input type="number" name="prix" min="0" class="form-control" id="prix" required>
-                        <span class="input-group-text">€</span>
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-              </div><br><br>
-
-              <div class="mb-3">
-                <label for="formFile" class="form-label">Photo 1<span class="etoile"> *</span></label>
-                <input class="form-control" name="photo" type="file" id="formFile" accept=".png, .jpg, .jpeg" required>
-              </div><br>
-              <div class="mb-3">
-                <label for="formFile" class="form-label">Photo 2</label>
-                <input class="form-control" name="photo2" type="file" id="formFile" accept=".png, .jpg, .jpeg">
-              </div><br>
-              <div class="mb-3">
-                <label for="formFile" class="form-label">Photo 3</label>
-                <input class="form-control" name="photo3" type="file" id="formFile" accept=".png, .jpg, .jpeg">
-              </div><br>
-              <button type="submit" class="btn btn-primary" name="bouton">Poster l'annonce</button>
+        <div class="row">
+          <div class="col-6">
+            <div class="form-floating mb-3">      
+              <input type="text" class="form-control" name="nomp" id="floatingInput" placeholder="Nom de l'article" required>
+              <label for="floatingInput" class="form-label">Nom de l'article<span class="etoile"> *</span></label>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="form-floating">
+              <select class="form-select" name="etat" id="floatingSelect" placeholder="Etat" required>
+                <option value="Très bon état">Très bon état</option>
+                <option value="Bon état">Bon état</option>
+                <option value="Etat satisfaisant">Etat satisfaisant</option>
+                <option value="Mauvais état">Mauvais état</option>
+              </select>
+              <label for="floatingSelect">Etat<span class="etoile"> *</span></label>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="input-group">
+              <input type="number" name="prix" min="0" class="form-control" id="prix" placeholder="Prix"required>
+              <span class="input-group-text">€</span>
+            </div>
+          </div>
+        </div>
+        <br><br>
+        <div class="row">
+          <div class="col-7">
+            <div class="form-floating mb-3">
+              <textarea class="form-control" name="descri" maxlength="300" id="floatingTextarea1" placeholder="Description" rows="3" style="height: 245px" required></textarea>
+              <label for="floatingTextarea1" class="form-label">Description<span class="etoile"> *</span></label>
+            </div>
+          </div>
+          <div class="col-5">
+            <div class="mb-3">
+              <label for="formFile" class="form-label">Photo de l'article<span class="etoile"> *</span></label>
+              <input class="form-control" name="photo" type="file" id="formFile"accept=".png, .jpg, .jpeg" required><br>
+            </div>
+            <label for="formFile" class="form-label">Photos supplémentaires</label>
+            <input class="form-control" name="photo2" type="file" id="formFile" accept=".png, .jpg, .jpeg"><br>
+            <input class="form-control" name="photo3" type="file" id="formFile" accept=".png, .jpg, .jpeg">
+          </div>
+        </div><br><br>   
+        <button type="submit" class="btn btn-primary" name="bouton">Poster l'annonce</button>
         </form>
-
       </div>
-    </div>
+    </div><br>
   </div>
   <br><br><br>
-  <?php
-  foot()
-  ?>
+  
 </body>
-
+<?php
+foot()
+?>
 </html>
