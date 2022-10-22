@@ -22,8 +22,8 @@ function connecte()
 {
   if(!isset($_SESSION["idu"]))
   {
-    return(False);
-  }else return(True);
+    return False;
+  }else return True;
 }
 
 function foot(){
@@ -86,7 +86,7 @@ function foot(){
 
 function headsimple(){
 ?>
-  <nav class="navbar navbar-toggler navbar-light head sticky-top" id="primal">
+  <nav class="navbar navbar-toggler navbar-light head sticky-top" id="primal" style="margin-bottom: 40px;">
     <div class="container-fluid">
       <div class="container">
         <div class="row">
@@ -105,10 +105,10 @@ function headsimple(){
             </div>
           </div>
           
-          </div>
         </div>
       </div>
-    </nav>
-  <?php
+    </div>
+  </nav>
+<?php
 }
 ?>
