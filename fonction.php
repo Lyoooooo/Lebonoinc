@@ -1,30 +1,29 @@
 <?php
-
 function connexion()
 {
-    try {
-        $pdo = new PDO('mysql:dbname=bonu;host=127.0.0.1', 'root', ''); 
-        $pdo->exec("SET CHARACTER SET utf8mb4");
-    } catch (PDOException $e) {
-        $pdo = new PDO('mysql:dbname=bonu;host=127.0.0.1;port=3307', 'root', ''); 
-        $pdo->exec("SET CHARACTER SET utf8mb4");
-    }
-    return $pdo;
+  try {
+    $pdo = new PDO('mysql:dbname=bonu;host=127.0.0.1', 'root', ''); 
+    $pdo->exec("SET CHARACTER SET utf8mb4");
+  } catch (PDOException $e) {
+    $pdo = new PDO('mysql:dbname=bonu;host=127.0.0.1;port=3307', 'root', ''); 
+    $pdo->exec("SET CHARACTER SET utf8mb4");
+  }
+  return $pdo;
 }
 
 function encode($mdp, $mail)
 {
-    $salt = "@|-°+==00001ddQ";
-    $crypt = md5($mdp . $salt . $mail);
-    return $crypt;
+  $salt = "@|-°+==00001ddQ";
+  $crypt = md5($mdp . $salt . $mail);
+  return $crypt;
 }
 
 function connecte()
 {
-    if(!isset($_SESSION["idu"]))
-    {
-        return(False);
-    }else return(True);
+  if(!isset($_SESSION["idu"]))
+  {
+    return(False);
+  }else return(True);
 }
 
 function foot(){
@@ -86,35 +85,30 @@ function foot(){
 }
 
 function headsimple(){
-    ?>
-    <div class="head sticky-top">
-    <nav class="navbar navbar-toggler navbar-light" id="primal">
-      <div class="container-fluid">
+?>
+  <nav class="navbar navbar-toggler navbar-light head sticky-top" id="primal">
+    <div class="container-fluid">
+      <div class="container">
+        <div class="row">
 
-        <div class="container ">
-          <div class="row">
+          <div class="col">
+            <a href="home.php"><img src="image/Bonumanguli8.png" width="70" class="position-absolute top-0 start-0"></a>
+          </div>
 
-            <div class="col">
-              <img src="image/Bonumanguli8.png" width="70" class="position-absolute top-0 start-0">
+          <div class="col text-center">
+            <a class="navbar-brand" href="home.php" id="textthird"><h2>Bonumanguli</h2></a>
+          </div>
+          
+          <div class="col text-end">
+            <div id="textthird">
+                <img src="image/0.png" width="70" ><br>
             </div>
-
-            <div class="col text-center">
-              <a class="navbar-brand" href="home.php" id="textthird"><h2>Bonumanguli</h2></a>
-            </div>
-
-            
-
-            <div class="col text-end">
-              <div id="textthird">
-                  <img src="image/0.png" width="70" ><br>
-              </div>
-            </div>
+          </div>
           
           </div>
         </div>
       </div>
     </nav>
-  </div>
   <?php
 }
 ?>

@@ -1,62 +1,64 @@
-span.etoile{
+span.etoile {
     color: red;
 }
-body{
+
+body {
     background-color: #0051ff;
 }
-#divmid{
+
+#divmid {
     background-color: white;
     width: auto;
     margin-left: 10%;
     margin-right: 10%;
 }
 
-#primal{
+#primal {
     background-color: #1D3786;
 }
 
-#second{
+#second {
     background-color: #EFF4FB;
 }
 
-#third{
+#third {
     background-color: #ED8607;
 }
 
-#textprimal{
+#textprimal {
     color: #1D3786;
 }
 
-#textsecond{
+#textsecond {
     color: #EFF4FB;
 }
 
-#textthird{
+#textthird {
     color: #ED8607;
 }
 
-#annonce{
+#annonce {
     box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.7);
     margin: 11%;
-    padding:3%;
+    padding: 3%;
     margin-top: 3%;
     border-radius: 15px;
 }
 
-h3{
+h3 {
     text-align: center;
     padding: 3%;
 }
 
-h5{
+h5 {
     text-align: center;
 }
 
-#divannonce{
+#divannonce {
     margin-left: auto 3%;
     margin-right: auto 3%;
 }
 
-#ann{
-    margin:5%
+#ann {
+    margin: 5%
 }
