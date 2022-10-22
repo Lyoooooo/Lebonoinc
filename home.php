@@ -1,6 +1,6 @@
 <?php
 include "fonction.php";
-session_start(); 
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -23,15 +23,12 @@ session_start();
     <div class="head sticky-top">
         <nav class="navbar navbar-toggler navbar-light" id="primal">
             <div class="container-fluid">
-
                 <div class="container">
                     <div class="row">
-
                         <div class="col-3 text-center">
                             <img src="image/Bonumanguli3.png" width="70"><br>
                             Η αρχαιότητα σε όλη τη διαδρομή
                         </div>
-
                         <div class="col-6 text-center">
                             <a class="navbar-brand" href="home.php" id="textthird">
                                 <h2>Bonumanguli</h2>
@@ -41,12 +38,7 @@ session_start();
                                 <button class="btn btn-outline-success" type="submit">Rechercher</button>
                             </form>
                         </div>
-
                         <div class="col-3 text-center">
-                            <!-- <div>
-                                <img src="image/0.png" width="50"><br>
-                                Mon compte
-                            </div> -->
                             <div class="container">
                                 <div class="row">
                                     <div class="col-6" id="textthird">
@@ -57,12 +49,11 @@ session_start();
                                             <a class="btn sdropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                                                 <div id="textthird">
                                                     <?php
-                                                        if(connecte() == false)
-                                                        {
-                                                            echo"<a href='connexion.php' style='text-decoration:none' id='textthird'><img src='image/0.png' width='50'></button><br>Mon Compte</a> </div>";
-                                                        }else{
-                                                            echo"<a href='modifuser.php' style='text-decoration:none' id='textthird'><img src='image/0.png' width='50'></button><br>Mon Compte</a> </div>";
-                                                        }
+                                                    if (connecte() == false) {
+                                                        echo "<a href='connexion.php' style='text-decoration:none' id='textthird'><img src='image/0.png' width='50'></button><br>Mon Compte</a> </div>";
+                                                    } else {
+                                                        echo "<a href='modifuser.php' style='text-decoration:none' id='textthird'><img src='image/0.png' width='50'></button><br>Mon Compte</a> </div>";
+                                                    }
 
                                                     ?>
 
@@ -241,7 +232,9 @@ session_start();
         </div>
 
 
-
+        <?php
+        foot();
+        ?>
 </body>
 
 </html>
