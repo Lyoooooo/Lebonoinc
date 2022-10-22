@@ -76,16 +76,12 @@ $pdo = connexion();
         extract($_POST);
         $mdp2 = encode($mdp2, $mail);
         if ($mdp == $mdp2) {
-            // print($mdp . "/" . $mdp2 . "/");
             if ($mdp3 == $mdp4) {
-                // print($mdp3 . "/" . $mdp4 . "/");
                 $mdp = $mdp3;
                 $mdp3 == encode($mdp, $mail);
-                // print($mdp3);
                 if ($mdp3 !== $mdp5) {
                     $mdp = $mdp3;
                     $mdp = encode($mdp, $mail);
-                    // print($mdp . "/" . $mdp5);
                     $req = "UPDATE `user` SET `mdp` = '$mdp' WHERE `user`.`idu` = $idu";
                     $resultat = mysqli_query($id, $req);
                     header("location:modifuser.php");
@@ -98,7 +94,6 @@ $pdo = connexion();
                 echo "Vos mots de passe ne sont pas identique ";
             }
         } else {
-            // print($mdp . " " . $mdp2);
             echo "Votre ancien mot de passe est faux";
         }
         // echo "modification du mot de passe réussis ! <br>";
