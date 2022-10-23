@@ -60,8 +60,8 @@ function headsimple()
               <h2>Bonumanguli</h2>
             </a>
           </div>
-
           <div class="col text-end">
+            
           <a href='modifuser.php' style='text-decoration:none' id='textthird'><img src='image/0.png' width='50'></button><br>Mon Compte</a>
           </div>
 
