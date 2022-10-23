@@ -108,9 +108,7 @@ if (isset($_POST["bouton"])) {
         </form>
       </div>
     </div><br>
-  </div>
-  <br><br><br>
-  
+  </div><br><br><br>
 </body>
 <?php
 foot()
