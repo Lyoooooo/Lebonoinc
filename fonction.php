@@ -28,7 +28,7 @@ function connecte()
 function foot()
 {
 ?>
-  <footer class='text-center text-white sticky-bottom' style='background-color: rgba(0, 0, 0, 0.904);color:white;'>
+  <footer class='text-center text-white' style='background-color: rgba(0, 0, 0, 0.904);color:white;'>
     <div class='container pt-4'>
       <section class='text-center text-light'>
         <p>
