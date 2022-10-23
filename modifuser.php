@@ -10,6 +10,13 @@ $idu = $_SESSION["idu"];
 $stmt = $pdo->prepare("SELECT * FROM user WHERE idu=?");
 $stmt->execute([$idu]);
 $user = $stmt->fetch();
+
+if (isset($_POST["bouton"])) {
+  extract($_POST);
+  $sql = "UPDATE user SET prenom=?, nom=?, pseudo=?, adresse=?, cp=?, ville=?, tel=? WHERE idu=?";
+  $pdo->prepare($sql)->execute([$prenom, $nom, $pseudo, $adresse, $cp, $ville, $tel, $idu]);
+  header("location:home.php");
+}
 ?>
 
 <!DOCTYPE html>
