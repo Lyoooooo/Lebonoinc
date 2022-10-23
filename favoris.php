@@ -35,32 +35,28 @@ headsimple();
             $stmt2->execute([$ligne["idp"]]);
             $ligne2 = $stmt2->fetch();
             $link = $ligne2["photo1"]; 
-            $nomp = $ligne2["nomp"]; 
-            ?>
-                <div id="prodfav">
+            $nomp = $ligne2["nomp"];
+            $desc = $ligne2["descri"];
+            if(strlen($desc) > 100){
+                $desc = substr($desc,0,100);
+                $desc = $desc."...";
+            }
+            $prix = $ligne2["prix"]."€";
+            
+            ?><a href="detailprod.php" style="color: black;">
+                <div id="prodfav" style="position: relative;">
                     <hr>
-                        <img src="<?php echo"$link"?>" width="50">
-                        <?php echo"$nomp"?>
+                    
+                        <img src="<?php echo"$link"?>" width="80">
+                        <span style="font-weight: bold; margin-right: 2%;"><?php echo"$nomp"?></span>
+                        <span style="margin-right: 10%;"><?php echo"$desc"?></span>
+                        <span style="margin-right: 1%; text-align: left; position: absolute; left: 90%; top: 40%;"><?php echo"$prix"?></span>
+                    
                     <hr>
                 </div>
+            </a>
             <?php
-        }
-    //     if ($ligne) {
-    //         session_start();
-    //         $_SESSION["idu"] = $ligne["idu"];
-    //         $_SESSION["nom"] = $ligne["nom"];
-    //         $_SESSION["prenom"] = $ligne["prenom"];
-    //         $_SESSION["grade"] = $ligne["grade"];
-    //         header("location:home.php");
-    //         // if ($_SESSION["grade"] == 1) {
-    //         //     header("location:admin.php");
-    //         // } else {
-    //         //     
-    //         // }
-    //     } else {
-    //         echo "Mail ou mot de passe incorrect !";
-    //     }
-    // ?>
+        }?> <br>
   </div>
 </body>
 </html>
