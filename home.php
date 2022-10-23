@@ -230,11 +230,12 @@ session_start();
 
 
         </div>
+    </div>
 
-
-        <?php
-        foot();
-        ?>
+    <?php
+    foot();
+    ?>
+    
 </body>
 
 </html>
