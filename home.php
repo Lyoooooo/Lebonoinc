@@ -50,7 +50,7 @@ session_start();
                                                 <div id="textthird">
                                                     <?php
                                                     if (connecte() == false) {
-                                                        echo "<a href='connexion.php' style='text-decoration:none' id='textthird'><img src='image/0.png' width='50'></button><br>Mon Compte</a> </div>";
+                                                        echo "<a href='connexion.php' style='text-decoration:none' id='textthird'><img src='image/0.png' width='50'></button><br>Me Connecter</a> </div>";
                                                     } else {
                                                         echo "<a href='modifuser.php' style='text-decoration:none' id='textthird'><img src='image/0.png' width='50'></button><br>Mon Compte</a> </div>";
                                                     }
