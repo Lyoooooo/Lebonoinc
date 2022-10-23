@@ -30,6 +30,7 @@ if (isset($_POST["bouton"])) {
     $sql = "INSERT INTO produit VALUES (?,?,?,?,?,?,?,?,?,?,?)";
     $pdo->prepare($sql)->execute([null, $_SESSION["idu"], $nomp, $descri, $prix, $photo1, $photo2, $photo3, $etat, 0, date("Y-m-d H:i:s")]);
     echo "<h3>Votre annonce a bien été enregistrée ! <br>Retour à l'accueil...</h3>";
+    header("refresh:2;url=home.php");
   } else {
     echo "<h3><span class='erreur'>Photo non valide</span></h3>";
   }

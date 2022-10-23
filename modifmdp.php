@@ -84,17 +84,18 @@ $pdo = connexion();
                     $mdp = encode($mdp, $mail);
                     $req = "UPDATE `user` SET `mdp` = '$mdp' WHERE `user`.`idu` = $idu";
                     $resultat = mysqli_query($id, $req);
-                    header("location:modifuser.php");
+                    echo "<h3>Votre mot de passe à bien été modifié ! <br>Retour à votre profil...</h3>";
+                    header("refresh:2;url=modifuser.php");
                     // $sql = "UPDATE `user` SET (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
                     // $pdo->prepare($sql)->execute([null, $prenom, $nom, $mail, $mdp, $pseudo, $genre, $adresse, $cp, $ville, $tel, $anniv, 0, 0]);
                 } else {
-                    echo "votre nouveau mot de passe est identique à votre ancien mot de passe";
+                    echo "<h3>votre nouveau mot de passe est identique à votre ancien mot de passe</h3>";
                 }
             } else {
-                echo "Vos mots de passe ne sont pas identique ";
+                echo "<h3>Vos mots de passe ne sont pas identique</h3> ";
             }
         } else {
-            echo "Votre ancien mot de passe est faux";
+            echo "<h3>Votre ancien mot de passe est faux</h3>";
         }
         // echo "modification du mot de passe réussis ! <br>";
 
