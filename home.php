@@ -194,7 +194,7 @@ $pdo = connexion();
                                 <div class="card-body">
                                     <h5 class="card-title"><?php echo $prod1["nomp"]?></h5><br>
                                     <h5 class="card-title"><?php echo $prod1["prix"]?>€</h5><br>
-                                    <a href="detailprod.php?<?php echo $prod1["idp"]?>" class="btn btn-primary">
+                                    <a href="detailprod.php?idp=<?php echo $prod1["idp"]?>" class="btn btn-primary">
                                         <img src="image/voir.png" width="20">
                                         Voir l'annonce
                                     </a>
@@ -210,7 +210,7 @@ $pdo = connexion();
                                 <div class="card-body">
                                     <h5 class="card-title"><?php echo $prod2["nomp"]?></h5><br><br>
                                     <h5 class="card-title"><?php echo $prod2["prix"]?>€</h5>
-                                    <a href="detailprod.php?<?php echo $prod2["idp"]?>" class="btn btn-primary">
+                                    <a href="detailprod.php?idp=<?php echo $prod2["idp"]?>" class="btn btn-primary">
                                         <img src="image/voir.png" width="20">
                                         Voir l'annonce
                                     </a>
