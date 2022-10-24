@@ -43,7 +43,7 @@ headsimple();
             }
             $prix = $ligne2["prix"]."€";
             
-            ?><a href="detailprod.php" style="color: black;">
+            ?><a href="detailprod.php?idp=<?php echo"$idp"?>" style="color: black;">
                 <div id="prodfav" style="position: relative;">
                     <hr>
                     
