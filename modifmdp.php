@@ -19,13 +19,13 @@ if (isset($_POST["bouton"])) {
     if ($newmdp == $newmdp2) {
       $newmdp = encode($newmdp, $mail);
       if ($newmdp != $mdp) {
-        $mdp = encode($newmdp, $mail);
+        $mdp = $newmdp;
         $sql = "UPDATE user SET mdp=? WHERE idu=?";
         $pdo->prepare($sql)->execute([$mdp, $idu]);
         echo "<h3>Votre mot de passe à bien été modifié ! <br>Retour à votre profil...</h3>";
         header("refresh:2;url=modifuser.php");
       } else {
-        echo "<h3>votre nouveau mot de passe est identique à votre ancien mot de passe</h3>";
+        echo "<h3>Votre nouveau mot de passe est identique à votre ancien mot de passe</h3>";
       }
     } else {
       echo "<h3>Vos mots de passe ne sont pas identique</h3> ";
