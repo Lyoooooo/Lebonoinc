@@ -90,7 +90,7 @@ if (isset($_POST["bouton"])) {
         <div class="row">
           <div class="col-7">
             <div class="form-floating mb-3">
-              <textarea class="form-control" name="descri" maxlength="300" id="floatingTextarea1" placeholder="Description" rows="3" style="height: 245px" required></textarea>
+              <textarea class="form-control" name="descri" maxlength="1500" id="floatingTextarea1" placeholder="Description" rows="3" style="height: 245px" required></textarea>
               <label for="floatingTextarea1" class="form-label">Description<span class="etoile"> *</span></label>
             </div>
           </div>
