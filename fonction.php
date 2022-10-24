@@ -23,8 +23,8 @@ function connecte()
 {
     if(!isset($_SESSION["idu"]))
     {
-        return(False);
-    }else return(True);
+        return(false);
+    }else return(true);
 }
 
 function foot(){
@@ -95,7 +95,7 @@ function headsimple(){
           <div class="row">
 
             <div class="col">
-              <img src="image/Bonumanguli8.png" width="70" class="position-absolute top-0 start-0">
+              <img src="image/Bonumanguli9.png" width="70" class="position-absolute top-0 start-0">
             </div>
 
             <div class="col text-center">
