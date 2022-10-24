@@ -37,7 +37,6 @@ $idu = $_SESSION["idu"];
     $mdp = $ligne["mdp"];
     headsimple();
     ?>
-
     <div id="second">
         <div class="rounded shadow text-left">
             <div id="divmid">

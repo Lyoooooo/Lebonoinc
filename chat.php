@@ -18,9 +18,19 @@ session_start();
 </head>
 
 <body>
-    <?php
-    chat();
-    ?>
+    <div class="body">
+        <?php
+        chat();
+        ?>
+        <?php
+        $id = mysqli_connect("127.0.0.1", "root", "", "bonu");
+        $res = mysqli_query($id, "select * from user where idu='4'");
+        $ligne = mysqli_fetch_assoc($res);
+
+        $nom = $ligne["nom"];
+        $prenom = $ligne["prenom"];
+        ?>
+    </div>
 </body>
 
 </html>
