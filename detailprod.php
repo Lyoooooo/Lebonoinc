@@ -29,7 +29,13 @@ $stmt->execute([$idp]);
     $stmt = $pdo->prepare("SELECT * FROM produit WHERE idp=?");
     $stmt->execute([$idp]);
     $ligne = $stmt->fetch();
+    $titre = $ligne["nomp"];
     $desc = $ligne["descri"];
+    $prix = $ligne["prix"];
+    $etat = $ligne["etat"];
+    $photo1 = $ligne["photo1"];
+    $photo2 = $ligne["photo2"];
+    $photo3 = $ligne["photo3"];
     ?>
 
 
@@ -57,23 +63,42 @@ $stmt->execute([$idp]);
 
             <div class="row">
                 <div class="col-6">
-                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true" style="background-color: #EFF4FB; width:500px;">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true" style="background-color: #EFF4FB; width:600px; height: 300px;">
                         <div class="carousel-indicators">
+                            <?php
+                            if($photo2 != ""){                               
+                            ?>
                             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            <?php } ?>
+                            <?php
+                            if($photo3 != ""){                               
+                            ?>
                             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            <?php } ?>
                         </div>
                         <div class="carousel-inner position-relative top-0 start-0">
                             <div class="carousel-item active">
-                                <img src="image/Bonumanguli3.png" width="300" class="d-block w-5" style="margin:auto">
+                                <img src="<?php echo"$photo1"?>" height="300" class="d-block w-5" style="margin:auto">
                             </div>
+                            <?php
+                            if($photo2 != ""){                               
+                            ?>
                             <div class="carousel-item">
-                                <img src="image/voir.png" width="300" class="d-block w-5" style="margin:auto">
+                                <img src="<?php echo"$photo2"?>" width="300" class="d-block w-5" style="margin:auto">
                             </div>
+                            <?php } ?>
+                            <?php
+                            if($photo3 != ""){                               
+                            ?>
                             <div class="carousel-item">
-                                <img src="image/vide.png" width="300" class="d-block w-5" style="margin:auto">
+                                <img src="<?php echo"$photo3"?>" width="300" class="d-block w-5" style="margin:auto">
                             </div>
+                            <?php } ?>
                         </div>
+                        <?php
+                            if($photo2 != ""){                               
+                        ?>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Previous</span>
@@ -82,16 +107,17 @@ $stmt->execute([$idp]);
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Next</span>
                         </button>
+                        <?php } ?>
                     </div>
                 </div>
 
-                <div class="col-6">
-                    <h3>Titre annonce</h3>
-                    <div style="text-align: left;">
-                        <?php
-                        echo $desc;
-                        ?>
-                    </div>
+                <div class="col-6" >
+                    <h3 id="textthird"><?php echo"$titre"?></h3>
+                        <div style="text-align: left;">
+                            <span style="word-wrap: break-word;"><?php
+                                echo "$desc";
+                            ?></span>
+                        </div>
 
 
                 </div>
@@ -100,10 +126,10 @@ $stmt->execute([$idp]);
         <div class="container text-center">
             <div class="row">
                 <div class="col">
-                    <a class="btn" id="third">Etat : </a>
+                    <a class="btn" id="third">Etat : <?php echo"$etat"?></a>
                 </div>
                 <div class="col">
-                    <a class="btn" id="third">Prix : </a>
+                    <a class="btn" id="third">Prix : <?php echo"$prix"?>€</a>
                 </div>
             </div>
         </div><br>
