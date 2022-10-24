@@ -99,14 +99,14 @@ a#textthird:hover{
     box-sizing: inherit;
   }
   
-  /* body {
+  .body {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     background-image: var(--body-bg);
     font-family: Helvetica, sans-serif;
-  } */
+  }
   
   .msger {
     display: flex;
