@@ -117,6 +117,7 @@ function headermain()
     </div>
   </nav>
 <?php
+}
 
 function bighead($idu)
 {
