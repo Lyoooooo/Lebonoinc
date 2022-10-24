@@ -62,8 +62,8 @@ function headsimple()
             </a>
           </div>
           <div class="col text-end">
-            
-          <a href='modifuser.php' style='text-decoration:none' id='textthird'><img src='image/0.png' width='50'></button><br>Mon Compte</a>
+
+            <a href='modifuser.php' style='text-decoration:none' id='textthird'><img src='image/0.png' width='50'></button><br>Mon Compte</a>
           </div>
 
         </div>
@@ -87,7 +87,7 @@ function chat()
 
     <main class="msger-chat">
       <div class="msg left-msg">
-        <div class="msg-img" style="background-image: url(https://image.flaticon.com/icons/svg/327/327779.svg)"></div>
+        <div class="msg-img" style="background-image: url(https://image.flaticon.com/icons/svg/32)"></div>
 
         <div class="msg-bubble">
           <div class="msg-info">
