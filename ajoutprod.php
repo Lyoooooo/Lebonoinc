@@ -81,7 +81,7 @@ if (isset($_POST["bouton"])) {
           </div>
           <div class="col-3">
             <div class="input-group">
-              <input type="number" name="prix" min="0" class="form-control" id="prix" placeholder="Prix"required>
+              <input type="number" name="prix" min="0" step="0.01" class="form-control" id="prix" placeholder="Prix" required>
               <span class="input-group-text">€</span>
             </div>
           </div>
