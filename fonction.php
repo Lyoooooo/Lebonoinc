@@ -74,6 +74,20 @@ function headsimple()
 }
 function chat()
 {
+  $id = mysqli_connect("127.0.0.1", "root", "", "bonu");
+  if (isset($_POST["bouton"])) {
+    if (!isset($_POST["message"]) || empty($_POST["message"])) {
+      $erreur1 = "Vous avez oublié de saisir votre message SVP!!!";
+    } else {
+
+      $idp = $_POST["idp"];
+      $idu = $_POST["idu"];
+      $mess = $_POST["mess"];
+      $date = $_POST["date"];
+      $req = "insert into messages values (null,'$idp','$idu','$mess',now())";
+      $resultat = mysqli_query($id, $req);
+    }
+  }
 ?>
   <section class="msger">
     <header class="msger-header">
