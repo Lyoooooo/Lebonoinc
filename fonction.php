@@ -1,120 +1,127 @@
 <?php
-
 function connexion()
 {
-    try {
-        $pdo = new PDO('mysql:dbname=bonu;host=127.0.0.1', 'root', ''); 
-        $pdo->exec("SET CHARACTER SET utf8mb4");
-    } catch (PDOException $e) {
-        $pdo = new PDO('mysql:dbname=bonu;host=127.0.0.1;port=3307', 'root', ''); 
-        $pdo->exec("SET CHARACTER SET utf8mb4");
-    }
-    return $pdo;
+  try {
+    $pdo = new PDO('mysql:dbname=bonu;host=127.0.0.1', 'root', '');
+    $pdo->exec("SET CHARACTER SET utf8mb4");
+  } catch (PDOException $e) {
+    $pdo = new PDO('mysql:dbname=bonu;host=127.0.0.1;port=3307', 'root', '');
+    $pdo->exec("SET CHARACTER SET utf8mb4");
+  }
+  return $pdo;
 }
 
 function encode($mdp, $mail)
 {
-    $salt = "@|-°+==00001ddQ";
-    $crypt = md5($mdp . $salt . $mail);
-    return $crypt;
+  $salt = "@|-°+==00001ddQ";
+  $crypt = md5($mdp . $salt . $mail);
+  return $crypt;
 }
 
 function connecte()
 {
-    if(!isset($_SESSION["idu"]))
-    {
-        return(false);
-    }else return(true);
+  if (!isset($_SESSION["idu"])) {
+    return False;
+  } else return True;
 }
 
-function foot(){
-    ?>
-    <div class="corpsacc sticky-bottom">
-        <footer class='text-center text-white ' style='background-color: rgba(0, 0, 0, 0.904);color:white;'>
-            <!-- Grid container -->
-            <div class='container pt-4'>
-                <!-- Section: Social media -->
-                <section class='mb-4'>
-                    <!-- Facebook -->
-                    <a class='btn btn-link btn-floating btn-lg text-light m-1' href='#!' role='button' data-mdb-ripple-color='light'><i class='bi bi-facebook'></i></a>
-
-                    <!-- Twitter -->
-                    <a class='btn btn-link btn-floating btn-lg text-light m-1' href='#!' role='button' data-mdb-ripple-color='light'><i class='bi bi-twitter'></i></a>
-
-                    <!-- Google -->
-                    <a class='btn btn-link btn-floating btn-lg text-light m-1' href='#!' role='button' data-mdb-ripple-color='light'><i class='bi bi-google'></i></a>
-
-                    <!-- Instagram -->
-                    <a class='btn btn-link btn-floating btn-lg text-light m-1' href='#!' role='button' data-mdb-ripple-color='light'><i class='bi bi-instagram'></i></a>
-
-                    <!-- Linkedin -->
-                    <a class='btn btn-link btn-floating btn-lg text-light m-1' href='#!' role='button' data-mdb-ripple-color='light'><i class='bi bi-linkedin'></i></a>
-                    <!-- Github -->
-                    <a class='btn btn-link btn-floating btn-lg text-light m-1' href='#!' role='button' data-mdb-ripple-color='light'><i class='bi bi-github'></i></a>
-                </section>
-
-
-
-                <!-- Section: Social media -->
-                <section class='text-center text-light'>
-
-                    <p>
-                        Bonumanguli est un site deposée par ECE Bachelor. <br>
-                        Tous droits réservés.
-                    </p>
-
-
-
-                </section>
-            </div>
-            <!-- Grid container -->
-
-
-
-
-            <!-- Copyright -->
-            <div class='text-center text-light p-3' style='background-color: rgba(0, 0, 0, 0.2);'>
-                © 2022 M.V.S <br>
-                <!-- Mentions légales :
-                <a href="https://www.flaticon.com/fr/icones-gratuites/avatar" title="avatar icônes">Avatar icônes créées par Prosymbols Premium - Flaticon</a> -->
-            </div>
-
-            <!-- Copyright -->
-        </footer>
+function foot()
+{
+?>
+  <footer class='text-center text-white' style='background-color: rgba(0, 0, 0, 0.904);color:white; width: 100%;'>
+    <div class='container pt-4'>
+      <section class='text-center text-light'>
+        <p>
+          Bonumanguli est un site deposé par ECE Bachelor. <br>
+          Tous droits réservés.
+        </p>
+      </section>
     </div>
-    <?php
+    <div class='text-center text-light p-3' style='background-color: rgba(0, 0, 0, 0.2);'>
+      © 2022 BONUM<br>
+    </div>
+  </footer>
+<?php
 }
 
-function headsimple(){
-    ?>
-    <div class="head sticky-top">
-    <nav class="navbar navbar-toggler navbar-light" id="primal">
-      <div class="container-fluid">
+function headsimple()
+{
+?>
+  <nav class="navbar head sticky-top" id="primal" style="margin-bottom: 2%;">
+    <div class="container-fluid">
+      <div class="container">
+        <div class="row">
 
-        <div class="container ">
-          <div class="row">
+          <div class="col">
+            <a href="home.php"><img src="image/Bonumanguli8.png" class="position-absolute top-0 start-0" style="width: 5em;"></a>
+          </div>
 
-            <div class="col">
-              <img src="image/Bonumanguli9.png" width="70" class="position-absolute top-0 start-0">
-            </div>
-
-            <div class="col text-center">
-              <a class="navbar-brand" href="home.php" id="textthird"><h2>Bonumanguli</h2></a>
-            </div>
-
+          <div class="col text-center">
+            <a class="navbar-brand" href="home.php" id="textthird">
+              <h2>Bonumanguli</h2>
+            </a>
+          </div>
+          <div class="col text-end">
             
+          <a href='modifuser.php' style='text-decoration:none' id='textthird'><img src='image/0.png' width='50'></button><br>Mon Compte</a>
+          </div>
 
-            <div class="col text-end">
-              <div id="textthird">
-                  <img src="image/0.png" width="70" ><br>
-              </div>
-            </div>
-          
+        </div>
+      </div>
+    </div>
+  </nav>
+<?php
+}
+function chat()
+{
+?>
+  <section class="msger">
+    <header class="msger-header">
+      <div class="msger-header-title">
+        <i class="fas fa-comment-alt"></i>Chat
+      </div>
+      <div class="msger-header-options">
+        <span><i class="fas fa-cog"></i></span>
+      </div>
+    </header>
+
+    <main class="msger-chat">
+      <div class="msg left-msg">
+        <div class="msg-img" style="background-image: url(https://image.flaticon.com/icons/svg/327/327779.svg)"></div>
+
+        <div class="msg-bubble">
+          <div class="msg-info">
+            <div class="msg-info-name">BOT</div>
+            <div class="msg-info-time">12:45</div>
+          </div>
+
+          <div class="msg-text">
+            Hi, welcome to SimpleChat! Go ahead and send me a message. 😄
           </div>
         </div>
       </div>
-    </nav>
-  </div>
-  <?php
+
+      <div class="msg right-msg">
+        <div class="msg-img" style="background-image: url(https://image.flaticon.com/icons/svg/145/145867.svg)"></div>
+
+        <div class="msg-bubble">
+          <div class="msg-info">
+            <div class="msg-info-name">Sajad</div>
+            <div class="msg-info-time">12:46</div>
+          </div>
+
+          <div class="msg-text">
+            You can change your name in JS section!
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <form class="msger-inputarea">
+      <input type="text" class="msger-input" placeholder="Entre ton message...">
+      <button type="submit" class="msger-send-btn">Envoyer</button>
+    </form>
+  </section>
+<?php
 }
 ?>

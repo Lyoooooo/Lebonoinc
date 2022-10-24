@@ -127,12 +127,7 @@ $pdo = connexion();
     if (isset($_POST["bouton"])) {
         extract($_POST);
         $mdp2 = encode($mdp, $mail);
-        // . $pseudo . $mail . $anniv
         if ($mdp == $mdpverif) {
-            // if ($mdp < 10) {
-            //     print("veuillez rentrer un mot de passe de plus de 10 caractères");
-            // } else {
-            // }
             $stmt = $pdo->prepare("SELECT mail FROM user WHERE mail=?");
             $stmt->execute([$mail]);
             $user = $stmt->fetch();
@@ -143,7 +138,7 @@ $pdo = connexion();
                 $pdo->prepare($sql)->execute([null, $prenom, $nom, $mail, $mdp2, $pseudo, $genre, $adresse, $cp, $ville, $tel, $anniv, 0, 0]);
                 echo "Inscription réussie ! <br>Chargement de la page d'inscription...";
     ?>
-                <meta http-equiv="refresh" content="2;url=connexion.php" />
+                <meta http-equiv="refresh" content="0;url=connexion.php" />
     <?php
             }
             exit();

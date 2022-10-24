@@ -14,11 +14,6 @@ if (isset($_POST["bouton"])) {
         $_SESSION["prenom"] = $ligne["prenom"];
         $_SESSION["grade"] = $ligne["grade"];
         header("location:home.php");
-        // if ($_SESSION["grade"] == 1) {
-        //     header("location:admin.php");
-        // } else {
-        //     
-        // }
     } else {
         echo "Mail ou mot de passe incorrect !";
     }
@@ -41,7 +36,7 @@ if (isset($_POST["bouton"])) {
 
 <body id="second">
     <div class="divmid">
-        <div class="row g-3 position-absolute top-50 start-50 translate-middle rounded shadow text-center" style="background-color: #0051ff">
+        <div class="row g-3 position-absolute top-50 start-50 translate-middle rounded shadow text-center" id="primal">
             <div class="h1">
                 <h1>Formulaire de connexion</h1>
             </div>
