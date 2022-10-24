@@ -87,11 +87,11 @@ $stmt->execute([$idp]);
 
                 <div class="col-6">
                     <h3>Titre annonce</h3>
-                        <div style="text-align: left;">
-                            <?php
-                                echo $desc;
-                            ?>
-                        </div>
+                    <div style="text-align: left;">
+                        <?php
+                        echo $desc;
+                        ?>
+                    </div>
 
 
                 </div>
@@ -107,18 +107,16 @@ $stmt->execute([$idp]);
                 </div>
             </div>
         </div><br>
+        <a href="chat.php">Contacter le vendeur</a>
     </div>
 
     <br><br><br>
-
-
-
 
     </div>
     </div>
 
     <?php
-        foot();
+    foot();
     ?>
 
 </body>
