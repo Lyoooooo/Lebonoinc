@@ -116,7 +116,8 @@ function headermain()
       </div>
     </div>
   </nav>
-  <?php
+<?php
+}
 
   function bighead($idu)
   {
@@ -144,10 +145,6 @@ function headermain()
               </div>
 
               <div class="col-3 text-center">
-                <!-- <div>
-                                <img src="image/0.png" width="50"><br>
-                                Mon compte
-                            </div> -->
                 <div class="container">
                   <div class="row">
                     <div class="col-6" id="textthird">
@@ -197,7 +194,7 @@ function headermain()
     </div>
   <?php
   }
-}
+
 function chat()
 {
   $id = mysqli_connect("127.0.0.1", "root", "", "bonu");
