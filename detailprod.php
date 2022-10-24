@@ -1,3 +1,12 @@
+<?php
+include "fonction.php";
+session_start();
+$pdo = connexion();
+$idp = $_GET["idp"];
+$stmt = $pdo->prepare("UPDATE produit SET vu = vu + 1 WHERE idp=?");
+$stmt->execute([$idp]);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

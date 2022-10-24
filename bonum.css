@@ -99,14 +99,14 @@ a#textthird:hover{
     box-sizing: inherit;
   }
   
-  .body{
+  /* body {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     background-image: var(--body-bg);
     font-family: Helvetica, sans-serif;
-  }
+  } */
   
   .msger {
     display: flex;
@@ -238,4 +238,20 @@ a#textthird:hover{
     margin-left: 1%;
     margin-right: 1%;
     background-color: rgba(65, 105, 225, 0.096);
+}
+
+a:link {
+    text-decoration: none;
+}
+  
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:active {
+    text-decoration: underline;
 }

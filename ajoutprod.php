@@ -2,7 +2,7 @@
 include "fonction.php";
 session_start();
 if (connecte() == False) {
-  header("refresh:0;url=connexion.php");
+  header("location:connexion.php");
 }
 $pdo = connexion();
 $extensions = array('jpg', 'jpeg', 'png');

@@ -1,6 +1,7 @@
 <?php
 include "fonction.php";
 session_start();
+$pdo = connexion();
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +43,7 @@ session_start();
                             <div class="container">
                                 <div class="row">
                                     <div class="col-6" id="textthird">
-                                        <br><button class="btn btn-transparent" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><img src="image/vide.png" width="30"></button><br>Mes favoris
+                                        <br><a href="favoris.php"><button class="btn btn-transparent" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><img src="image/vide.png" width="37"></a></button><br>Mes favoris
                                     </div>
                                     <div class="col-6">
                                         <div class="dropdown">
@@ -153,8 +154,6 @@ session_start();
         </nav>
     </div>
 
-
-
     <div id="divmid">
         <div id="divannonce">
 
@@ -177,20 +176,28 @@ session_start();
                 </div>
             </div>
 
+    <?php 
+        $stmt = $pdo->prepare("SELECT * FROM produit ORDER BY vu");
+        $stmt->execute();
+        $prod1 = $stmt->fetch();
+        $prod2 = $stmt->fetch();
+        $prod3 = $stmt->fetch();
+    ?>
 
             <div class="container">
                 <div class="row">
                     <div class="col">
                         <div id="annonce">
                             <div class="card">
-                                <img src="image/0.png" class="card-img-top" alt="...">
+                                <img src="<?php echo $prod1["photo1"]?>" class="card-img-top" alt="...">
 
                                 <div class="card-body">
-                                    <h5 class="card-title">Annonce 1</h5>
-                                    <p class="card-text">Voci le titre et une bio du produit.</p>
-                                    <a href="detailprod.php" class="btn btn-primary">
+                                    <h5 class="card-title"><?php echo $prod1["nomp"]?></h5><br>
+                                    <h5 class="card-title"><?php echo $prod1["prix"]?>€</h5><br>
+                                    <a href="detailprod.php?idp=<?php echo $prod1["idp"]?>" class="btn btn-primary">
                                         <img src="image/voir.png" width="20">
-                                        Voir l'annonce</a>
+                                        Voir l'annonce
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -198,29 +205,31 @@ session_start();
                     <div class="col">
                         <div id="annonce">
                             <div class="card">
-                                <img src="image/0.png" class="card-img-top" alt="...">
+                                <img src="<?php echo $prod2["photo1"]?>" class="card-img-top" alt="...">
 
                                 <div class="card-body">
-                                    <h5 class="card-title">Annonce 2</h5>
-                                    <p class="card-text">Voci le titre et une bio du produit.</p>
-                                    <a href="detailprod.php" class="btn btn-primary">
+                                    <h5 class="card-title"><?php echo $prod2["nomp"]?></h5><br><br>
+                                    <h5 class="card-title"><?php echo $prod2["prix"]?>€</h5>
+                                    <a href="detailprod.php?idp=<?php echo $prod2["idp"]?>" class="btn btn-primary">
                                         <img src="image/voir.png" width="20">
-                                        Voir l'annonce</a>
+                                        Voir l'annonce
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col">
+                    <<div class="col">
                         <div id="annonce">
                             <div class="card">
-                                <img src="image/0.png" class="card-img-top" alt="...">
+                                <img src="<?php echo $prod3["photo1"]?>" class="card-img-top" alt="...">
 
                                 <div class="card-body">
-                                    <h5 class="card-title">Annonce 3</h5>
-                                    <p class="card-text">Voci le titre et une bio du produit.</p>
-                                    <a href="detailprod.php" class="btn btn-primary">
+                                    <h5 class="card-title"><?php echo $prod3["nomp"]?></h5><br><br>
+                                    <h5 class="card-title"><?php echo $prod3["prix"]?>€</h5>
+                                    <a href="detailprod.php?<?php echo $prod3["idp"]?>" class="btn btn-primary">
                                         <img src="image/voir.png" width="20">
-                                        Voir l'annonce</a>
+                                        Voir l'annonce
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -230,11 +239,12 @@ session_start();
 
 
         </div>
+    </div>
 
-
-        <?php
-        foot();
-        ?>
+    <?php
+    foot();
+    ?>
+    
 </body>
 
 </html>
