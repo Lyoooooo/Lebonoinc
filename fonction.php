@@ -47,25 +47,71 @@ function foot()
 function headsimple()
 {
 ?>
-  <nav class="navbar head sticky-top" id="primal" style="margin-bottom: 2%;">
+  <nav class="navbar head sticky-top" id="primal" style="margin-bottom: 1%;">
     <div class="container-fluid">
       <div class="container">
         <div class="row">
 
-          <div class="col">
+          <div class="col-3">
             <a href="home.php"><img src="image/Bonumanguli8.png" class="position-absolute top-0 start-0" style="width: 5em;"></a>
           </div>
 
-          <div class="col text-center">
-            <a class="navbar-brand" href="home.php" id="textthird">
+          <div class="col-6 text-center">
+            <a href="home.php" id="textthird">
               <h2>Bonumanguli</h2>
             </a>
           </div>
-          <div class="col text-end">
+          <div class="col-3 text-end">
 
             <a href='modifuser.php' style='text-decoration:none' id='textthird'><img src='image/0.png' width='50'></button><br>Mon Compte</a>
           </div>
 
+        </div>
+      </div>
+    </div>
+  </nav>
+<?php
+}
+
+function headermain()
+{
+?>
+  <nav class="navbar head sticky-top" id="primal">
+    <div class="container-fluid">
+      <div class="container"> 
+        <div class="row">
+          <div class="col-3">
+            <img src="image/Bonumanguli3.png" width="100" style="float:left"><br><br><br><br>
+            <span id="textthird" style="float:left;">Η αρχαιότητα σε όλη τη διαδρομή</span>
+          </div>
+          <div class="col-6 text-center">
+            <a href="home.php" id="textthird">
+              <h2>Bonumanguli</h2>
+            </a>
+            <form action="recherche.php" class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Rechercher">
+              <button class="btn btn-outline-success" type="submit">Rechercher</button>
+            </form>
+          </div>
+          <div class="col-3 text-center">
+            <div class="container">
+              <div class="row">
+                <div class="col-6" id="textthird">
+                  <br><a href="favoris.php"><button class="btn btn-transparent" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><img src="image/vide.png" width="37"></a></button><br>Mes favoris
+                </div>
+                <div class="col-6" id="textthird">
+                  <a class="btn sdropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                  <?php
+                    if (connecte() == false) {
+                      echo "<a href='connexion.php' style='text-decoration:none' id='textthird'><img src='image/0.png' width='50'></button><br>Me Connecter</a> </div>";
+                    }else {
+                      echo "<a href='modifuser.php' style='text-decoration:none' id='textthird'><img src='image/0.png' width='50'></button><br>Mon Compte</a> </div>";
+                    }
+                  ?>                            
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
