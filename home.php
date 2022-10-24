@@ -1,6 +1,7 @@
 <?php
 include "fonction.php";
 session_start();
+$pdo = connexion();
 ?>
 
 <!DOCTYPE html>

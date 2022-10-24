@@ -28,7 +28,7 @@ function connecte()
 function foot()
 {
 ?>
-  <footer class='text-center text-white' style='background-color: rgba(0, 0, 0, 0.904);color:white;'>
+  <footer class='text-center text-white' style='background-color: rgba(0, 0, 0, 0.904);color:white; width: 100%;'>
     <div class='container pt-4'>
       <section class='text-center text-light'>
         <p>
@@ -38,7 +38,7 @@ function foot()
       </section>
     </div>
     <div class='text-center text-light p-3' style='background-color: rgba(0, 0, 0, 0.2);'>
-      © 2022 M.V.S <br>
+      © 2022 BONUM<br>
     </div>
   </footer>
 <?php

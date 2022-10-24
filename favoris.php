@@ -1,11 +1,10 @@
 <?php
 include "fonction.php";
 session_start();
-// if (connecte() == False) {
-//   header("refresh:0;url=connexion.php");
-// }
 $pdo = connexion();
-$extensions = array( 'jpg' , 'jpeg' , 'png' );
+if (connecte() == False) {
+   header("refresh:0;url=connexion.php");
+}
 headsimple();
 ?>
 <!DOCTYPE html>
@@ -31,6 +30,7 @@ headsimple();
         $stmt = $pdo->prepare("SELECT * FROM fav WHERE idu=?");
         $stmt->execute([$idu]);
         while($ligne = $stmt->fetch()){
+            $idp = $ligne["idp"];
             $stmt2 = $pdo->prepare("SELECT * FROM produit WHERE idp=?");
             $stmt2->execute([$ligne["idp"]]);
             $ligne2 = $stmt2->fetch();
@@ -50,13 +50,19 @@ headsimple();
                         <img src="<?php echo"$link"?>" width="80">
                         <span style="font-weight: bold; margin-right: 2%;"><?php echo"$nomp"?></span>
                         <span style="margin-right: 10%;"><?php echo"$desc"?></span>
-                        <span style="margin-right: 1%; text-align: left; position: absolute; left: 90%; top: 40%;"><?php echo"$prix"?></span>
-                    
+                        <span style="margin-right: 1%; text-align: left; position: absolute; left: 85%; top: 40%;"><?php echo"$prix"?></span>
+                        <a href="delete.php?idp=<?php echo"$idp"?>" style="margin-right: 1%; text-align: left; position: absolute; left: 95%; top: 40%;"><img src="image/delete.png" width="20"></a>
                     <hr>
                 </div>
             </a>
             <?php
         }?> <br>
   </div>
-</body>
+  <div style="position: absolute; top: 100%; width: 100%;">
+<?php
+    foot();
+?>
+</div>
+</body><br>
+    
 </html>
