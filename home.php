@@ -34,7 +34,7 @@ headermain();
                     </div>
 
                     <div class="col-6">
-                        <h3>Annonces les plus vus</h3>
+                        <h3>Annonces les plus vues</h3>
                     </div>
 
                     <div class="col-3">
@@ -45,7 +45,7 @@ headermain();
 
             <?php
             $stmt = $pdo->prepare("SELECT * FROM produit ORDER BY vu DESC");
-            $stmt->execute(["vu"]);
+            $stmt->execute();
             $prod1 = $stmt->fetch();
             $prod2 = $stmt->fetch();
             $prod3 = $stmt->fetch();
@@ -56,7 +56,7 @@ headermain();
                     <div class="col">
                         <div id="annonce">
                             <div class="card" style="height: 25rem;">
-                                <div style="width: 100%; height: 100%;">
+                                <div style="width: 100%; height: 100%; overflow: hidden;">
                                     <img src="<?php echo $prod1["photo1"] ?>" height="50%" class="d-block w-5" style="margin:auto">
 
                                     <div class="card-body" style="width: 100%; height: 50%;">
@@ -74,7 +74,7 @@ headermain();
                     <div class="col">
                         <div id="annonce">
                             <div class="card" style="height: 25rem;">
-                                <div style="width: 100%; height: 100%;">
+                                <div style="width: 100%; height: 100%; overflow: hidden;">
                                     <img src="<?php echo $prod2["photo1"] ?>" height="50%" class="d-block w-5" style="margin:auto">
 
                                     <div class="card-body" style="width: 100%; height: 50%;">
@@ -92,7 +92,7 @@ headermain();
                     <div class="col">
                         <div id="annonce">
                             <div class="card" style="height: 25rem;">
-                                <div style="width: 100%; height: 100%;">
+                                <div style="width: 100%; height: 100%; overflow: hidden;">
                                     <img src="<?php echo $prod3["photo1"] ?>" height="50%" class="d-block w-5" style="margin:auto">
 
                                     <div class="card-body" style="width: 100%; height: 50%;">
@@ -134,7 +134,7 @@ headermain();
             </div>
 
             <?php
-            $stmt = $pdo->prepare("SELECT * FROM produit ORDER BY vu");
+            $stmt = $pdo->prepare("SELECT * FROM produit ORDER BY idp DESC");
             $stmt->execute();
             $prod1 = $stmt->fetch();
             $prod2 = $stmt->fetch();
@@ -146,7 +146,7 @@ headermain();
                     <div class="col">
                         <div id="annonce">
                             <div class="card" style="height: 25rem;">
-                                <div style="width: 100%; height: 100%;">
+                                <div style="width: 100%; height: 100%; overflow: hidden;">
                                     <img src="<?php echo $prod1["photo1"] ?>" height="50%" class="d-block w-5" style="margin:auto">
 
                                     <div class="card-body" style="width: 100%; height: 50%;">
@@ -164,7 +164,7 @@ headermain();
                     <div class="col">
                         <div id="annonce">
                             <div class="card" style="height: 25rem;">
-                                <div style="width: 100%; height: 100%;">
+                                <div style="width: 100%; height: 100%; overflow: hidden;">
                                     <img src="<?php echo $prod2["photo1"] ?>" height="50%" class="d-block w-5" style="margin:auto">
 
                                     <div class="card-body" style="width: 100%; height: 50%;">
@@ -182,7 +182,7 @@ headermain();
                     <div class="col">
                         <div id="annonce">
                             <div class="card" style="height: 25rem;">
-                                <div style="width: 100%; height: 100%;">
+                                <div style="width: 100%; height: 100%; overflow: hidden;">
                                     <img src="<?php echo $prod3["photo1"] ?>" height="50%" class="d-block w-5" style="margin:auto">
 
                                     <div class="card-body" style="width: 100%; height: 50%;">
