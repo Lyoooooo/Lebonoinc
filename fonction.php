@@ -304,11 +304,11 @@ function prix_desc($elem1, $elem2)
 function vu_asc($elem1, $elem2) {
   $p1 = $elem1['vu'];
   $p2 = $elem2['vu'];
-  return $p1 - $p2;
+  return $p2 - $p1;
 } 
 
 function vu_desc($elem1, $elem2) {
   $p1 = $elem1['vu'];
   $p2 = $elem2['vu'];
-  return $p2 - $p1;
+  return $p1 - $p2;
 } 
