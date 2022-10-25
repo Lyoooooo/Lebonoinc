@@ -53,7 +53,7 @@ function headsimple()
         <div class="row">
 
           <div class="col-3">
-            <a href="home.php"><img src="image/Bonumanguli8.png" class="position-absolute top-0 start-0" style="width: 5em;"></a>
+            <a href="home.php"><img src="image/Bonumanguli8.png" style="width: 5em;"></a>
           </div>
 
           <div class="col-6 text-center">
@@ -82,9 +82,9 @@ function headermain()
     <div class="container-fluid">
       <div class="container">
         <div class="row">
-          <div class="col-3">
-            <img src="image/Bonumanguli3.png" width="100" style="float:left"><br><br><br><br>
-            <span id="textthird" style="float:left;" class="">Η αρχαιότητα σε όλη τη διαδρομή</span>
+          <div class="col-3" style="text-align:center;">
+            <img src="image/Bonumanguli8.png" width="100" ><br>
+            <span id="textthird"  class="">Η αρχαιότητα σε όλη τη διαδρομή</span>
           </div>
           <div class="col-6 text-center">
             <a href="home.php" id="textthird" style="text-decoration:none">
@@ -101,8 +101,7 @@ function headermain()
             <div class="container">
               <div class="row">
                 <div class="col-6" id="textthird">
-                  <br>
-                  <a href="favoris.php" style="text-decoration:none" id='textthird'><img src='image/vide.png' width='37' class='mt-4'></button><br>Mes favoris</a>
+                  <a href="favoris.php" style="text-decoration:none" id='textthird'><img src='image/vide.png' width='50' class='mt-4'></button><br>Mes favoris</a>
                 </div>
                 <div class="col-6" id="textthird">
                   <?php
