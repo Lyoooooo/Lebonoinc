@@ -76,6 +76,8 @@ function headsimple()
 function headermain()
 {
 ?>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
   <nav class="navbar head sticky-top" id="primal">
     <div class="container-fluid">
       <div class="container">
@@ -103,46 +105,43 @@ function headermain()
                   <a href="favoris.php" style="text-decoration:none" id='textthird'><img src='image/vide.png' width='37' class='mt-4'></button><br>Mes favoris</a>
                 </div>
                 <div class="col-6" id="textthird">
-                  <a class="btn sdropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                    <?php
-                    if (connecte() == false) {
-                      echo "<a href='connexion.php' style='text-decoration:none' id='textthird' ><img src='image/0.png' width='50'class='mt-5'></button><br>Me Connecter</a> </div>";
-                    } else {
-                      echo "
-                      <a class='btn sdropdown-toggle' href='#' role='button' id='dropdownMenuLink' data-bs-toggle='dropdown' aria-expanded='false'>
-                      <button class='btn bg-transparent' id='textthird' type='button' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRight' aria-controls='offcanvasRight'><img src='image/0.png' width='50' class='mt-3'><br> Mon Compte</button>
+                  <?php
+                  if (connecte() == false) {
+                    echo "<a href='connexion.php' style='text-decoration:none' id='textthird' ><img src='image/0.png' width='50'class='mt-5'></button><br>Me Connecter</a> </div>";
+                  } else {
+                    echo "
+                    <button class='btn bg-transparent' type='button' data-bs-toggle='offcanvas'id='textthird' data-bs-target='#offcanvasRight' aria-controls='offcanvasRight'><img src='image/0.png' width='50' class='mt-3'><br> Mon Compte</button>
 
-                      <div class='offcanvas offcanvas-end' tabindex='-1' id='offcanvasRight' aria-labelledby='offcanvasRightLabel'>
+                    <div class='offcanvas offcanvas-end' tabindex='-1' id='offcanvasRight' aria-labelledby='offcanvasRightLabel'>
                         <div class='offcanvas-header'>
-                          <!-- <h5 id='offcanvasRightLabel'>Offcanvas right</h5> -->
-                          <button type='button' class='btn-close text-reset' data-bs-dismiss='offcanvas' aria-label='Close'></button>
+                            <button type='button' class='btn-close' data-bs-dismiss='offcanvas' aria-label='Close'></button>
                         </div>
                         <div class='offcanvas-body'>
-                          <a href='mesproduits.php'>Mes Annonces</a><br>
-                          <a href='mesmessages.php'>Mes Messages</a><br>
-                          <a href='modifuser.php'>Mon Compte</a><br>
+                            <a href='mesproduits.php'>Mes Annonces</a><br>
+                            <a href='mesmessages.php'>Mes Messages</a><br>
+                            <a href='modifuser.php'>Mon Compte</a><br>
                         </div>
-                      </div>";
+                    </div>";
 
 
 
 
-                      //   echo "<p>
-                      //   <button class='btn bg-transparent' id='textthird' type='button' data-bs-toggle='collapse' data-bs-target='#collapseWidthExample' aria-expanded='false' aria-controls='collapseWidthExample'><img src='image/0.png' width='50' class='mt-4'><br>
-                      //     Mon Compte
-                      //   </button>
-                      // </p>
-                      // <div style='min-height: 100px;'>
-                      //   <div class='collapse collapse-horizontal' id='collapseWidthExample'>
-                      //     <div class='card card-body' style='width: 200px;'>
-                      //       <a href='mesproduits.php'>Mes Annonces</a><br>
-                      //       <a href='mesmessages.php'>Mes Messages</a><br>
-                      //       <a href='modifuser.php'>Mon Compte</a><br>
-                      //     </div>
-                      //   </div>
-                      // </div>";
-                    }
-                    ?>
+                    //   echo "<p>
+                    //   <button class='btn bg-transparent' id='textthird' type='button' data-bs-toggle='collapse' data-bs-target='#collapseWidthExample' aria-expanded='false' aria-controls='collapseWidthExample'><img src='image/0.png' width='50' class='mt-4'><br>
+                    //     Mon Compte
+                    //   </button>
+                    // </p>
+                    // <div style='min-height: 100px;'>
+                    //   <div class='collapse collapse-horizontal' id='collapseWidthExample'>
+                    //     <div class='card card-body' style='width: 200px;'>
+                    //       <a href='mesproduits.php'>Mes Annonces</a><br>
+                    //       <a href='mesmessages.php'>Mes Messages</a><br>
+                    //       <a href='modifuser.php'>Mon Compte</a><br>
+                    //     </div>
+                    //   </div>
+                    // </div>";
+                  }
+                  ?>
 
 
 
@@ -290,14 +289,16 @@ function chat()
 <?php
 }
 
-function prix_acs($elem1, $elem2) {
+function prix_acs($elem1, $elem2)
+{
   $p1 = $elem1['prix'];
   $p2 = $elem2['prix'];
   return $p1 - $p2;
-} 
+}
 
-function prix_desc($elem1, $elem2) {
+function prix_desc($elem1, $elem2)
+{
   $p1 = $elem1['prix'];
   $p2 = $elem2['prix'];
   return $p2 - $p1;
-} 
+}
