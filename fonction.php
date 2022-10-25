@@ -261,26 +261,36 @@ function bighead($idu)
 function chat()
 {
   $id = mysqli_connect("127.0.0.1", "root", "", "bonu");
-  if (isset($_POST["bouton"])) {
-    if (!isset($_POST["message"]) || empty($_POST["message"])) {
-      $erreur1 = "Vous avez oublié de saisir votre message SVP!!!";
+  if (isset($_POST["Bouton"])) {
+    if (!isset($_POST["message"]) or empty($_POST["message"])) {
+      $erreur2 = "Vous avez oublié de saisir votre Message!!!";
     } else {
-
       $idp = $_POST["idp"];
       $idu = $_POST["idu"];
-      $mess = $_POST["mess"];
-      $date = $_POST["date"];
-      $req = "insert into messages values (null,'$idp','$idu','$mess',now())";
+      $mess = $_POST["message"];
+      $req = "insert into message values (null,'$idp','$idu','$mess',now())";
       $resultat = mysqli_query($id, $req);
     }
   }
-
-  ?>
+?>
   <section class="msger">
     <header class="msger-header">
       <div class="msger-header-title">
         <i class="fas fa-comment-alt"></i>Chat
       </div>
+      <table>
+        <?php
+        $req2 = "select mess,idu, date from mess order by date";
+        $resultat = mysqli_query($id, $req2);
+        while ($ligne = mysqli_fetch_assoc($resultat)) {
+          echo "<tr>
+                <td>" . $ligne["date"] . "</td>
+                <td>" . $ligne["idu"] . "</td>
+                <td>" . $ligne["message"] . "</td>
+                </tr>";
+        }
+        ?>
+      </table>
       <div class="msger-header-options">
         <span><i class="fas fa-cog"></i></span>
       </div>
@@ -319,9 +329,17 @@ function chat()
     </main>
 
     <form class="msger-inputarea">
-      <input type="text" class="msger-input" placeholder="Entre ton message...">
-      <button type="submit" class="msger-send-btn">Envoyer</button>
+      <input type="text" class="msger-input" name="mess" placeholder="Entre ton message...">
+      <button type="submit" class="msger-send-btn" name="Bouton">Envoyer</button>
     </form>
+    <?php
+    if (isset($erreur1)) {
+      echo "<div class='erreur'>$erreur1</div>";
+    }
+    if (isset($erreur2)) {
+      echo "<div class='erreur'>$erreur2</div>";
+    }
+    ?>
   </section>
 <?php
 }
