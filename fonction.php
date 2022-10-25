@@ -37,7 +37,7 @@ function foot()
         </p>
       </section>
     </div>
-    <div class='text-center text-light p-3' style='background-color: rgba(0, 0, 0);'>
+    <div class='text-center text-light p-3' style='background-color: rgba(0, 0, 0, 0.2);'>
       © 2022 BONUM<br>
     </div>
   </footer>
@@ -53,7 +53,7 @@ function headsimple()
         <div class="row">
 
           <div class="col-3">
-            <a href="home.php"><img src="image/Bonumanguli8.png" class="position-absolute top-0 start-0" style="width: 5em;"></a>
+            <a href="home.php"><img src="image/Bonumanguli8.png" style="width: 5em;"></a>
           </div>
 
           <div class="col-6 text-center">
@@ -76,13 +76,15 @@ function headsimple()
 function headermain()
 {
 ?>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
   <nav class="navbar head sticky-top" id="primal">
     <div class="container-fluid">
       <div class="container">
         <div class="row">
-          <div class="col-3">
-            <img src="image/Bonumanguli3.png" width="100" style="float:left"><br><br><br><br>
-            <span id="textthird" style="float:left;" class="">Η αρχαιότητα σε όλη τη διαδρομή</span>
+          <div class="col-3" style="text-align:center;">
+            <img src="image/Bonumanguli8.png" width="100" ><br>
+            <span id="textthird"  class="">Η αρχαιότητα σε όλη τη διαδρομή</span>
           </div>
           <div class="col-6 text-center">
             <a href="home.php" id="textthird" style="text-decoration:none">
@@ -90,6 +92,7 @@ function headermain()
             </a>
             <form action="recherche.php" method="get" class="d-flex">
               <input type="hidden" name="c" value="null">
+              <input type="hidden" name="p" value="asc">
               <input class="form-control me-2" type="search" name="r" placeholder="Rechercher">
               <button class="btn btn-outline-success" name="b" type="submit">Rechercher</button>
             </form>
@@ -98,18 +101,49 @@ function headermain()
             <div class="container">
               <div class="row">
                 <div class="col-6" id="textthird">
-                  <br>
-                  <a href="favoris.php" style="text-decoration:none" id='textthird'><img src='image/vide.png' width='37' class='mt-3'></button><br>Mes favoris</a>
+                  <a href="favoris.php" style="text-decoration:none" id='textthird'><img src='image/vide.png' width='50' class='mt-4'></button><br>Mes favoris</a>
                 </div>
                 <div class="col-6" id="textthird">
-                  <a class="btn sdropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                    <?php
-                    if (connecte() == false) {
-                      echo "<a href='connexion.php' style='text-decoration:none' id='textthird' ><img src='image/0.png' width='50'class='mt-4'></button><br>Me Connecter</a> </div>";
-                    } else {
-                      echo "<a href='modifuser.php' style='text-decoration:none' id='textthird'><img src='image/0.png' width='50' class='mt-4'></button><br>Mon Compte</a> </div>";
-                    }
-                    ?>
+                  <?php
+                  if (connecte() == false) {
+                    echo "<a href='connexion.php' style='text-decoration:none' id='textthird' ><img src='image/0.png' width='50'class='mt-5'></button><br>Me Connecter</a> </div>";
+                  } else {
+                    echo "
+                    <button class='btn bg-transparent' type='button' data-bs-toggle='offcanvas'id='textthird' data-bs-target='#offcanvasRight' aria-controls='offcanvasRight'><img src='image/0.png' width='50' class='mt-3'><br> Mon Compte</button>
+
+                    <div class='offcanvas offcanvas-end' tabindex='-1' id='offcanvasRight' aria-labelledby='offcanvasRightLabel'>
+                        <div class='offcanvas-header'>
+                            <button type='button' class='btn-close' data-bs-dismiss='offcanvas' aria-label='Close'></button>
+                        </div>
+                        <div class='offcanvas-body'>
+                            <a href='mesproduits.php'>Mes Annonces</a><br>
+                            <a href='mesmessages.php'>Mes Messages</a><br>
+                            <a href='modifuser.php'>Mon Compte</a><br>
+                        </div>
+                    </div>";
+
+
+
+
+                    //   echo "<p>
+                    //   <button class='btn bg-transparent' id='textthird' type='button' data-bs-toggle='collapse' data-bs-target='#collapseWidthExample' aria-expanded='false' aria-controls='collapseWidthExample'><img src='image/0.png' width='50' class='mt-4'><br>
+                    //     Mon Compte
+                    //   </button>
+                    // </p>
+                    // <div style='min-height: 100px;'>
+                    //   <div class='collapse collapse-horizontal' id='collapseWidthExample'>
+                    //     <div class='card card-body' style='width: 200px;'>
+                    //       <a href='mesproduits.php'>Mes Annonces</a><br>
+                    //       <a href='mesmessages.php'>Mes Messages</a><br>
+                    //       <a href='modifuser.php'>Mon Compte</a><br>
+                    //     </div>
+                    //   </div>
+                    // </div>";
+                  }
+                  ?>
+
+
+
                 </div>
               </div>
             </div>
@@ -253,4 +287,28 @@ function chat()
   </section>
 <?php
 }
-?>
+
+function prix_asc($elem1, $elem2) {
+  $p1 = $elem1['prix'];
+  $p2 = $elem2['prix'];
+  return $p1 - $p2;
+}
+
+function prix_desc($elem1, $elem2)
+{
+  $p1 = $elem1['prix'];
+  $p2 = $elem2['prix'];
+  return $p2 - $p1;
+} 
+
+function vu_asc($elem1, $elem2) {
+  $p1 = $elem1['vu'];
+  $p2 = $elem2['vu'];
+  return $p2 - $p1;
+} 
+
+function vu_desc($elem1, $elem2) {
+  $p1 = $elem1['vu'];
+  $p2 = $elem2['vu'];
+  return $p1 - $p2;
+} 

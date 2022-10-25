@@ -15,6 +15,7 @@ if($idp == 0){
     $idrec = $ligne["idu"];    
 }
 $idu = $_SESSION["idu"];
+
 $stmt = $pdo->prepare("SELECT * FROM user WHERE idu=?");
 $stmt->execute([$idrec]);
 $ligne3 = $stmt->fetch();
@@ -95,7 +96,7 @@ $nomr = $ligne3["nom"] . " " . $ligne3["prenom"];
 
             </main>
 
-            <form method="post" class="msger-inputarea" action="ajoutmess.php?idp=<?php echo "$idp" ?>">
+            <form method="post" class="msger-inputarea" action="ajoutmess.php?idp=<?php echo "$idp" ?>&idsend=<?php echo"$idrec"?>">
                 <input type="text" class="msger-input" name="mess" placeholder="Entre ton message..." required>
                 <button type="submit" class="msger-send-btn" name="Bouton">Envoyer</button>
             </form>
