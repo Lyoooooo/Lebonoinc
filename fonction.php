@@ -57,7 +57,7 @@ function headsimple()
           </div>
 
           <div class="col-6 text-center">
-            <a href="home.php" id="textthird">
+            <a href="home.php" id="textthird" style="text-decoration:none">
               <h2>Bonumanguli</h2>
             </a>
           </div>
@@ -85,7 +85,7 @@ function headermain()
             <span id="textthird" style="float:left;" class="">Η αρχαιότητα σε όλη τη διαδρομή</span>
           </div>
           <div class="col-6 text-center">
-            <a href="home.php" id="textthird">
+            <a href="home.php" id="textthird" style="text-decoration:none">
               <h2>Bonumanguli</h2>
             </a>
             <form action="recherche.php" method="get" class="d-flex">
@@ -133,7 +133,7 @@ function bighead($idu)
             <span id="textthird" style="float:left;" class="">Η αρχαιότητα σε όλη τη διαδρομή</span>
           </div>
           <div class="col-6 text-center">
-            <a href="home.php" id="textthird">
+            <a href="home.php" id="textthird" style="text-decoration:none">
               <h2>Bonumanguli</h2>
             </a>
             <form action="recherche.php" class="d-flex">
