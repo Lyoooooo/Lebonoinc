@@ -7,17 +7,49 @@ $data = $pdo->query("SELECT DISTINCT tag FROM tag")->fetchAll();
 
 $r = $_GET["r"];
 $b = $_GET["b"];
+$c = $_GET["c"];
+// if(isset($b) && !empty(trim($r))) {
+//   $words=explode(" ",trim($r));
+//   for ($i=0;$i<count($words);$i++) {
+//     $mot[$i] = "nomp like '%".$words[$i]."%'"; 
+//   }
+//   if ($c == null) {
+//     $res=$pdo->prepare("SELECT * FROM produit,tag WHERE ".implode(" OR ", $mot));
+//     $res->setFetchMode(PDO::FETCH_ASSOC);
+//     $res->execute();
+//     $tab=$res->fetchAll();
+//   } else {
+//     $res=$pdo->prepare("SELECT * FROM produit,tag WHERE tag = ? AND ".implode(" OR ", $mot));
+//     $res->setFetchMode(PDO::FETCH_ASSOC);
+//     $res->execute(array($c));
+//     $tab=$res->fetchAll();
+//   }
+//   $afficher="oui";
+// }
+
 if(isset($b) && !empty(trim($r))) {
   $words=explode(" ",trim($r));
   for ($i=0;$i<count($words);$i++) {
     $mot[$i] = "nomp like '%".$words[$i]."%'"; 
   }
-  $res=$pdo->prepare("SELECT * FROM produit WHERE ".implode(" OR ", $mot));
-  $res->setFetchMode(PDO::FETCH_ASSOC);
-  $res->execute();
-  $tab=$res->fetchAll();
-  $afficher="oui";
+  if($c == "null") {
+    $res=$pdo->prepare("SELECT * FROM produit WHERE ".implode(" OR ", $mot));
+    $res->execute();
+    $tab=$res->fetchAll();
+  } else {
+    
   }
+  var_dump($tab);
+} elseif (isset($b) && $c != "null") {
+  $res=$pdo->prepare("SELECT * FROM produit, tag WHERE produit.idp = tag.idp AND tag.tag = ?");
+  $res->execute([$c]);
+  $tab=$res->fetchAll();
+  var_dump($tab);
+} else {
+  $tab = $pdo->query("SELECT * FROM produit")->fetchAll();
+}
+
+
 
 ?>
 
@@ -42,7 +74,7 @@ if(isset($b) && !empty(trim($r))) {
     <?php
       foreach ($data as $tag) {  
     ?>
-      <option value="<?php $tag['tag'] ?>"><?php echo $tag['tag'] ?></option>
+      <option value="<?php echo $tag['tag'] ?>"><?php echo $tag['tag'] ?></option>
     <?php
       }
     ?>
@@ -52,7 +84,6 @@ if(isset($b) && !empty(trim($r))) {
     <button class="btn btn-outline-success" name="b" type="submit">Rechercher</button>
   </form>
   </div>
-  <?php if (@$afficher == "oui") { ?>
   <div class="resultat">
     <div id="divmid">
     <div class="nbr"><h2 id="textprimal"><?=count($tab). " ".(count($tab)>1?"résultats trouvés":"résultat trouvé") ?></h2></div>
@@ -77,7 +108,4 @@ if(isset($b) && !empty(trim($r))) {
     </div>  
     </div>   
   </div>
-  <?php } else {
-    echo "<h2>Aucun article n'a été trouvé...</h2>";
-  } ?>
 </body>
