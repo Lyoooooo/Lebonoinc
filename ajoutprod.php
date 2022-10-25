@@ -31,6 +31,18 @@ if (isset($_POST["bouton"])) {
     $sql = "INSERT INTO produit VALUES (?,?,?,?,?,?,?,?,?,?,?)";
     $pdo->prepare($sql)->execute([null, $_SESSION["idu"], $nomp, $descri, $prix, $photo1, $photo2, $photo3, $etat, 0, date("Y-m-d H:i:s")]);
     echo "<h3>Votre annonce a bien été enregistrée ! <br>Retour à l'accueil...</h3>";
+
+    $stmt = $pdo->prepare("SELECT idp FROM produit WHERE nomp=? and idu=?");
+    $stmt->execute([$nomp, $_SESSION["idu"]]); 
+    $prod = $stmt->fetch();
+    if(isset($_POST['categ']))
+    {
+      foreach($_POST['categ'] as $tag)
+      {
+        $sql = "INSERT INTO tag VALUES (?,?,?)";
+        $pdo->prepare($sql)->execute([null, $prod["idp"], $tag]);
+      }
+    }
     header("refresh:2;url=home.php");
   } else {
     echo "<h3><span class='erreur'>Photo non valide</span></h3>";
@@ -46,7 +58,7 @@ if (isset($_POST["bouton"])) {
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ajouter un article</title>
-  <link rel="icon" href="image/Bonumanguli5.png" />
+  <link rel="icon" href="image/Bonumanguli5.png"/>
   <link rel="stylesheet" href="bonum.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
@@ -105,27 +117,24 @@ if (isset($_POST["bouton"])) {
             <input class="form-control" name="photo3" type="file" id="formFile" accept=".png, .jpg, .jpeg">
           </div>
         </div>
-        <h5>Catégorie(s)</h5>
+        <br><h5>Catégorie(s)</h5><br>
         <?php
           foreach ($data as $row) {  
-        ?>  
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" name="<?php $row['tag']?>" name="tag[]">
+        ?>
+        <form action="" method="post">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" name="categ[]" value="<?php echo $row['tag'] ?>">
             <label class="form-check-label" for="inlineCheckbox1"><?php echo $row['tag'] ?></label>
-        </div>
+          </div>
         <?php
           }
-        ?>
-        <div class="form-floating mb-3" style="width: 33%;">      
-          <input type="text" class="form-control" name="categ" id="floatingInput" placeholder="Nouvelle catégorie">
-          <label for="floatingInput" class="form-label">Nouvelle catégorie<span class="etoile"> *</span></label>
-        </div>
+        ?><br>
         <br><br>
         <button type="submit" class="btn btn-primary" name="bouton">Poster l'annonce</button>
         </form>
       </div>
     </div><br>
-  </div><br><br><br>
+  </div><br><br>
 </body>
 <?php
 foot()

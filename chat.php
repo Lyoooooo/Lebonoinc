@@ -10,8 +10,9 @@ $pdo = connexion();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>chat</title>
     <link rel="stylesheet" href="bonum.css">
+    <link rel="icon" href="image/Bonumanguli5.png" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <script src="bonum.js"></script>
@@ -21,16 +22,87 @@ $pdo = connexion();
 <body>
     <div class="body">
         <?php
-        chat();
-        ?>
-        <?php
         $id = mysqli_connect("127.0.0.1", "root", "", "bonu");
-        $res = mysqli_query($id, "select * from user where idu='4'");
-        $ligne = mysqli_fetch_assoc($res);
-
-        $nom = $ligne["nom"];
-        $prenom = $ligne["prenom"];
+        if (isset($_POST["Bouton"])) {
+            if (!isset($_POST["message"]) or empty($_POST["message"])) {
+                $erreur2 = "Vous avez oublié de saisir votre Message!!!";
+            } else {
+                $idp = $_POST["idp"];
+                $idu = $_POST["idu"];
+                $mess = $_POST["message"];
+                $req = "insert into message values (null,'$idp','$idu','$mess',now())";
+                $resultat = mysqli_query($id, $req);
+            }
+        }
         ?>
+        <section class="msger">
+            <header class="msger-header">
+                <div class="msger-header-title">
+                    <i class="fas fa-comment-alt"></i>Chat
+                </div>
+                <table>
+                    <?php
+                    $req2 = "select mess,idu, date from mess order by date";
+                    $resultat = mysqli_query($id, $req2);
+                    while ($ligne = mysqli_fetch_assoc($resultat)) {
+                        echo "<tr>
+                <td>" . $ligne["date"] . "</td>
+                <td>" . $ligne["idu"] . "</td>
+                <td>" . $ligne["message"] . "</td>
+                </tr>";
+                    }
+                    ?>
+                </table>
+                <div class="msger-header-options">
+                    <span><i class="fas fa-cog"></i></span>
+                </div>
+            </header>
+
+            <main class="msger-chat">
+                <div class="msg left-msg">
+                    <div class="msg-img" style="background-image: url(https://image.flaticon.com/icons/svg/32)"></div>
+
+                    <div class="msg-bubble">
+                        <div class="msg-info">
+                            <div class="msg-info-name">BOT</div>
+                            <div class="msg-info-time">12:45</div>
+                        </div>
+
+                        <div class="msg-text">
+                            Hi, welcome to SimpleChat! Go ahead and send me a message. 😄
+                        </div>
+                    </div>
+                </div>
+
+                <div class="msg right-msg">
+                    <div class="msg-img" style="background-image: url(https://image.flaticon.com/icons/svg/145/145867.svg)"></div>
+
+                    <div class="msg-bubble">
+                        <div class="msg-info">
+                            <div class="msg-info-name">Sajad</div>
+                            <div class="msg-info-time">12:46</div>
+                        </div>
+
+                        <div class="msg-text">
+                            You can change your name in JS section!
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <form class="msger-inputarea">
+                <input type="text" class="msger-input" name="mess" placeholder="Entre ton message...">
+                <button type="submit" class="msger-send-btn" name="Bouton">Envoyer</button>
+            </form>
+            <?php
+            if (isset($erreur1)) {
+                echo "<div class='erreur'>$erreur1</div>";
+            }
+            if (isset($erreur2)) {
+                echo "<div class='erreur'>$erreur2</div>";
+            }
+            ?>
+        </section>
     </div>
 </body>
 

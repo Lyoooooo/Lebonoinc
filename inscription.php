@@ -45,15 +45,15 @@ $pdo = connexion();
                 </div><br>
                 <div class="col-md-4">
                     <label for="validationDefault02" class="form-label">Genre</label><span class="etoile">*</span><br>
-                    <input class="form-check-input" type="radio" name="genre" id="masculin">
+                    <input class="form-check-input" type="radio" name="genre" id="masculin" value="Masculin">
                     <label class="form-check-label" for="flexRadioDefault1">
                         Masculin
                     </label><br>
-                    <input class="form-check-input" type="radio" name="genre" id="feminin">
+                    <input class="form-check-input" type="radio" name="genre" id="feminin" value="Féminin">
                     <label class="form-check-label" for="flexRadioDefault1">
                         Féminin
                     </label><br>
-                    <input class="form-check-input" type="radio" name="genre" id="autre" checked>
+                    <input class="form-check-input" type="radio" name="genre" id="autre" checked value="Licorne">
                     <label class="form-check-label" for="flexRadioDefault1">
                         Licorne
                     </label>
