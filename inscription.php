@@ -31,19 +31,19 @@ $pdo = connexion();
                         <a href="connexion.php" class="button">SE CONNECTER</a> <br>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-4" style="margin-left:5%">
                     <label for="validationDefault01" class="form-label">Nom</label> <span class="etoile">*</span>
                     <input type="text" name="nom" class="form-control" id="" required>
                 </div><br>
-                <div class="col-md-4">
+                <div class="col-md-4" style="margin-left:5%">
                     <label for="validationDefault02" class="form-label">Prénom</label><span class="etoile">*</span>
                     <input type="text" name="prenom" class="form-control" id="" required>
                 </div><br>
-                <div class="col-md-4">
+                <div class="col-md-4" style="margin-left:5%">
                     <label for="validationDefault02" class="form-label">Pseudo</label><span class="etoile">*</span>
                     <input type="text" name="pseudo" class="form-control" id="" required>
                 </div><br>
-                <div class="col-md-4">
+                <div class="col-md-4" style="margin-left:5%">
                     <label for="validationDefault02" class="form-label">Genre</label><span class="etoile">*</span><br>
                     <input class="form-check-input" type="radio" name="genre" id="masculin" value="Masculin">
                     <label class="form-check-label" for="flexRadioDefault1">
@@ -58,40 +58,40 @@ $pdo = connexion();
                         Licorne
                     </label>
                 </div><br>
-                <div class="col-md-4">
+                <div class="col-md-4" style="margin-left:5%">
                     <label for="validationDefault02" class="form-label">Date de naissance</label><span class="etoile">*</span>
                     <input type="date" name="anniv" class="form-control" id="" required>
                 </div><br>
-                <div class="col-md-4">
+                <div class="col-md-4" style="margin-left:5%">
                     <label for="validationDefaultUsername" class="form-label">Adresse mail</label><span class="etoile">*</span>
                     <div class="input-group">
                         <span class="input-group-text" id="inputGroupPrepend2">@</span>
                         <input type="text" name="mail" class="form-control" id="" aria-describedby="inputGroupPrepend2" required>
                     </div>
                 </div><br>
-                <div class="col-md-4">
+                <div class="col-md-4" style="margin-left:5%">
                     <label for="validationDefault03" class="form-label">Adresse Postale</label><span class="etoile">*</span>
                     <input type="text" name="adresse" class="form-control" id="" required>
                 </div><br>
-                <div class="col-md-4">
+                <div class="col-md-4" style="margin-left:5%">
                     <label for="validationDefault03" class="form-label">Adresse Postale Ville</label><span class="etoile">*</span>
                     <input type="text" name="ville" class="form-control" id="" required>
                 </div><br>
-                <div class="col-md-4">
+                <div class="col-md-4" style="margin-left:5%">
                     <label for="validationDefault04" class="form-label">Code postal</label><span class="etoile">*</span>
                     <input type="text" name="cp" class="form-control" id="" required>
                     </select>
                 </div><br>
-                <div class="col-md-4">
+                <div class="col-md-4" style="margin-left:5%">
                     <label for="validationDefault04" class="form-label">N° Telephone</label><span class="etoile">*</span>
                     <input type="tel" name="tel" class="form-control" id="" required>
                     </select>
                 </div><br>
-                <div class="col-md-4">
+                <div class="col-md-4" style="margin-left:5%">
                     <label for="validationDefault05" class="form-label">Mot de passe</label><span class="etoile">*</span>
                     <input type="password" name="mdp" minlength="10" class="form-control" id="" required>
                 </div><br>
-                <div class="col-md-4">
+                <div class="col-md-4" style="margin-left:5%">
                     <label for="validationDefault06" class="form-label">Confirmer votre mot de passe</label><span class="etoile">*</span>
                     <input type="password" name="mdpverif" minlength="10" class="form-control" id="" required>
                 </div><br>
