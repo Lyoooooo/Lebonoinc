@@ -5,11 +5,11 @@ if (connecte() == False) {
     header("location:connexion.php");
 }
 $pdo = connexion();
+$idu = $_SESSION["idu"];
 $idp = $_GET["idp"];
 $stmt = $pdo->prepare("SELECT * FROM produit WHERE idp=?");
 $stmt->execute([$idp]);
-while ($ligne = $stmt->fetch()) {
-    $idp = $ligne["idp"];
+$ligne = $stmt->fetch();
     $photo1 = $ligne["photo1"];
     $photo2 = $ligne["photo2"];
     $photo3 = $ligne["photo3"];
@@ -18,7 +18,6 @@ while ($ligne = $stmt->fetch()) {
     $prix = $ligne["prix"];
     $etat = $ligne["etat"];
     $vu = $ligne["vu"];
-}
 $stmt->execute([$idp]);
 $produit = $stmt->fetch();
 $extensions = array('jpg', 'jpeg', 'png');
@@ -43,25 +42,26 @@ if (isset($_POST["bouton"])) {
         } else {
             $photo3 = "";
         }
-        $sql = "UPDATE produit SET idp=?, idu=?, nomp=?, descri=?, prix=?, photo1=?, photo2=?, photo3=?, etat=?, vu=?, dates=?, WHERE idp=?";
-        $pdo->prepare($sql)->execute([$idp, $_SESSION["idu"], $nomp, $descri, $prix, $photo1, $photo2, $photo3, $etat, $vu, date("Y-m-d H:i:s"), $idp]);
+        $sql = "UPDATE produit SET nomp=?, descri=?, prix=?, photo1=?, photo2=?, photo3=?, etat=? WHERE idp=?";
+        $pdo->prepare($sql)->execute([$nomp, $descri, $prix, $photo1, $photo2, $photo3, $etat, $idp]);
         echo "<h3>Votre annonce a bien été modifier ! <br>Retour à l'accueil...</h3>";
-
+    } else {
         $stmt = $pdo->prepare("SELECT idp FROM produit WHERE nomp=? and idu=?");
         $stmt->execute([$nomp, $_SESSION["idu"]]);
         $prod = $stmt->fetch();
         if (isset($_POST['categ'])) {
+            $sql = "DELETE FROM tag WHERE idp=?";
+            $pdo->prepare($sql)->execute([$idp]);
             foreach ($_POST['categ'] as $tag) {
-                $sql = "UPDATE SET tag VALUES (?,?,?)";
-                $pdo->prepare($sql)->execute([$idp, $prod["idp"], $tag]);
+                $sql = "INSERT INTO tag VALUES (?,?,?)";
+                $pdo->prepare($sql)->execute([null, $idp, $tag]);
             }
         }
-        header("refresh:2;url=home.php");
-    } else {
-        $sql = "UPDATE produit SET idp=?, idu=?, nomp=?, descri=?, prix=?, photo1=?, photo2=?, photo3=?, etat=?, vu=?, dates=?, WHERE idp=?";
-        $pdo->prepare($sql)->execute([$idp, $_SESSION["idu"], $nomp, $descri, $prix, $photo1, $photo2, $photo3, $etat, $vu, date("Y-m-d H:i:s"), $idp]);
+        $sql = "UPDATE produit SET nomp=?, descri=?, prix=?, etat=? WHERE idp=?";
+        $pdo->prepare($sql)->execute([$nomp, $descri, $prix, $etat, $idp]);
+
         // echo ($idp . " " . $_SESSION["idu"] . " " . $nomp . " " . $descri . " " . $prix . " " . $photo1 . " " . $photo2 . " " . $photo3 . " " . $etat);
-        echo "<h3>Votre annonce a bien été modifier ! <br>Retour à l'accueil...</h3>";
+        echo "<h3>Votre annonce a bien été modifiée ! <br>Retour à l'accueil...</h3>";
         header("refresh:2;url=home.php");
     }
 }
