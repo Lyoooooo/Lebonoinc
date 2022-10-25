@@ -15,7 +15,7 @@ if($idp == 0){
     $idrec = $ligne["idu"];    
 }
 $idu = $_SESSION["idu"];
-echo"$idrec";
+
 $stmt = $pdo->prepare("SELECT * FROM user WHERE idu=?");
 $stmt->execute([$idrec]);
 $ligne3 = $stmt->fetch();

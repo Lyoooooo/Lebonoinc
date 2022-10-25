@@ -136,17 +136,37 @@ $stmt->execute([$idp]);
                     <a class="btn" style="text-decoration:none" id="third">Prix : <?php echo "$prix" ?>€</a>
                 </div>
                 <div class="col-4">
-                    <a class="btn btn-danger" role="button" id="favo" style="text-decoration:none">
+                    <form action="ajoutfav.php?idp=<?php echo"$idp" ?>"  method="post">
+                        <button class="btn btn-danger" type="submit" name="bouton" style="text-decoration:none">
                         <img src="image/vide.png" width="20">
-                        Ajouter aux Favoris
+                        Ajouter aux Favoris</button>
+                    </form>
+
+                </div>
+            </div>
+        </div><br><br>
+
+
+
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-4">
+                </div>
+
+                <div class="col-4">
+                    <a href="chat.php?idp=<?php echo "$idp" ?>&idsend=0" style="text-decoration:none" class="btn btn-primary">
+                        <img src="image/contact.png" width="20">
+                         Contacter le vendeur
                     </a>
+                </div>
+
+                <div class="col-4">
                 </div>
             </div>
         </div><br>
-        <a href="chat.php?idp=<?php echo "$idp" ?>&idsend=0" style="text-decoration:none" class="btn btn-primary">
-            <img src="image/contact.png" width="20">
-            Contacter le vendeur
-        </a>
+
+
+
 
 
 
