@@ -6,6 +6,7 @@ if (connecte() == False) {
 }
 $pdo = connexion();
 $extensions = array('jpg', 'jpeg', 'png');
+$data = $pdo->query("SELECT DISTINCT tag FROM tag")->fetchAll();
 headsimple();
 
 if (isset($_POST["bouton"])) {
@@ -103,7 +104,23 @@ if (isset($_POST["bouton"])) {
             <input class="form-control" name="photo2" type="file" id="formFile" accept=".png, .jpg, .jpeg"><br>
             <input class="form-control" name="photo3" type="file" id="formFile" accept=".png, .jpg, .jpeg">
           </div>
-        </div><br><br>   
+        </div>
+        <h5>Catégorie(s)</h5>
+        <?php
+          foreach ($data as $row) {  
+        ?>  
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" name="<?php $row['tag']?>" name="tag[]">
+            <label class="form-check-label" for="inlineCheckbox1"><?php echo $row['tag'] ?></label>
+        </div>
+        <?php
+          }
+        ?>
+        <div class="form-floating mb-3" style="width: 33%;">      
+          <input type="text" class="form-control" name="categ" id="floatingInput" placeholder="Nouvelle catégorie">
+          <label for="floatingInput" class="form-label">Nouvelle catégorie<span class="etoile"> *</span></label>
+        </div>
+        <br><br>
         <button type="submit" class="btn btn-primary" name="bouton">Poster l'annonce</button>
         </form>
       </div>
