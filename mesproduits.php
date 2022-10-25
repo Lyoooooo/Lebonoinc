@@ -56,11 +56,11 @@ headsimple();
         <?php
         } ?> <br>
     </div>
-    <div style="position: absolute; top: 100%; width: 100%;">
-        <?php
-        foot();
-        ?>
-    </div>
+
+    <?php
+    foot();
+    ?>
+
 </body><br>
 
 </html>
