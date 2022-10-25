@@ -88,9 +88,9 @@ function headermain()
             <a href="home.php" id="textthird">
               <h2>Bonumanguli</h2>
             </a>
-            <form action="recherche.php" class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Rechercher">
-              <button class="btn btn-outline-success" type="submit">Rechercher</button>
+            <form action="recherche.php" method="get" class="d-flex">
+              <input class="form-control me-2" type="search" name="rec" placeholder="Rechercher">
+              <button class="btn btn-outline-success" name="bt" type="submit">Rechercher</button>
             </form>
           </div>
           <div class="col-3 text-center">
