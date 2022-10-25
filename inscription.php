@@ -69,20 +69,20 @@ $pdo = connexion();
                         <input type="text" name="mail" class="form-control" id="" aria-describedby="inputGroupPrepend2" required>
                     </div>
                 </div><br>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <label for="validationDefault03" class="form-label">Adresse Postale</label><span class="etoile">*</span>
                     <input type="text" name="adresse" class="form-control" id="" required>
                 </div><br>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <label for="validationDefault03" class="form-label">Adresse Postale Ville</label><span class="etoile">*</span>
                     <input type="text" name="ville" class="form-control" id="" required>
                 </div><br>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <label for="validationDefault04" class="form-label">Code postal</label><span class="etoile">*</span>
                     <input type="text" name="cp" class="form-control" id="" required>
                     </select>
                 </div><br>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <label for="validationDefault04" class="form-label">N° Telephone</label><span class="etoile">*</span>
                     <input type="tel" name="tel" class="form-control" id="" required>
                     </select>

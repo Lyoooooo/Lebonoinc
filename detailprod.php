@@ -5,6 +5,7 @@ $pdo = connexion();
 $idp = $_GET["idp"];
 $stmt = $pdo->prepare("UPDATE produit SET vu = vu + 1 WHERE idp=?");
 $stmt->execute([$idp]);
+
 ?>
 
 <!DOCTYPE html>
@@ -126,10 +127,10 @@ $stmt->execute([$idp]);
         <div class="container text-center">
             <div class="row">
                 <div class="col">
-                    <a class="btn" id="third">Etat : <?php echo "$etat" ?></a>
+                    <a class="btn" style="text-decoration:none" id="third">Etat : <?php echo "$etat" ?></a>
                 </div>
                 <div class="col">
-                    <a class="btn" id="third">Prix : <?php echo "$prix" ?>€</a>
+                    <a class="btn" style="text-decoration:none" id="third">Prix : <?php echo "$prix" ?>€</a>
                 </div>
             </div>
         </div><br>
