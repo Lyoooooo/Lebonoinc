@@ -47,6 +47,9 @@ function foot()
 function headsimple()
 {
 ?>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
   <nav class="navbar head sticky-top" id="primal" style="margin-bottom: 1%;">
     <div class="container-fluid">
       <div class="container">
@@ -61,13 +64,26 @@ function headsimple()
               <h2>Bonumanguli</h2>
             </a>
           </div>
-          <div class="col-3 text-end">
+          <div class="col-3 text-center">
 
-            <a href='modifuser.php' style='text-decoration:none' id='textthird'><img src='image/0.png' width='50'></button><br>Mon Compte</a>
+            <button class='btn bg-transparent' type='button' data-bs-toggle='offcanvas' id='textthird' data-bs-target='#offcanvasRight' aria-controls='offcanvasRight'><img src='image/0.png' width='50' class='mt-3'><br> Mon Compte</button>
+
+            <div class='offcanvas offcanvas-end' tabindex='-1' id='offcanvasRight' aria-labelledby='offcanvasRightLabel'>
+              <div class='offcanvas-header' id='primal'>
+                <button type='button' class='btn-close' data-bs-dismiss='offcanvas' aria-label='Close'></button>
+              </div>
+
+              <div class='offcanvas-body' id='primal'>
+                <a href='mesproduits.php' style='text-decoration:none' class='btn col-md-10' id='third'>Mes Annonces</a><br><br>
+                <a href='mesmessages.php' style='text-decoration:none' class='btn col-md-10' id='third'>Mes Messages</a><br><br>
+                <a href='modifuser.php' style='text-decoration:none' class='btn col-md-10' id='third'>Mon Compte</a><br>
+              </div>
+            </div>
           </div>
-
         </div>
+
       </div>
+    </div>
     </div>
   </nav>
 <?php
@@ -110,36 +126,22 @@ function headermain()
                     echo "<a href='connexion.php' style='text-decoration:none' id='textthird' ><img src='image/0.png' width='50'class='mt-5'></button><br>Me Connecter</a> </div>";
                   } else {
                     echo "
-                    <button class='btn bg-transparent' type='button' data-bs-toggle='offcanvas'id='textthird' data-bs-target='#offcanvasRight' aria-controls='offcanvasRight'><img src='image/0.png' width='50' class='mt-3'><br> Mon Compte</button>
+                    <div class='col-3 text-center'>
+                    <button class='btn bg-transparent' type='button' data-bs-toggle='offcanvas' id='textthird' data-bs-target='#offcanvasRight' aria-controls='offcanvasRight'><img src='image/0.png' width='50' class='mt-3'><br> Mon Compte</button>
 
-                    <div class='offcanvas offcanvas-end' tabindex='-1' id='offcanvasRight' aria-labelledby='offcanvasRightLabel'>
-                        <div class='offcanvas-header'>
-                            <button type='button' class='btn-close' data-bs-dismiss='offcanvas' aria-label='Close'></button>
-                        </div>
-                        <div class='offcanvas-body'>
-                            <a href='mesproduits.php'>Mes Annonces</a><br>
-                            <a href='mesmessages.php'>Mes Messages</a><br>
-                            <a href='modifuser.php'>Mon Compte</a><br>
-                        </div>
-                    </div>";
+<div class='offcanvas offcanvas-end' tabindex='-1' id='offcanvasRight' aria-labelledby='offcanvasRightLabel'>
+    <div class='offcanvas-header' id='primal'>
+        <button type='button' class='btn-close' data-bs-dismiss='offcanvas' aria-label='Close'></button>
+    </div>
 
-
-
-
-                    //   echo "<p>
-                    //   <button class='btn bg-transparent' id='textthird' type='button' data-bs-toggle='collapse' data-bs-target='#collapseWidthExample' aria-expanded='false' aria-controls='collapseWidthExample'><img src='image/0.png' width='50' class='mt-4'><br>
-                    //     Mon Compte
-                    //   </button>
-                    // </p>
-                    // <div style='min-height: 100px;'>
-                    //   <div class='collapse collapse-horizontal' id='collapseWidthExample'>
-                    //     <div class='card card-body' style='width: 200px;'>
-                    //       <a href='mesproduits.php'>Mes Annonces</a><br>
-                    //       <a href='mesmessages.php'>Mes Messages</a><br>
-                    //       <a href='modifuser.php'>Mon Compte</a><br>
-                    //     </div>
-                    //   </div>
-                    // </div>";
+    <div class='offcanvas-body' id='primal'>
+        <a href='mesproduits.php' style='text-decoration:none' class='btn col-md-10' id='third'>Mes Annonces</a><br><br>
+        <a href='mesmessages.php' style='text-decoration:none' class='btn col-md-10' id='third'>Mes Messages</a><br><br>
+        <a href='modifuser.php' style='text-decoration:none' class='btn col-md-10' id='third'>Mon Compte</a><br>
+    </div>
+</div>
+</div>
+</div>";
                   }
                   ?>
 
