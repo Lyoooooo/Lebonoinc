@@ -64,20 +64,6 @@ if (isset($_POST["bouton"])) {
           </div>
         </div><br>
 
-        <!-- <div class="position-relative top-0 end-0 p-3 m3"> -->
-          <!-- <span class="position-absolute top-0 start-0">
-            <h5><a href="home.php" class="btn btn-primary">Retour</a></h5>
-          <a class="btn" href="home.php" role="button" id="third">Retour</a>
-          </span> -->
-
-          <!-- <span class="position-absolute top-0 end-0">
-            <h5><a href="deco.php">Deconnexion</a></h5>
-          </span> -->
-        <!-- </div> -->
-        <!-- <div class="h1 text-center">
-          <h1>Votre compte</h1>
-        </div> -->
-
         <div class=text-end>
           <form action="" method="post">
         </div>
