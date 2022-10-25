@@ -134,7 +134,7 @@ $stmt->execute([$idp]);
                 </div>
             </div>
         </div><br>
-        <a href="chat.php?idp=<?php echo "$idp" ?>&idsend=0" class="btn btn-primary">
+        <a href="chat.php?idp=<?php echo "$idp" ?>&idsend=0" style="text-decoration:none" class="btn btn-primary">
             <img src="image/contact.png" width="20">
             Contacter le vendeur
         </a>
