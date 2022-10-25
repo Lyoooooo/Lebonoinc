@@ -8,24 +8,6 @@ $data = $pdo->query("SELECT DISTINCT tag FROM tag")->fetchAll();
 $r = $_GET["r"];
 $b = $_GET["b"];
 $c = $_GET["c"];
-// if(isset($b) && !empty(trim($r))) {
-//   $words=explode(" ",trim($r));
-//   for ($i=0;$i<count($words);$i++) {
-//     $mot[$i] = "nomp like '%".$words[$i]."%'"; 
-//   }
-//   if ($c == null) {
-//     $res=$pdo->prepare("SELECT * FROM produit,tag WHERE ".implode(" OR ", $mot));
-//     $res->setFetchMode(PDO::FETCH_ASSOC);
-//     $res->execute();
-//     $tab=$res->fetchAll();
-//   } else {
-//     $res=$pdo->prepare("SELECT * FROM produit,tag WHERE tag = ? AND ".implode(" OR ", $mot));
-//     $res->setFetchMode(PDO::FETCH_ASSOC);
-//     $res->execute(array($c));
-//     $tab=$res->fetchAll();
-//   }
-//   $afficher="oui";
-// }
 
 if(isset($b) && !empty(trim($r))) {
   $words=explode(" ",trim($r));
@@ -37,14 +19,14 @@ if(isset($b) && !empty(trim($r))) {
     $res->execute();
     $tab=$res->fetchAll();
   } else {
-    
+    $res=$pdo->prepare("SELECT * FROM produit, tag WHERE produit.idp = tag.idp AND tag.tag = ? AND ".implode(" OR ", $mot));
+  $res->execute([$c]);
+  $tab=$res->fetchAll();
   }
-  var_dump($tab);
 } elseif (isset($b) && $c != "null") {
   $res=$pdo->prepare("SELECT * FROM produit, tag WHERE produit.idp = tag.idp AND tag.tag = ?");
   $res->execute([$c]);
   $tab=$res->fetchAll();
-  var_dump($tab);
 } else {
   $tab = $pdo->query("SELECT * FROM produit")->fetchAll();
 }
