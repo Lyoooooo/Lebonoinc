@@ -26,7 +26,7 @@ $stmt->execute([$idp]);
 <body id="second">
 
     <?php
-    bighead($_SESSION["idu"]);
+    headermain();
     $stmt = $pdo->prepare("SELECT * FROM produit WHERE idp=?");
     $stmt->execute([$idp]);
     $ligne = $stmt->fetch();
@@ -83,7 +83,7 @@ $stmt->execute([$idp]);
                         </div>
                         <div class="carousel-inner position-relative top-0 start-0" style="width: 100%; height: 100%;">
                             <div class="carousel-item active" style="width: 100%; height: 100%;">
-                                <img src="<?php echo "$photo1" ?>" height="100%" class="d-block w-5" style="margin:auto" >
+                                <img src="<?php echo "$photo1" ?>" height="100%" class="d-block w-5" style="margin:auto">
                             </div>
                             <?php
                             if ($photo2 != "") {
@@ -143,18 +143,13 @@ $stmt->execute([$idp]);
                 </div>
             </div>
         </div><br>
-        <a href="chat.php?idp=<?php echo"$idp"?>" class="btn btn-primary" style="text-decoration:none">
+        <a href="chat.php?idp=<?php echo "$idp" ?>&idsend=0" style="text-decoration:none" class="btn btn-primary">
             <img src="image/contact.png" width="20">
             Contacter le vendeur
         </a>
 
 
 
-    </div>
-
-    <br><br><br>
-
-    </div>
     </div>
 
     <?php

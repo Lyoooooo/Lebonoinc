@@ -34,7 +34,7 @@ headermain();
                     </div>
 
                     <div class="col-6">
-                        <h3>Annonces les plus vus</h3>
+                        <h3>Annonces les plus vues</h3>
                     </div>
 
                     <div class="col-3">
@@ -45,7 +45,7 @@ headermain();
 
             <?php
             $stmt = $pdo->prepare("SELECT * FROM produit ORDER BY vu DESC");
-            $stmt->execute(["vu"]);
+            $stmt->execute();
             $prod1 = $stmt->fetch();
             $prod2 = $stmt->fetch();
             $prod3 = $stmt->fetch();
@@ -56,13 +56,13 @@ headermain();
                     <div class="col">
                         <div id="annonce">
                             <div class="card" style="height: 25rem;">
-                                <div style="width: 100%; height: 100%;">
+                                <div style="width: 100%; height: 100%; overflow: hidden;">
                                     <img src="<?php echo $prod1["photo1"] ?>" height="50%" class="d-block w-5" style="margin:auto">
 
                                     <div class="card-body" style="width: 100%; height: 50%;">
                                         <h5 class="card-title"><?php echo $prod1["nomp"] ?></h5><br>
                                         <h5 class="card-title"><?php echo $prod1["prix"] ?>€</h5><br>
-                                        <a href="detailprod.php?idp=<?php echo $prod1["idp"] ?>" class="btn btn-primary" style="text-decoration:none">
+                                        <a href="detailprod.php?idp=<?php echo $prod1["idp"] ?>" style="text-decoration:none" class="btn btn-primary">
                                             <img src="image/voir.png" width="20">
                                             Voir l'annonce
                                         </a>
@@ -74,13 +74,13 @@ headermain();
                     <div class="col">
                         <div id="annonce">
                             <div class="card" style="height: 25rem;">
-                                <div style="width: 100%; height: 100%;">
+                                <div style="width: 100%; height: 100%; overflow: hidden;">
                                     <img src="<?php echo $prod2["photo1"] ?>" height="50%" class="d-block w-5" style="margin:auto">
 
                                     <div class="card-body" style="width: 100%; height: 50%;">
                                         <h5 class="card-title"><?php echo $prod2["nomp"] ?></h5><br>
                                         <h5 class="card-title"><?php echo $prod2["prix"] ?>€</h5><br>
-                                        <a href="detailprod.php?idp=<?php echo $prod2["idp"] ?>" class="btn btn-primary" style="text-decoration:none">
+                                        <a href="detailprod.php?idp=<?php echo $prod2["idp"] ?>" style="text-decoration:none" class="btn btn-primary">
                                             <img src="image/voir.png" width="20">
                                             Voir l'annonce
                                         </a>
@@ -92,13 +92,13 @@ headermain();
                     <div class="col">
                         <div id="annonce">
                             <div class="card" style="height: 25rem;">
-                                <div style="width: 100%; height: 100%;">
+                                <div style="width: 100%; height: 100%; overflow: hidden;">
                                     <img src="<?php echo $prod3["photo1"] ?>" height="50%" class="d-block w-5" style="margin:auto">
 
                                     <div class="card-body" style="width: 100%; height: 50%;">
                                         <h5 class="card-title"><?php echo $prod3["nomp"] ?></h5><br>
                                         <h5 class="card-title"><?php echo $prod3["prix"] ?>€</h5><br>
-                                        <a href="detailprod.php?idp=<?php echo $prod3["idp"] ?>" class="btn btn-primary" style="text-decoration:none">
+                                        <a href="detailprod.php?idp=<?php echo $prod3["idp"] ?>" style="text-decoration:none" class="btn btn-primary">
                                             <img src="image/voir.png" width="20">
                                             Voir l'annonce
                                         </a>
@@ -134,7 +134,7 @@ headermain();
             </div>
 
             <?php
-            $stmt = $pdo->prepare("SELECT * FROM produit ORDER BY vu");
+            $stmt = $pdo->prepare("SELECT * FROM produit ORDER BY idp DESC");
             $stmt->execute();
             $prod1 = $stmt->fetch();
             $prod2 = $stmt->fetch();
@@ -146,13 +146,13 @@ headermain();
                     <div class="col">
                         <div id="annonce">
                             <div class="card" style="height: 25rem;">
-                                <div style="width: 100%; height: 100%;">
+                                <div style="width: 100%; height: 100%; overflow: hidden;">
                                     <img src="<?php echo $prod1["photo1"] ?>" height="50%" class="d-block w-5" style="margin:auto">
 
                                     <div class="card-body" style="width: 100%; height: 50%;">
                                         <h5 class="card-title"><?php echo $prod1["nomp"] ?></h5><br>
                                         <h5 class="card-title"><?php echo $prod1["prix"] ?>€</h5><br>
-                                        <a href="detailprod.php?idp=<?php echo $prod1["idp"] ?>" class="btn btn-primary" style="text-decoration:none">
+                                        <a href="detailprod.php?idp=<?php echo $prod1["idp"] ?>" style="text-decoration:none" class="btn btn-primary">
                                             <img src="image/voir.png" width="20">
                                             Voir l'annonce
                                         </a>
@@ -164,13 +164,13 @@ headermain();
                     <div class="col">
                         <div id="annonce">
                             <div class="card" style="height: 25rem;">
-                                <div style="width: 100%; height: 100%;">
+                                <div style="width: 100%; height: 100%; overflow: hidden;">
                                     <img src="<?php echo $prod2["photo1"] ?>" height="50%" class="d-block w-5" style="margin:auto">
 
                                     <div class="card-body" style="width: 100%; height: 50%;">
                                         <h5 class="card-title"><?php echo $prod2["nomp"] ?></h5><br>
                                         <h5 class="card-title"><?php echo $prod2["prix"] ?>€</h5><br>
-                                        <a href="detailprod.php?idp=<?php echo $prod2["idp"] ?>" class="btn btn-primary" style="text-decoration:none">
+                                        <a href="detailprod.php?idp=<?php echo $prod2["idp"] ?>" style="text-decoration:none" class="btn btn-primary">
                                             <img src="image/voir.png" width="20">
                                             Voir l'annonce
                                         </a>
@@ -182,13 +182,13 @@ headermain();
                     <div class="col">
                         <div id="annonce">
                             <div class="card" style="height: 25rem;">
-                                <div style="width: 100%; height: 100%;">
+                                <div style="width: 100%; height: 100%; overflow: hidden;">
                                     <img src="<?php echo $prod3["photo1"] ?>" height="50%" class="d-block w-5" style="margin:auto">
 
                                     <div class="card-body" style="width: 100%; height: 50%;">
                                         <h5 class="card-title"><?php echo $prod3["nomp"] ?></h5><br>
                                         <h5 class="card-title"><?php echo $prod3["prix"] ?>€</h5><br>
-                                        <a href="detailprod.php?idp=<?php echo $prod3["idp"] ?>" class="btn btn-primary" style="text-decoration:none">
+                                        <a href="detailprod.php?idp=<?php echo $prod3["idp"] ?>" style="text-decoration:none" class="btn btn-primary">
                                             <img src="image/voir.png" width="20">
                                             Voir l'annonce
                                         </a>
