@@ -37,7 +37,7 @@ function foot()
         </p>
       </section>
     </div>
-    <div class='text-center text-light p-3' style='background-color: rgba(0, 0, 0);'>
+    <div class='text-center text-light p-3' style='background-color: rgba(0, 0, 0, 0.2);'>
       © 2022 BONUM<br>
     </div>
   </footer>
@@ -89,7 +89,6 @@ function headermain()
               <h2>Bonumanguli</h2>
             </a>
             <form action="recherche.php" method="get" class="d-flex">
-              <input type="hidden" name="c" value="null">
               <input class="form-control me-2" type="search" name="r" placeholder="Rechercher">
               <button class="btn btn-outline-success" name="b" type="submit">Rechercher</button>
             </form>
@@ -99,17 +98,52 @@ function headermain()
               <div class="row">
                 <div class="col-6" id="textthird">
                   <br>
-                  <a href="favoris.php" style="text-decoration:none" id='textthird'><img src='image/vide.png' width='37' class='mt-3'></button><br>Mes favoris</a>
+                  <a href="favoris.php" style="text-decoration:none" id='textthird'><img src='image/vide.png' width='37' class='mt-4'></button><br>Mes favoris</a>
                 </div>
                 <div class="col-6" id="textthird">
                   <a class="btn sdropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                     <?php
                     if (connecte() == false) {
-                      echo "<a href='connexion.php' style='text-decoration:none' id='textthird' ><img src='image/0.png' width='50'class='mt-4'></button><br>Me Connecter</a> </div>";
+                      echo "<a href='connexion.php' style='text-decoration:none' id='textthird' ><img src='image/0.png' width='50'class='mt-5'></button><br>Me Connecter</a> </div>";
                     } else {
-                      echo "<a href='modifuser.php' style='text-decoration:none' id='textthird'><img src='image/0.png' width='50' class='mt-4'></button><br>Mon Compte</a> </div>";
+                      echo "
+                      <a class='btn sdropdown-toggle' href='#' role='button' id='dropdownMenuLink' data-bs-toggle='dropdown' aria-expanded='false'>
+                      <button class='btn bg-transparent' id='textthird' type='button' data-bs-toggle='offcanvas' data-bs-target='#offcanvasRight' aria-controls='offcanvasRight'><img src='image/0.png' width='50' class='mt-3'><br> Mon Compte</button>
+
+                      <div class='offcanvas offcanvas-end' tabindex='-1' id='offcanvasRight' aria-labelledby='offcanvasRightLabel'>
+                        <div class='offcanvas-header'>
+                          <!-- <h5 id='offcanvasRightLabel'>Offcanvas right</h5> -->
+                          <button type='button' class='btn-close text-reset' data-bs-dismiss='offcanvas' aria-label='Close'></button>
+                        </div>
+                        <div class='offcanvas-body'>
+                          <a href='mesproduits.php'>Mes Annonces</a><br>
+                          <a href='mesmessages.php'>Mes Messages</a><br>
+                          <a href='modifuser.php'>Mon Compte</a><br>
+                        </div>
+                      </div>";
+
+
+
+
+                      //   echo "<p>
+                      //   <button class='btn bg-transparent' id='textthird' type='button' data-bs-toggle='collapse' data-bs-target='#collapseWidthExample' aria-expanded='false' aria-controls='collapseWidthExample'><img src='image/0.png' width='50' class='mt-4'><br>
+                      //     Mon Compte
+                      //   </button>
+                      // </p>
+                      // <div style='min-height: 100px;'>
+                      //   <div class='collapse collapse-horizontal' id='collapseWidthExample'>
+                      //     <div class='card card-body' style='width: 200px;'>
+                      //       <a href='mesproduits.php'>Mes Annonces</a><br>
+                      //       <a href='mesmessages.php'>Mes Messages</a><br>
+                      //       <a href='modifuser.php'>Mon Compte</a><br>
+                      //     </div>
+                      //   </div>
+                      // </div>";
                     }
                     ?>
+
+
+
                 </div>
               </div>
             </div>
