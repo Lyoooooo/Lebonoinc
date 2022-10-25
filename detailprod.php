@@ -78,22 +78,22 @@ $stmt->execute([$idp]);
                                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
                             <?php } ?>
                         </div>
-                        <div class="carousel-inner position-relative top-0 start-0">
-                            <div class="carousel-item active">
-                                <img src="<?php echo "$photo1" ?>" height="300" class="d-block w-5" style="margin:auto" sizes="(max-width: 200px) 100px, 50vw">
+                        <div class="carousel-inner position-relative top-0 start-0" style="width: 100%; height: 100%;">
+                            <div class="carousel-item active" style="width: 100%; height: 100%;">
+                                <img src="<?php echo "$photo1" ?>" height="100%" class="d-block w-5" style="margin:auto" >
                             </div>
                             <?php
                             if ($photo2 != "") {
                             ?>
-                                <div class="carousel-item">
-                                    <img src="<?php echo "$photo2" ?>" width="300" class="d-block w-5" style="margin:auto">
+                                <div class="carousel-item" style="width: 100%; height: 100%;">
+                                    <img src="<?php echo "$photo2" ?>" height="100%" class="d-block w-5" style="margin:auto">
                                 </div>
                             <?php } ?>
                             <?php
                             if ($photo3 != "") {
                             ?>
-                                <div class="carousel-item">
-                                    <img src="<?php echo "$photo3" ?>" width="300" class="d-block w-5" style="margin:auto">
+                                <div class="carousel-item" style="width: 100%; height: 100%;">
+                                    <img src="<?php echo "$photo3" ?>" height="100%" class="d-block w-5" style="margin:auto">
                                 </div>
                             <?php } ?>
                         </div>

@@ -33,8 +33,9 @@ $idu = $_SESSION["idu"];
                 $erreur2 = "Vous avez oublié de saisir votre Message!!!";
             } else {
                 $mess = $_POST["message"];
-                $stmt = $pdo->prepare("INSERT INTO message VALUES (?,?,?,?,?)");
+                $stmt = $pdo->prepare("INSERT INTO messages VALUES (?,?,?,?,?)");
                 $stmt->execute([NULL,$idu,$idrec,$mess,date("Y-m-d H:i:s")]);
+                header("refresh:0;url=home.php?idp=$idp");
             }
         }
         ?>
@@ -47,11 +48,11 @@ $idu = $_SESSION["idu"];
                     <?php
                     $stmt = $pdo->prepare("SELECT * FROM message WHERE (idsend = ? AND idrec = ?) OR (idsend = ? AND idrec = ?) ORDER BY ?");
                     $stmt->execute([$idu,$idrec,$idrec,$idu,"date DESC"]);
-                    while ($ligne = $stmt->fetch()) {
+                    while ($ligne2 = $stmt->fetch()) {
                         echo "<tr>
-                <td>" . $ligne["date"] . "</td>
-                <td>" . $ligne["idu"] . "</td>
-                <td>" . $ligne["message"] . "</td>
+                <td>" . $ligne2["date"] . "</td>
+                <td>" . $ligne2["idu"] . "</td>
+                <td>" . $ligne2["message"] . "</td>
                 </tr>";
                     }
                     ?>
@@ -93,7 +94,7 @@ $idu = $_SESSION["idu"];
                 </div>
             </main>
 
-            <form class="msger-inputarea">
+            <form method="post" class="msger-inputarea" action="chat.php?idp=<?php echo"$idp"?>">
                 <input type="text" class="msger-input" name="mess" placeholder="Entre ton message...">
                 <button type="submit" class="msger-send-btn" name="Bouton">Envoyer</button>
             </form>
