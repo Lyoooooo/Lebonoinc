@@ -18,6 +18,7 @@ headermain();
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <title>Bonumanguli</title>
 </head>
+<a href="mesproduits.php">ratio</a>
 
 <body id="second">
     <div id="divmid">
@@ -27,7 +28,7 @@ headermain();
                 <div class="row">
 
                     <div class="col-3">
-                        <a class="btn" href="ajoutprod.php" role="button" id="third">
+                        <a class="btn" href="ajoutprod.php" role="button" id="third" style="text-decoration:none">
                             <img src="image/plus.png" width="20">
                             Déposer une annonce</a>
                     </div>
@@ -60,7 +61,7 @@ headermain();
                                 <div class="card-body">
                                     <h5 class="card-title"><?php echo $prod1["nomp"] ?></h5><br>
                                     <h5 class="card-title"><?php echo $prod1["prix"] ?>€</h5><br>
-                                    <a href="detailprod.php?idp=<?php echo $prod1["idp"] ?>" class="btn btn-primary">
+                                    <a href="detailprod.php?idp=<?php echo $prod1["idp"] ?>" class="btn btn-primary" style="text-decoration:none">
                                         <img src="image/voir.png" width="20">
                                         Voir l'annonce
                                     </a>
@@ -76,7 +77,7 @@ headermain();
                                 <div class="card-body">
                                     <h5 class="card-title"><?php echo $prod2["nomp"] ?></h5><br><br>
                                     <h5 class="card-title"><?php echo $prod2["prix"] ?>€</h5>
-                                    <a href="detailprod.php?idp=<?php echo $prod2["idp"] ?>" class="btn btn-primary">
+                                    <a href="detailprod.php?idp=<?php echo $prod2["idp"] ?>" class="btn btn-primary" style="text-decoration:none">
                                         <img src="image/voir.png" width="20">
                                         Voir l'annonce
                                     </a>
@@ -92,19 +93,19 @@ headermain();
                                 <div class="card-body">
                                     <h5 class="card-title"><?php echo $prod3["nomp"] ?></h5><br><br>
                                     <h5 class="card-title"><?php echo $prod3["prix"] ?>€</h5>
-                                    <a href="detailprod.php?idp=<?php echo $prod3["idp"] ?>" class="btn btn-primary">
+                                    <a href="detailprod.php?idp=<?php echo $prod3["idp"] ?>" class="btn btn-primary" style="text-decoration:none">
                                         <img src="image/voir.png" width="20">
                                         Voir l'annonce
                                     </a>
                                 </div>
                             </div>
                         </div>
+                    </div>
                 </div>
             </div>
+
+
         </div>
-
-
-    </div>
     </div>
 
     <?php
