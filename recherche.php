@@ -33,11 +33,10 @@ if (isset($b) && !empty(trim($r))) {
 }
 
 if (isset($b) && $p == "asc") {
-  asort($tab);
+  usort($tab, 'prix_asc');
 } else {
-  asort($tab);
+  usort($tab, 'prix_desc');
 }
-var_dump($tab);
 ?>
 
 <!DOCTYPE html>
