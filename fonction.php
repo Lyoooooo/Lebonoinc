@@ -90,6 +90,7 @@ function headermain()
             </a>
             <form action="recherche.php" method="get" class="d-flex">
               <input type="hidden" name="c" value="null">
+              <input type="hidden" name="p" value="asc">
               <input class="form-control me-2" type="search" name="r" placeholder="Rechercher">
               <button class="btn btn-outline-success" name="b" type="submit">Rechercher</button>
             </form>

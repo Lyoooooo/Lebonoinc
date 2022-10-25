@@ -8,6 +8,7 @@ $data = $pdo->query("SELECT DISTINCT tag FROM tag")->fetchAll();
 $r = $_GET["r"];
 $b = $_GET["b"];
 $c = $_GET["c"];
+$p = $_GET["p"];
 
 if (isset($b) && !empty(trim($r))) {
   $words = explode(" ", trim($r));
@@ -31,72 +32,93 @@ if (isset($b) && !empty(trim($r))) {
   $tab = $pdo->query("SELECT * FROM produit")->fetchAll();
 }
 
-
-
+if (isset($b) && $p == "asc") {
+  asort($tab);
+} else {
+  asort($tab);
+}
+var_dump($tab);
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="image/Bonumanguli5.png" />
-    <link rel="stylesheet" href="bonum.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
-    </script>
-    <title>Bonumanguli - Recherche</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="image/Bonumanguli5.png" />
+  <link rel="stylesheet" href="bonum.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+  </script>
+  <title>Bonumanguli - Recherche</title>
 </head>
 
 <body id="second">
+  <div id="divmid"><br>
     <form class="d-flex" method="get" role="search">
-        <select class="form-select" name="c">
-            <option value="null">-----------</option>
-            <?php
-      foreach ($data as $tag) {
-      ?>
-            <option value="<?php echo $tag['tag'] ?>"><?php echo $tag['tag'] ?></option>
-            <?php
-      }
-      ?>
-        </select>
-
-        <input class="form-control me-2" name="r" type="search" value="<?php echo $r ?>"
-            placeholder="Recherchez l'article de vos rêves">
-        <button class="btn btn-outline-success" name="b" type="submit">Rechercher</button>
-    </form>
-    </div>
-    <div class="resultat">
-        <div id="divmid">
-            <div class="nbr">
-                <h2 id="textprimal">
-                    <?= count($tab) . " " . (count($tab) > 1 ? "résultats trouvés" : "résultat trouvé") ?></h2>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-2">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="p" value="asc" checked>
+              <label class="form-check-label">
+                Prix croissant
+              </label>
             </div>
-            <div class="container" style="width: 80%;">
-                <div class="row">
-                    <?php foreach ($tab as $prod) { ?>
-                    <div class="col-4">
-                        <div id="annonce">
-                            <div class="card" style="height: 25rem;">
-                                <div style="width: 100%; height: 100%; overflow: hidden;">
-                                    <img src="<?php echo $prod["photo1"] ?>" height="50%" class="d-block w-5" style="margin:auto">
-                                    <div class="card-body">
-                                        <h5 class="card-title"><?php echo $prod["nomp"] ?></h5><br>
-                                        <h5 class="card-title"><?php echo $prod["prix"] ?>€</h5><br>
-                                        <a href="detailprod.php?idp=<?php echo $prod["idp"] ?>" class="btn btn-primary">
-                                            <img src="image/voir.png" width="20">Voir l'annonce</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <?php } ?>
-                </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" value="desc" name="p">
+              <label class="form-check-label">
+                Prix décroissant
+              </label>
             </div>
+          </div>
+          <div class="col-md-3">
+            <select class="form-select" name="c">
+              <option value="null">-----------</option>
+              <?php
+              foreach ($data as $tag) {
+              ?>
+                <option value="<?php echo $tag['tag'] ?>"><?php echo $tag['tag'] ?></option>
+              <?php
+              }
+              ?>
+            </select>
+          </div>
+          <div class="col-md-5">
+            <input class="form-control me-2" name="r" type="search" value="<?php echo $r ?>" placeholder="Recherchez l'article de vos rêves">
+          </div>
+          <div class="col-1">
+            <button class="btn btn-outline-success" name="b" type="submit">Rechercher</button>
+          </div>
         </div>
+      </div>
+    </form>
+    <div class="nbr">
+      <h2 id="textprimal">
+        <?= count($tab) . " " . (count($tab) > 1 ? "résultats trouvés" : "résultat trouvé") ?></h2>
     </div>
+    <div class="container" style="width: 80%;">
+      <div class="row">
+        <?php foreach ($tab as $prod) { ?>
+          <div class="col-4">
+            <div id="annonce">
+              <div class="card" style="height: 25rem;">
+                <div style="width: 100%; height: 100%; overflow: hidden;">
+                  <img src="<?php echo $prod["photo1"] ?>" height="50%" class="d-block w-5" style="margin:auto">
+                  <div class="card-body">
+                    <h5 class="card-title"><?php echo $prod["nomp"] ?></h5><br>
+                    <h5 class="card-title"><?php echo $prod["prix"] ?>€</h5><br>
+                    <a href="detailprod.php?idp=<?php echo $prod["idp"] ?>" class="btn btn-primary">
+                      <img src="image/voir.png" width="20">Voir l'annonce</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <?php } ?>
+      </div>
+    </div>
+  </div>
 </body>
