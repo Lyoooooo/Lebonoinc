@@ -92,7 +92,7 @@ headermain();
                                 <div class="card-body">
                                     <h5 class="card-title"><?php echo $prod3["nomp"] ?></h5><br><br>
                                     <h5 class="card-title"><?php echo $prod3["prix"] ?>€</h5>
-                                    <a href="detailprod.php?<?php echo $prod3["idp"] ?>" class="btn btn-primary">
+                                    <a href="detailprod.php?idp=<?php echo $prod3["idp"] ?>" class="btn btn-primary">
                                         <img src="image/voir.png" width="20">
                                         Voir l'annonce
                                     </a>
@@ -106,7 +106,7 @@ headermain();
 
     </div>
     </div>
-    
+
     <?php
     foot();
     ?>
