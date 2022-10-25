@@ -26,7 +26,7 @@ $stmt->execute([$idp]);
 <body id="second">
 
     <?php
-    bighead($_SESSION["idu"]);
+    headermain();
     $stmt = $pdo->prepare("SELECT * FROM produit WHERE idp=?");
     $stmt->execute([$idp]);
     $ligne = $stmt->fetch();
@@ -134,7 +134,7 @@ $stmt->execute([$idp]);
                 </div>
             </div>
         </div><br>
-        <a href="chat.php?idp=<?php echo"$idp"?>">Contacter le vendeur</a>
+        <a href="chat.php?idp=<?php echo"$idp"?>&idsend=0">Contacter le vendeur</a>
     </div>
 
     <br><br><br>

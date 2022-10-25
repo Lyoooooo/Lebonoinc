@@ -2,11 +2,18 @@
 include "fonction.php";
 session_start();
 $pdo = connexion();
+if (connecte() == False) {
+    header("refresh:0;url=connexion.php");
+}
 $idp = $_GET["idp"];
-$stmt = $pdo->prepare("SELECT * FROM produit WHERE idp=?");
-$stmt->execute([$idp]);
-$ligne = $stmt->fetch();
-$idrec = $ligne["idu"];
+if($idp == 0){
+    $idrec = $_GET["idsend"];
+}else{
+    $stmt = $pdo->prepare("SELECT * FROM produit WHERE idp=?");
+    $stmt->execute([$idp]);
+    $ligne = $stmt->fetch();
+    $idrec = $ligne["idu"];    
+}
 $idu = $_SESSION["idu"];
 $stmt = $pdo->prepare("SELECT * FROM user WHERE idu=?");
 $stmt->execute([$idrec]);
@@ -54,7 +61,7 @@ $nomr = $ligne3["nom"] . " " . $ligne3["prenom"];
 
                             <div class="msg-bubble">
                                 <div class="msg-info">
-                                    <div class="msg-info-name"><?php echo "$nomu" ?></div>
+                                    <div class="msg-info-name"><?php echo "$nomr" ?></div>
                                     <div class="msg-info-time"><?php echo "$time" ?></div>
                                 </div>
 
