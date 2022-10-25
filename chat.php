@@ -8,6 +8,11 @@ $stmt->execute([$idp]);
 $ligne = $stmt->fetch();
 $idrec = $ligne["idu"];
 $idu = $_SESSION["idu"];
+$stmt = $pdo->prepare("SELECT * FROM user WHERE idu=?");
+$stmt->execute([$idrec]);
+$ligne3 = $stmt->fetch();
+$nomu = $_SESSION["nom"] . " " . $_SESSION["prenom"];
+$nomr = $ligne3["nom"] . " " . $ligne3["prenom"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,86 +32,68 @@ $idu = $_SESSION["idu"];
 
 <body>
     <div class="body">
-        <?php
-        if (isset($_POST["Bouton"])) {
-            if (!isset($_POST["message"]) or empty($_POST["message"])) {
-                $erreur2 = "Vous avez oublié de saisir votre Message!!!";
-            } else {
-                $mess = $_POST["message"];
-                $stmt = $pdo->prepare("INSERT INTO messages VALUES (?,?,?,?,?)");
-                $stmt->execute([NULL,$idu,$idrec,$mess,date("Y-m-d H:i:s")]);
-                header("refresh:0;url=home.php?idp=$idp");
-            }
-        }
-        ?>
         <section class="msger">
             <header class="msger-header">
                 <div class="msger-header-title">
                     <i class="fas fa-comment-alt"></i>Chat
                 </div>
-                <table>
-                    <?php
-                    $stmt = $pdo->prepare("SELECT * FROM message WHERE (idsend = ? AND idrec = ?) OR (idsend = ? AND idrec = ?) ORDER BY ?");
-                    $stmt->execute([$idu,$idrec,$idrec,$idu,"date DESC"]);
-                    while ($ligne2 = $stmt->fetch()) {
-                        echo "<tr>
-                <td>" . $ligne2["date"] . "</td>
-                <td>" . $ligne2["idu"] . "</td>
-                <td>" . $ligne2["message"] . "</td>
-                </tr>";
-                    }
-                    ?>
-                </table>
                 <div class="msger-header-options">
                     <span><i class="fas fa-cog"></i></span>
                 </div>
             </header>
 
-            <main class="msger-chat">
-                <div class="msg left-msg">
-                    <div class="msg-img" style="background-image: url(https://image.flaticon.com/icons/svg/32)"></div>
+            <main class="msger-chat" id="messageBody">
+                <?php
+                $stmt = $pdo->prepare("SELECT * FROM messages WHERE (idsend = ? AND idrec = ?) OR (idsend = ? AND idrec = ?) ORDER BY dates ASC");
+                $stmt->execute([$idu, $idrec, $idrec, $idu]);
+                while ($ligne2 = $stmt->fetch()) {
+                    $time = $ligne2["dates"];
+                    $message = $ligne2["mess"];
+                    if ($ligne2["idrec"] == $idu) { ?>
+                        <div class="msg left-msg">
 
-                    <div class="msg-bubble">
-                        <div class="msg-info">
-                            <div class="msg-info-name">BOT</div>
-                            <div class="msg-info-time">12:45</div>
+                            <div class="msg-bubble">
+                                <div class="msg-info">
+                                    <div class="msg-info-name"><?php echo "$nomu" ?></div>
+                                    <div class="msg-info-time"><?php echo "$time" ?></div>
+                                </div>
+
+                                <div class="msg-text" style="word-wrap: break-word;">
+                                    <?php echo "$message" ?>
+                                </div>
+                            </div>
                         </div>
+                    <?php } else { ?>
+                        <div class="msg right-msg">
 
-                        <div class="msg-text">
-                            Hi, welcome to SimpleChat! Go ahead and send me a message. 😄
+
+                            <div class="msg-bubble">
+                                <div class="msg-info">
+                                    <div class="msg-info-name"><?php echo "$nomu" ?></div>
+                                    <div class="msg-info-time"><?php echo "$time" ?></div>
+                                </div>
+
+                                <div class="msg-text" style="word-wrap: break-word;">
+                                    <?php echo "$message" ?>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                <?php }
+                } ?>
+                <script>
+                    var messageBody = document.querySelector('#messageBody');
+                    messageBody.scrollTop = messageBody.scrollHeight - messageBody.clientHeight;
+                </script>
 
-                <div class="msg right-msg">
-                    <div class="msg-img" style="background-image: url(https://image.flaticon.com/icons/svg/145/145867.svg)"></div>
 
-                    <div class="msg-bubble">
-                        <div class="msg-info">
-                            <div class="msg-info-name">Sajad</div>
-                            <div class="msg-info-time">12:46</div>
-                        </div>
-
-                        <div class="msg-text">
-                            You can change your name in JS section!
-                        </div>
-                    </div>
-                </div>
             </main>
 
-            <form method="post" class="msger-inputarea" action="chat.php?idp=<?php echo"$idp"?>">
-                <input type="text" class="msger-input" name="mess" placeholder="Entre ton message...">
+            <form method="post" class="msger-inputarea" action="ajoutmess.php?idp=<?php echo "$idp" ?>">
+                <input type="text" class="msger-input" name="mess" placeholder="Entre ton message..." required>
                 <button type="submit" class="msger-send-btn" name="Bouton">Envoyer</button>
             </form>
-            <?php
-            if (isset($erreur1)) {
-                echo "<div class='erreur'>$erreur1</div>";
-            }
-            if (isset($erreur2)) {
-                echo "<div class='erreur'>$erreur2</div>";
-            }
-            ?>
         </section>
+
     </div>
 </body>
 

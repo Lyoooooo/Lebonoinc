@@ -18,6 +18,7 @@ headermain();
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <title>Bonumanguli</title>
 </head>
+<a href="mesproduits.php">ratio</a>
 
 <body id="second">
     <div id="divmid">
@@ -27,7 +28,7 @@ headermain();
                 <div class="row">
 
                     <div class="col-3">
-                        <a class="btn" href="ajoutprod.php" role="button" id="third">
+                        <a class="btn" href="ajoutprod.php" role="button" id="third" style="text-decoration:none">
                             <img src="image/plus.png" width="20">
                             Déposer une annonce</a>
                     </div>
@@ -56,7 +57,7 @@ headermain();
                         <div id="annonce">
                             <div class="card" style="height: 25rem;">
                                 <div style="width: 100%; height: 100%;">
-                                    <img src="<?php echo $prod1["photo1"] ?>" height="50%" class="card-img-top">
+                                    <img src="<?php echo $prod1["photo1"] ?>" height="50%" class="d-block w-5" style="margin:auto">
 
                                     <div class="card-body" style="width: 100%; height: 50%;">
                                         <h5 class="card-title"><?php echo $prod1["nomp"] ?></h5><br>
@@ -74,7 +75,7 @@ headermain();
                         <div id="annonce">
                             <div class="card" style="height: 25rem;">
                                 <div style="width: 100%; height: 100%;">
-                                    <img src="<?php echo $prod2["photo1"] ?>" height="50%" class="card-img-top">
+                                    <img src="<?php echo $prod2["photo1"] ?>" height="50%" class="d-block w-5" style="margin:auto">
 
                                     <div class="card-body" style="width: 100%; height: 50%;">
                                         <h5 class="card-title"><?php echo $prod2["nomp"] ?></h5><br>
@@ -92,7 +93,7 @@ headermain();
                         <div id="annonce">
                             <div class="card" style="height: 25rem;">
                                 <div style="width: 100%; height: 100%;">
-                                    <img src="<?php echo $prod3["photo1"] ?>" height="50%" class="card-img-top">
+                                    <img src="<?php echo $prod3["photo1"] ?>" height="50%" class="d-block w-5" style="margin:auto">
 
                                     <div class="card-body" style="width: 100%; height: 50%;">
                                         <h5 class="card-title"><?php echo $prod3["nomp"] ?></h5><br>
@@ -146,7 +147,7 @@ headermain();
                         <div id="annonce">
                             <div class="card" style="height: 25rem;">
                                 <div style="width: 100%; height: 100%;">
-                                    <img src="<?php echo $prod1["photo1"] ?>" height="50%" class="card-img-top">
+                                    <img src="<?php echo $prod1["photo1"] ?>" height="50%" class="d-block w-5" style="margin:auto">
 
                                     <div class="card-body" style="width: 100%; height: 50%;">
                                         <h5 class="card-title"><?php echo $prod1["nomp"] ?></h5><br>
@@ -164,7 +165,7 @@ headermain();
                         <div id="annonce">
                             <div class="card" style="height: 25rem;">
                                 <div style="width: 100%; height: 100%;">
-                                    <img src="<?php echo $prod2["photo1"] ?>" height="50%" class="card-img-top">
+                                    <img src="<?php echo $prod2["photo1"] ?>" height="50%" class="d-block w-5" style="margin:auto">
 
                                     <div class="card-body" style="width: 100%; height: 50%;">
                                         <h5 class="card-title"><?php echo $prod2["nomp"] ?></h5><br>
@@ -182,7 +183,7 @@ headermain();
                         <div id="annonce">
                             <div class="card" style="height: 25rem;">
                                 <div style="width: 100%; height: 100%;">
-                                    <img src="<?php echo $prod3["photo1"] ?>" height="50%" class="card-img-top">
+                                    <img src="<?php echo $prod3["photo1"] ?>" height="50%" class="d-block w-5" style="margin:auto">
 
                                     <div class="card-body" style="width: 100%; height: 50%;">
                                         <h5 class="card-title"><?php echo $prod3["nomp"] ?></h5><br>
@@ -206,11 +207,9 @@ headermain();
 
         </div>
     </div>
-
     <?php
     foot();
     ?>
-
 </body>
 
 </html>
