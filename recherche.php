@@ -44,27 +44,23 @@ if(isset($bt) && !empty(trim($rec))) {
       
     <div class="container" style="width: 80%;">
       <div class="row">
+      <?php for ($i=0;$i<count($tab);$i++) { ?>
         <div class="col-3">
           <div id="annonce">
             <div class="card">
-              <img src="<?php echo $prod1["photo1"] ?>" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title"><?php echo $prod1["nomp"] ?></h5><br>
-                  <h5 class="card-title"><?php echo $prod1["prix"] ?>€</h5><br>
-                  <a href="detailprod.php?idp=<?php echo $prod1["idp"] ?>" class="btn btn-primary">
-                  <img src="image/voir.png" width="20">Voir l'annonce</a>
+              <img src="<?php echo $tab[$i]["photo1"] ?>" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title"><?php echo $tab[$i]["nomp"] ?></h5><br>
+                <h5 class="card-title"><?php echo $tab[$i]["prix"] ?>€</h5><br>
+                <a href="detailprod.php?idp=<?php echo $tab[$i]["idp"] ?>" class="btn btn-primary">
+                <img src="image/voir.png" width="20">Voir l'annonce</a>
                 </div>
               </div>
             </div>
           </div>
+        <?php } ?>
       </div>
-    </div> 
-    
-    <?php for ($i=0;$i<count($tab);$i++) { ?>
-
-      <?php echo $tab[$i]["nomp"] ?>
-      <?php } ?>
-    
+    </div>     
   </div>
   <?php } else {
     echo "Non";
