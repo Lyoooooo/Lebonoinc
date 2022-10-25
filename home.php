@@ -43,8 +43,8 @@ headermain();
             </div>
 
             <?php
-            $stmt = $pdo->prepare("SELECT * FROM produit ORDER BY ?");
-            $stmt->execute(["vu DESC"]);
+            $stmt = $pdo->prepare("SELECT * FROM produit ORDER BY vu DESC");
+            $stmt->execute();
             $prod1 = $stmt->fetch();
             $prod2 = $stmt->fetch();
             $prod3 = $stmt->fetch();
@@ -106,11 +106,11 @@ headermain();
 
     </div>
     </div>
-
+    <div style="position: absolute; top: 100%; width: 100%;">
     <?php
     foot();
     ?>
-
+    </div>
 </body>
 
 </html>
