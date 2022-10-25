@@ -59,6 +59,10 @@ h5 {
     text-align: center;
 }
 
+#favo{
+  background-color: crimson;
+}
+
 #divannonce {
     margin-left: auto 3%;
     margin-right: auto 3%;
