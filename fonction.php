@@ -288,8 +288,7 @@ function chat()
 <?php
 }
 
-function prix_acs($elem1, $elem2)
-{
+function prix_asc($elem1, $elem2) {
   $p1 = $elem1['prix'];
   $p2 = $elem2['prix'];
   return $p1 - $p2;
@@ -300,4 +299,16 @@ function prix_desc($elem1, $elem2)
   $p1 = $elem1['prix'];
   $p2 = $elem2['prix'];
   return $p2 - $p1;
-}
+} 
+
+function vu_asc($elem1, $elem2) {
+  $p1 = $elem1['vu'];
+  $p2 = $elem2['vu'];
+  return $p1 - $p2;
+} 
+
+function vu_desc($elem1, $elem2) {
+  $p1 = $elem1['vu'];
+  $p2 = $elem2['vu'];
+  return $p2 - $p1;
+} 

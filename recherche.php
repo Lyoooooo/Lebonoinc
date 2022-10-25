@@ -8,7 +8,6 @@ $data = $pdo->query("SELECT DISTINCT tag FROM tag")->fetchAll();
 $r = $_GET["r"];
 $b = $_GET["b"];
 $c = $_GET["c"];
-$p = $_GET["p"];
 
 if (isset($b) && !empty(trim($r))) {
   $words = explode(" ", trim($r));
@@ -32,11 +31,18 @@ if (isset($b) && !empty(trim($r))) {
   $tab = $pdo->query("SELECT * FROM produit")->fetchAll();
 }
 
-if (isset($b) && $p == "asc") {
+if (isset($_GET["p"]) && $_GET["p"] == "asc") {
   usort($tab, 'prix_asc');
 } else {
   usort($tab, 'prix_desc');
-}
+} 
+
+if (isset($_GET["v"]) && $_GET["v"] == 'asc') {
+  usort($tab, 'vu_asc');
+} elseif (isset($_GET["v"]) && $_GET["v"] == 'desc') {
+  usort($tab, 'vu_desc');
+} 
+
 ?>
 
 <!DOCTYPE html>
@@ -61,7 +67,7 @@ if (isset($b) && $p == "asc") {
         <div class="row">
           <div class="col-md-2">
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="p" value="asc" checked>
+              <input class="form-check-input" type="radio" name="p" value="asc">
               <label class="form-check-label">
                 Prix croissant
               </label>
@@ -73,7 +79,21 @@ if (isset($b) && $p == "asc") {
               </label>
             </div>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-2">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="v" value="asc">
+              <label class="form-check-label">
+                Les plus vus
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="v" value="desc">
+              <label class="form-check-label">
+                Les moins vus
+              </label>
+            </div>
+          </div>
+          <div class="col-md-2">
             <select class="form-select" name="c">
               <option value="null">-----------</option>
               <?php
@@ -85,7 +105,7 @@ if (isset($b) && $p == "asc") {
               ?>
             </select>
           </div>
-          <div class="col-md-5">
+          <div class="col-md-4">
             <input class="form-control me-2" name="r" type="search" value="<?php echo $r ?>" placeholder="Recherchez l'article de vos rêves">
           </div>
           <div class="col-1">
