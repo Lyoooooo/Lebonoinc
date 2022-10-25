@@ -59,29 +59,7 @@ if (isset($_POST["bouton"])) {
             height: 100vh">
             </div>
         </div>
-        <footer class='text-center text-white ' style='background-color: rgba(0, 0, 0, 0.904);color:white;'>
-            <!-- Grid container -->
-            <div class='container pt-4'>
-                <!-- Section: Social media -->
-                <!-- Section: Social media -->
-                <section class='text-center text-light'>
-
-                    <p>
-                        Bonumanguli est un site deposée par ECE Bachelor. <br>
-                        Tous droits réservés.
-                    </p>
-
-
-
-                </section>
-            </div>
-            <!-- Grid container -->
-            <div class='text-center text-light p-3' style='background-color: rgba(0, 0, 0, 0.2);'>
-                © 2022 M.V.S <br>
-                <!-- Mentions légales : -->
-                <!-- <a href="https://www.flaticon.com/fr/icones-gratuites/avatar" title="avatar icônes">Avatar icônes créées par Prosymbols Premium - Flaticon</a> -->
-            </div>
-        </footer>
+        <?php foot(); ?>
 </body>
 
 </html>
