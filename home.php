@@ -43,8 +43,8 @@ headermain();
             </div>
 
             <?php
-            $stmt = $pdo->prepare("SELECT * FROM produit ORDER BY vu");
-            $stmt->execute();
+            $stmt = $pdo->prepare("SELECT * FROM produit ORDER BY ?");
+            $stmt->execute(["vu DESC"]);
             $prod1 = $stmt->fetch();
             $prod2 = $stmt->fetch();
             $prod3 = $stmt->fetch();
@@ -54,7 +54,7 @@ headermain();
                 <div class="row">
                     <div class="col">
                         <div id="annonce">
-                            <div class="card">
+                            <div class="card" style="height: 25rem;">
                                 <img src="<?php echo $prod1["photo1"] ?>" class="card-img-top" alt="...">
 
                                 <div class="card-body">
@@ -70,7 +70,7 @@ headermain();
                     </div>
                     <div class="col">
                         <div id="annonce">
-                            <div class="card">
+                            <div class="card" style="height: 25rem;">
                                 <img src="<?php echo $prod2["photo1"] ?>" class="card-img-top" alt="...">
 
                                 <div class="card-body">
@@ -84,9 +84,9 @@ headermain();
                             </div>
                         </div>
                     </div>
-                    <<div class="col">
+                    <div class="col">
                         <div id="annonce">
-                            <div class="card">
+                            <div class="card" style="height: 25rem;">
                                 <img src="<?php echo $prod3["photo1"] ?>" class="card-img-top" alt="...">
 
                                 <div class="card-body">

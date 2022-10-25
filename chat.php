@@ -2,6 +2,12 @@
 include "fonction.php";
 session_start();
 $pdo = connexion();
+$idp = $_GET["idp"];
+$stmt = $pdo->prepare("SELECT * FROM produit WHERE idp=?");
+$stmt->execute([$idp]);
+$ligne = $stmt->fetch();
+$idrec = $ligne["idu"];
+$idu = $_SESSION["idu"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,16 +28,13 @@ $pdo = connexion();
 <body>
     <div class="body">
         <?php
-        $id = mysqli_connect("127.0.0.1", "root", "", "bonu");
         if (isset($_POST["Bouton"])) {
             if (!isset($_POST["message"]) or empty($_POST["message"])) {
                 $erreur2 = "Vous avez oublié de saisir votre Message!!!";
             } else {
-                $idp = $_POST["idp"];
-                $idu = $_POST["idu"];
                 $mess = $_POST["message"];
-                $req = "insert into message values (null,'$idp','$idu','$mess',now())";
-                $resultat = mysqli_query($id, $req);
+                $stmt = $pdo->prepare("INSERT INTO message VALUES (?,?,?,?,?)");
+                $stmt->execute([NULL,$idu,$idrec,$mess,date("Y-m-d H:i:s")]);
             }
         }
         ?>
@@ -42,9 +45,9 @@ $pdo = connexion();
                 </div>
                 <table>
                     <?php
-                    $req2 = "select mess,idu, date from mess order by date";
-                    $resultat = mysqli_query($id, $req2);
-                    while ($ligne = mysqli_fetch_assoc($resultat)) {
+                    $stmt = $pdo->prepare("SELECT * FROM message WHERE (idsend = ? AND idrec = ?) OR (idsend = ? AND idrec = ?) ORDER BY ?");
+                    $stmt->execute([$idu,$idrec,$idrec,$idu,"date DESC"]);
+                    while ($ligne = $stmt->fetch()) {
                         echo "<tr>
                 <td>" . $ligne["date"] . "</td>
                 <td>" . $ligne["idu"] . "</td>

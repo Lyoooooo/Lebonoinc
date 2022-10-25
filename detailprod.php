@@ -63,7 +63,7 @@ $stmt->execute([$idp]);
 
             <div class="row">
                 <div class="col-6">
-                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true" style="background-color: #EFF4FB; width:600px; height: 300px;">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true" style="background-color: #EFF4FB; width:100%; height: 18rem;">
                         <div class="carousel-indicators">
                             <?php
                             if ($photo2 != "") {
@@ -79,7 +79,7 @@ $stmt->execute([$idp]);
                         </div>
                         <div class="carousel-inner position-relative top-0 start-0">
                             <div class="carousel-item active">
-                                <img src="<?php echo "$photo1" ?>" height="300" class="d-block w-5" style="margin:auto">
+                                <img src="<?php echo "$photo1" ?>" height="300" class="d-block w-5" style="margin:auto" sizes="(max-width: 200px) 100px, 50vw">
                             </div>
                             <?php
                             if ($photo2 != "") {
@@ -133,7 +133,7 @@ $stmt->execute([$idp]);
                 </div>
             </div>
         </div><br>
-        <a href="chat.php">Contacter le vendeur</a>
+        <a href="chat.php?idp=<?php echo"$idp"?>">Contacter le vendeur</a>
     </div>
 
     <br><br><br>
