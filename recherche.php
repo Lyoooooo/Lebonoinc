@@ -42,7 +42,6 @@ if (isset($_GET["v"]) && $_GET["v"] == 'asc') {
 } elseif (isset($_GET["v"]) && $_GET["v"] == 'desc') {
   usort($tab, 'vu_desc');
 } 
-
 ?>
 
 <!DOCTYPE html>
@@ -95,7 +94,7 @@ if (isset($_GET["v"]) && $_GET["v"] == 'asc') {
           </div>
           <div class="col-md-2">
             <select class="form-select" name="c">
-              <option value="null">-----------</option>
+              <option value="null">Catégorie</option>
               <?php
               foreach ($data as $tag) {
               ?>
