@@ -57,7 +57,7 @@ function headsimple()
           </div>
 
           <div class="col-6 text-center">
-            <a href="home.php" id="textthird">
+            <a href="home.php" id="textthird" style="text-decoration:none">
               <h2>Bonumanguli</h2>
             </a>
           </div>
@@ -85,10 +85,12 @@ function headermain()
             <span id="textthird" style="float:left;" class="">Η αρχαιότητα σε όλη τη διαδρομή</span>
           </div>
           <div class="col-6 text-center">
-            <a href="home.php" id="textthird">
+            <a href="home.php" id="textthird" style="text-decoration:none">
               <h2>Bonumanguli</h2>
             </a>
             <form action="recherche.php" method="get" class="d-flex">
+              <input type="hidden" name="c" value="null">
+              <input type="hidden" name="p" value="asc">
               <input class="form-control me-2" type="search" name="r" placeholder="Rechercher">
               <button class="btn btn-outline-success" name="b" type="submit">Rechercher</button>
             </form>
@@ -167,7 +169,7 @@ function bighead($idu)
             <span id="textthird" style="float:left;" class="">Η αρχαιότητα σε όλη τη διαδρομή</span>
           </div>
           <div class="col-6 text-center">
-            <a href="home.php" id="textthird">
+            <a href="home.php" id="textthird" style="text-decoration:none">
               <h2>Bonumanguli</h2>
             </a>
             <form action="recherche.php" class="d-flex">
@@ -287,4 +289,15 @@ function chat()
   </section>
 <?php
 }
-?>
+
+function prix_acs($elem1, $elem2) {
+  $p1 = $elem1['prix'];
+  $p2 = $elem2['prix'];
+  return $p1 - $p2;
+} 
+
+function prix_desc($elem1, $elem2) {
+  $p1 = $elem1['prix'];
+  $p2 = $elem2['prix'];
+  return $p2 - $p1;
+} 

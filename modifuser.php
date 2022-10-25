@@ -41,8 +41,8 @@ if (isset($_POST["bouton"])) {
         <div class="container">
           <div class="row">
             <div class="col-4">
-              <!-- <h5><a href="home.php" class="btn btn-primary">Retour</a></h5> -->
-              <a class="btn" href="home.php" role="button" id="third" style="text-decoration:none">
+                <!-- <h5><a href="home.php" class="btn btn-primary">Retour</a></h5> -->
+                <a class="btn" href="home.php" role="button" id="third" style="text-decoration:none">
                 <img src="image/retour.png" width="20">
                 Retour</a>
             </div>
@@ -56,7 +56,7 @@ if (isset($_POST["bouton"])) {
             <div class="col-4">
               <!-- <h5><a href="deco.php">Deconnexion</a></h5> -->
               <a class="btn" href="deco.php" role="button" id="third" style="margin-left: 50%; text-decoration:none">Deconnexion
-                <img src="image/deco.png" width="20">
+              <img src="image/deco.png" width="20">
               </a>
 
             </div>

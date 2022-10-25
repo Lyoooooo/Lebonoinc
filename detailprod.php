@@ -48,7 +48,10 @@ $stmt->execute([$idp]);
                 <div class="row">
 
                     <div class="col-3">
-
+                        <a class="btn" href="home.php" role="button" id="third" style="text-decoration:none">
+                            <img src="image/retour.png" width="20">
+                            Retour
+                        </a>
                     </div>
 
                     <div class="col-6">
@@ -116,8 +119,8 @@ $stmt->execute([$idp]);
                     <h3 id="textthird"><?php echo "$titre" ?></h3>
                     <div style="text-align: left;">
                         <span style="word-wrap: break-word;"><?php
-                                                                echo "$desc";
-                                                                ?></span>
+                            echo "$desc";
+                        ?></span>
                     </div>
 
 
@@ -126,11 +129,17 @@ $stmt->execute([$idp]);
         </div>
         <div class="container text-center">
             <div class="row">
-                <div class="col">
+                <div class="col-4">
                     <a class="btn" style="text-decoration:none" id="third">Etat : <?php echo "$etat" ?></a>
                 </div>
-                <div class="col">
+                <div class="col-4">
                     <a class="btn" style="text-decoration:none" id="third">Prix : <?php echo "$prix" ?>€</a>
+                </div>
+                <div class="col-4">
+                    <a class="btn btn-danger" role="button" id="favo" style="text-decoration:none">
+                        <img src="image/vide.png" width="20">
+                        Ajouter aux Favoris
+                    </a>
                 </div>
             </div>
         </div><br>
