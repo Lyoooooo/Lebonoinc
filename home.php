@@ -207,11 +207,9 @@ headermain();
 
         </div>
     </div>
-    <div style="position: absolute; top: 100%; width: 100%;">
     <?php
     foot();
     ?>
-    </div>
 </body>
 
 </html>
