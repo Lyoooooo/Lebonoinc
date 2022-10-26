@@ -99,8 +99,8 @@ function headermain()
       <div class="container">
         <div class="row">
           <div class="col-3" style="text-align:center;">
-            <img src="image/Bonumanguli8.png" width="100" ><br>
-            <span id="textthird"  class="">Η αρχαιότητα σε όλη τη διαδρομή</span>
+            <img src="image/Bonumanguli8.png" width="100"><br>
+            <span id="textthird" class="">Η αρχαιότητα σε όλη τη διαδρομή</span>
           </div>
           <div class="col-6 text-center">
             <a href="home.php" id="textthird" style="text-decoration:none">
@@ -122,7 +122,7 @@ function headermain()
                 <div class="col-6" id="textthird">
                   <?php
                   if (connecte() == false) {
-                    echo "<a href='connexion.php' style='text-decoration:none' id='textthird' ><img src='image/0.png' width='50'class='mt-5'></button><br>Me Connecter</a> </div>";
+                    echo "<a href='connexion.php' style='text-decoration:none' id='textthird' ><img src='image/0.png' width='50'class='mt-4'></button><br>Me Connecter</a> </div>";
                   } else {
                     echo "
                     <div class='col-3 text-center'>
@@ -290,7 +290,8 @@ function chat()
 <?php
 }
 
-function prix_asc($elem1, $elem2) {
+function prix_asc($elem1, $elem2)
+{
   $p1 = $elem1['prix'];
   $p2 = $elem2['prix'];
   return $p1 - $p2;
@@ -301,16 +302,18 @@ function prix_desc($elem1, $elem2)
   $p1 = $elem1['prix'];
   $p2 = $elem2['prix'];
   return $p2 - $p1;
-} 
+}
 
-function vu_asc($elem1, $elem2) {
+function vu_asc($elem1, $elem2)
+{
   $p1 = $elem1['vu'];
   $p2 = $elem2['vu'];
   return $p2 - $p1;
-} 
+}
 
-function vu_desc($elem1, $elem2) {
+function vu_desc($elem1, $elem2)
+{
   $p1 = $elem1['vu'];
   $p2 = $elem2['vu'];
   return $p1 - $p2;
-} 
+}
