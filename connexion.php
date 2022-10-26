@@ -49,7 +49,7 @@ if (isset($_POST["bouton"])) {
                     <input type="submit" value="ENVOYER" name="bouton"> <br> <br>
                 </form>
                 <div class='text-start'>
-                    Pas de compte?<a href="inscription.php" class="btn btn-primary p-2 m-2">S'INSCRIRE</a>
+                    Pas de compte?<a href="inscription.php" class="btn btn-primary p-2 m-2" style="text-decoration:none">S'INSCRIRE</a>
                 </div>
             </div>
         </div>
